@@ -33,28 +33,104 @@ let PARENT_EDUCATION = [{
 
 let ETHNICITY = [{
   "name": "Middle Eastern Caucasian",
-  "value": 1
+  "value": 1,
+  "toggle": "ethnicity-all"
 }, {
   "name": "East Asian Caucasian",
-  "value": 1
+  "value": 1,
+  "toggle": "ethnicity-all"
 }, {
   "name": "Caucasian",
-  "value": 22
+  "value": 22,
+  "toggle": "ethnicity-all"
 }, {
   "name": "South East Asian",
-  "value": 1
+  "value": 1,
+  "toggle": "ethnicity-all"
 },  {
   "name": "South Asian",
-  "value": 8
+  "value": 8,
+  "toggle": "ethnicity-all"
 }, {
-"name": "East Asian",
-"value": 35
+  "name": "East Asian",
+  "value": 35,
+  "toggle": "ethnicity-all"
 }, {
-"name": "Middle Eastern",
-"value": 3
+  "name": "Middle Eastern",
+  "value": 3,
+  "toggle": "ethnicity-all"
 }, {
   "name": "Prefer not to disclose",
-  "value": 1
+  "value": 1,
+  "toggle": "ethnicity-all"
+},
+// Women
+{
+  "name": "Middle Eastern Caucasian",
+  "value": 0,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "East Asian Caucasian",
+  "value": 0,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "Caucasian",
+  "value": 2,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "South East Asian",
+  "value": 0,
+  "toggle": "ethnicity-women"
+},  {
+  "name": "South Asian",
+  "value": 1,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "East Asian",
+  "value": 12,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "Middle Eastern",
+  "value": 0,
+  "toggle": "ethnicity-women"
+}, {
+  "name": "Prefer not to disclose",
+  "value": 0,
+  "toggle": "ethnicity-women"
+},
+// Men
+{
+  "name": "Middle Eastern Caucasian",
+  "value": 1,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "East Asian Caucasian",
+  "value": 1,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "Caucasian",
+  "value": 20,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "South East Asian",
+  "value": 1,
+  "toggle": "ethnicity-men"
+},  {
+  "name": "South Asian",
+  "value": 7,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "East Asian",
+  "value": 21,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "Middle Eastern",
+  "value": 3,
+  "toggle": "ethnicity-men"
+}, {
+  "name": "Prefer not to disclose",
+  "value": 1,
+  "toggle": "ethnicity-men"
 }]
 
 let GENDER = [{
@@ -133,13 +209,13 @@ let HOME_LOCATION = [{
 
 let IMMIGRATED = [{
   "name": "Yes",
-  "value": 27
+  "value": 25
 }, {
   "name": "No",
-  "value": 44
+  "value": 39
 }, {
-  "name": "Not Applicable",
-  "value": 1
+  "name": "Not Applicable (International Student)",
+  "value": 6
 }];
 
 let SIBLINGS = [{
@@ -185,12 +261,6 @@ let ENRICHED_PROGRAM = [{
 let CEGEP = [{
   "name": "Yes, but I only attended partially (did not graduate)",
   "value": 5
-}, {
-  "name": "No",
-  "value": 16
-}, {
-  "name": "Prefer not to disclose",
-  "value": 3
 }];
 
 let CEGEP_ATTENDED = [{
@@ -287,6 +357,19 @@ let CAT_OR_DOG = [{
   "value": 18
 }];
 
+let ADMISSION_AVERAGE = [
+  {"y": 3, "x": 85, "term": 0, "size": 2},
+  {"y": 1, "x": 87, "term": 0, "size": 2},
+  {"y": 1, "x": 90, "term": 0, "size": 2},
+  {"y": 2, "x": 93, "term": 0, "size": 2},
+  {"y": 5, "x": 94, "term": 0, "size": 2},
+  {"y": 10, "x": 95, "term": 0, "size": 2},
+  {"y": 14, "x": 96, "term": 0, "size": 2},
+  {"y": 10, "x": 97, "term": 0, "size": 2},
+  {"y": 12, "x": 98, "term": 0, "size": 2},
+  {"y": 5, "x": 99, "term": 0, "size": 2},
+]
+
 export {
   INTERNATIONAL,
   PARENT_EDUCATION,
@@ -303,5 +386,6 @@ export {
   CEGEP_ATTENDED,
   MOTHER_TONGUE,
   PROGRAMMING,
-  CAT_OR_DOG
+  CAT_OR_DOG,
+  ADMISSION_AVERAGE
 }
