@@ -9,7 +9,7 @@ import { renderBoxPlot} from './shared/boxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot } from './shared/dotplot.js';
 
-import { EXERCISE, COOKING, SLEEPING, LANGUAGES, EDITOR, SIDE, DISCPLINES, HACKATHONS, DESKTOP, UNI_EXTRAS } from './data/lifestyle';
+import { GROCERY_STORES, TRAVEL_LOCATIONS } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE} from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
@@ -196,16 +196,19 @@ function renderCoop(options) {
 }
 
 function renderLifestyle(options) {
-  renderHorizontalBarChat(d3.select('#exercise'), EXERCISE, options.width, 200, false);
-  renderHorizontalBarChat(d3.select('#cooking'), COOKING, options.width, 200, false);
-  renderHorizontalBarChat(d3.select('#sleeping'), SLEEPING, options.width, 360, false);
-  renderHorizontalBarChat(d3.select('#languages'), LANGUAGES, options.width, options.width, true);
-  renderHorizontalBarChat(d3.select('#editor'), EDITOR, options.width, 320, true);
-  renderHorizontalBarChat(d3.select('#side'), SIDE, options.width, 300, false);
-  renderHorizontalBarChat(d3.select('#hackathons'), HACKATHONS, options.width, 240, false);
-  renderHorizontalBarChat(d3.select('#disciplines'), DISCPLINES, options.width, 660, true);
-  renderPieChart(d3.select('#desktop'), DESKTOP, options.width * 0.75, options.width * 0.75);
-  drawWordCloud(d3.select('#uni-extras'), UNI_EXTRAS, options);
+  renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.75, options.width * 0.75);
+  drawWordCloud(d3.select('#travel-locations'), TRAVEL_LOCATIONS, options);
+
+  // renderHorizontalBarChat(d3.select('#exercise'), EXERCISE, options.width, 200, false);
+  // renderHorizontalBarChat(d3.select('#cooking'), COOKING, options.width, 200, false);
+  // renderHorizontalBarChat(d3.select('#sleeping'), SLEEPING, options.width, 360, false);
+  // renderHorizontalBarChat(d3.select('#languages'), LANGUAGES, options.width, options.width, true);
+  // renderHorizontalBarChat(d3.select('#editor'), EDITOR, options.width, 320, true);
+  // renderHorizontalBarChat(d3.select('#side'), SIDE, options.width, 300, false);
+  // renderHorizontalBarChat(d3.select('#hackathons'), HACKATHONS, options.width, 240, false);
+  // renderHorizontalBarChat(d3.select('#disciplines'), DISCPLINES, options.width, 660, true);
+  // renderPieChart(d3.select('#desktop'), DESKTOP, options.width * 0.75, options.width * 0.75);
+  // drawWordCloud(d3.select('#uni-extras'), UNI_EXTRAS, options);
 }
 
 function renderAcademics(options) {
