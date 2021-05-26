@@ -17,7 +17,7 @@ import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE, EMIGRATED_COUNTRY, NUM_LANGUAGE, LANGUAGE_KNOWN } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
-import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, AGE_SALARY, HACKATHON_SALARY, SIDE_SALARY, SIDE_SALARY_2, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON } from './data/coop';
+import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, SIDE_SALARY_2, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
@@ -226,8 +226,8 @@ function drawWordCloud(elem, data, options, isFullWidth: boolean = false, height
 function renderCoop(options) {
   drawCoopWordCloud(d3.select('#coop-cloud'), options);
   renderBoxPlot(d3.select('#salary'), SALARY, options.width, 350, {
-    xAxisTitle: 'Co-op term number',
-    yAxisTitle: 'Monthly compensation',
+    xAxisTitle: 'Co-op term #',
+    yAxisTitle: 'Hourly compensation',
     tickFormat: (d) => { return '$' + d; }
   });
   renderLineChart(d3.select('#work-location'), WORK_LOCATION, options.width, 500, {
@@ -261,28 +261,28 @@ function renderCoop(options) {
     tickFormat: (d) => { return d + '%'; }
   });
   renderHorizontalBarChat(d3.select('#favourite-location'), FAVOURITE_LOCATION, options.width, 240, true);
-  renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
-    yAxisTitle: 'Average first 3 co-op monthly salary in CAD',
-    xAxisTitle: 'Age started coding'
-  });
+  // renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
+  //   yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
+  //   xAxisTitle: 'Age started coding'
+  // });
   renderBoxPlot(d3.select('#hackathon-salary'), HACKATHON_SALARY, options.width, 400, {
     xAxisTitle: 'Number of hackathons attended',
-    yAxisTitle: 'Average first 3 co-op monthly salary in CAD',
+    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
   });
   renderBoxPlot(d3.select('#side-salary'), SIDE_SALARY, options.width, 350, {
     xAxisTitle: 'Commitment to side projects',
-    yAxisTitle: 'Average first 3 co-op monthly salary in CAD',
+    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
   });
   renderBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
-    yAxisTitle: 'Average first 3 co-op monthly salary in CAD',
+    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
     xAxisTitle: 'Admission average',
   });
   renderDotPlot(d3.select('#grade-salary'), GRADE_SALARY, options.width, 400, {
-    yAxisTitle: 'Monthly compensation in CAD',
+    yAxisTitle: 'Hourly compensation in CAD',
     xAxisTitle: 'Cumulative average',
     rawSize: true,
     domain: [50, 100],
-    range: [0, 18000],
+    range: [0, 150],
   });
   renderLineChart(d3.select('#gender-salary'), GENDER_SALARY, options.width, 300, {
     lineLabels: [{
@@ -294,7 +294,7 @@ function renderCoop(options) {
       'value': 9793,
       'location': 'Female'
     }],
-    yAxisTitle: 'Monthly salary in CAD',
+    yAxisTitle: 'Hourly salary in CAD',
     xAxisTitle: 'Co-op term number',
   });
   renderPieChart(d3.select('#missed_interview'), MISSED_INTERVIEW, options.width * 0.75, options.width * 0.75);
