@@ -19,7 +19,7 @@ import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, AGE_SALARY, HACKATHON_SALARY
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, DEBT, MOTIVATIONS } from './data/future';
 import { FAMILY } from './data/relationships';
-import { RESP } from './data/finances';
+import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 
@@ -288,7 +288,12 @@ function renderOutcome(options) {
 }
 
 function renderFinances(options) {
+  renderHorizontalBarChat(d3.select('#budgeting'), BUDGET, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#investing'), INVEST, options.width, 250, false);
   renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#loans'), LOANS, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#expenses'), SCHOOL_EXPENSES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#new-debt'), NEW_DEBT, options.width, 250, false);
 }
 
 function renderMisc(options) {
