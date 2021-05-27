@@ -19,6 +19,7 @@ import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, AGE_SALARY, HACKATHON_SALARY
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, DEBT, MOTIVATIONS } from './data/future';
 import { FAMILY } from './data/relationships';
+import { RESP } from './data/finances';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 
@@ -33,6 +34,7 @@ window.onload = () => {
   renderAcademics(options);
   renderBackground(options);
   renderOutcome(options);
+  renderFinances(options);
   renderMisc(options);
   renderFuture(options);
   renderTransfers(options);
@@ -283,6 +285,10 @@ function renderOutcome(options) {
     yAxisTitle: 'Rating',
     tickFormat: (d) => { return (d * 20) + '%'; }
   });
+}
+
+function renderFinances(options) {
+  renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
 }
 
 function renderMisc(options) {
