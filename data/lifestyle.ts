@@ -139,11 +139,47 @@ let SLEEP_DURATION = [{
   "value": 10,
 }];
 
+let COOKING_FREQUENCY = [{
+  "name": "Never",
+  "value": 3,
+  }, {
+  "name": "Rarely (a few times per term)",
+  "value": 4,
+  }, {
+  "name": "Occassionally (a few times a month)",
+  "value": 5,
+  }, {
+  "name": "Sometimes (a few times a week)",
+  "value": 21,
+  }, {
+  "name": "Always",
+  "value": 20,
+}];
+
+let EATING_OUT_FREQUENCY = [{
+  "name": "Never",
+  "value": 1,
+  }, {
+  "name": "Rarely (a few times per term)",
+  "value": 3,
+  }, {
+  "name": "Occassionally (a few times a month)",
+  "value": 15,
+  }, {
+  "name": "Sometimes (a few times a week)",
+  "value": 27,
+  }, {
+  "name": "Always",
+  "value": 7,
+}];
+
 export {
   EXERCISE,
   GROCERY_STORES,
   TRAVEL_LOCATIONS,
   RESTAURANTS,
   SLEEP_TIME,
-  SLEEP_DURATION
+  SLEEP_DURATION,
+  COOKING_FREQUENCY,
+  EATING_OUT_FREQUENCY
 }
