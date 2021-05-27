@@ -9,7 +9,7 @@ import { renderBoxPlot} from './shared/boxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot } from './shared/dotplot.js';
 
-import { GROCERY_STORES, TRAVEL_LOCATIONS } from './data/lifestyle';
+import { GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE} from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
@@ -196,8 +196,10 @@ function renderCoop(options) {
 }
 
 function renderLifestyle(options) {
-  renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.80, options.width * 0.80);
   drawWordCloud(d3.select('#travel-locations'), TRAVEL_LOCATIONS, options);
+  
+  drawWordCloud(d3.select('#restaurants'), RESTAURANTS, options);
 
   // renderHorizontalBarChat(d3.select('#exercise'), EXERCISE, options.width, 200, false);
   // renderHorizontalBarChat(d3.select('#cooking'), COOKING, options.width, 200, false);

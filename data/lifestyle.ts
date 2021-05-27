@@ -64,8 +64,35 @@ let TRAVEL_LOCATIONS = {
   "Europe": 6,
 }
 
+let RESTAURANTS = {
+  "Kabob Hut": 2,
+  "Kinkaku Izakaya": 5,
+  "The Bauer Kitchen": 1,
+  "Taco Farm": 1,
+  "Shawarma Plus": 1,
+  "Bao Sandwich Bar": 2,
+  "Ennio's Pasta House": 1,
+  "Osmow's": 1,
+  "Shinwa": 2,
+  "Yang Yum": 1,
+  "Baba Grill": 2,
+  "Gol's Lanzhou": 1,
+  "iPotato": 1,
+  "Moral Village": 1,
+  "Bhima's Warung": 1,
+  "Gourmet Pizza": 1,
+  "Sushi 99": 1,
+  "China Bowl": 1,
+  "Ken's": 1,
+  "Captain Boil": 1,
+  "Izna": 1,
+  "Beer Town": 2,
+  "Waterloo Star": 1,
+}
+
 export {
   EXERCISE,
   GROCERY_STORES,
-  TRAVEL_LOCATIONS
+  TRAVEL_LOCATIONS,
+  RESTAURANTS
 }
