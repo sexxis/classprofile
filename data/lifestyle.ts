@@ -1,22 +1,18 @@
-let EXERCISE = [{
-  "name": "Daily",
-  "value": 6,
-},
-{
-  "name": "Few times a week",
-  "value": 31,
-},
-{
-  "name": "Few times a month",
-  "value": 52,
-},
-{
-  "name": "Few times a year",
-  "value": 13,
-},
-{
+let EXTRACURRICULARS = [{
   "name": "Never",
-  "value": 11,
+  "value": 29,
+  }, {
+  "name": "For 1+ Term",
+  "value": 17,
+  }, {
+  "name": "For 4+ Terms",
+  "value": 4,
+  }, {
+  "name": "For 6+ terms",
+  "value": 2,
+  }, {
+  "name": "Every term",
+  "value": 2,
 }];
 
 let GROCERY_STORES = [{
@@ -173,13 +169,49 @@ let EATING_OUT_FREQUENCY = [{
   "value": 7,
 }];
 
+let DESIGN_TEAM = [{
+  "name": "Never",
+  "value": 28,
+  }, {
+  "name": "For 1+ Term",
+  "value": 9,
+  }, {
+  "name": "For 4+ Terms",
+  "value": 0,
+}];
+
+let FAVOURITE_EXERCISE = [{
+  "name": "Biking",
+  "value": 1,
+  }, {
+  "name": "Hiking",
+  "value": 5,
+  }, {
+  "name": "Climbing",
+  "value": 2,
+  }, {
+  "name": "Yoga",
+  "value": 1,
+  }, {
+  "name": "Sports",
+  "value": 11,
+  }, {
+  "name": "Running",
+  "value": 4,
+  }, {
+  "name": "Weight Training",
+  "value": 12,
+}];
+
 export {
-  EXERCISE,
+  EXTRACURRICULARS,
   GROCERY_STORES,
   TRAVEL_LOCATIONS,
   RESTAURANTS,
   SLEEP_TIME,
   SLEEP_DURATION,
   COOKING_FREQUENCY,
-  EATING_OUT_FREQUENCY
+  EATING_OUT_FREQUENCY,
+  DESIGN_TEAM,
+  FAVOURITE_EXERCISE
 }

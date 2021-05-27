@@ -9,7 +9,7 @@ import { renderBoxPlot} from './shared/boxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot } from './shared/dotplot.js';
 
-import { GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY } from './data/lifestyle';
+import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE} from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
@@ -197,6 +197,7 @@ function renderCoop(options) {
 
 function renderLifestyle(options) {
   renderPieChart(d3.select('#grocery-stores'), GROCERY_STORES, options.width * 0.80, options.width * 0.80);
+  renderPieChart(d3.select('#fav-exercise'), FAVOURITE_EXERCISE, options.width * 0.80, options.width * 0.80);
 
   drawWordCloud(d3.select('#travel-locations'), TRAVEL_LOCATIONS, options);
   drawWordCloud(d3.select('#restaurants'), RESTAURANTS, options);
@@ -205,6 +206,8 @@ function renderLifestyle(options) {
   renderHorizontalBarChat(d3.select('#sleep-duration'), SLEEP_DURATION, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#cooking-frequency'), COOKING_FREQUENCY, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#eating-out-frequency'), EATING_OUT_FREQUENCY, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#extracurriculars'), EXTRACURRICULARS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#design-team'), DESIGN_TEAM, options.width, 250, false);
 
   // renderHorizontalBarChat(d3.select('#exercise'), EXERCISE, options.width, 200, false);
   // renderHorizontalBarChat(d3.select('#languages'), LANGUAGES, options.width, options.width, true);
