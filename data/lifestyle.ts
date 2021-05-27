@@ -203,6 +203,20 @@ let FAVOURITE_EXERCISE = [{
   "value": 12,
 }];
 
+let PARTIES = [{
+  "name": "Never",
+  "value": 6,
+  }, {
+  "name": "1-2 times per term",
+  "value": 18,
+  }, {
+  "name": "1-2 times per month",
+  "value": 21,
+  }, {
+  "name": "1-2 times per week",
+  "value": 10,
+}];
+
 export {
   EXTRACURRICULARS,
   GROCERY_STORES,
@@ -213,5 +227,6 @@ export {
   COOKING_FREQUENCY,
   EATING_OUT_FREQUENCY,
   DESIGN_TEAM,
-  FAVOURITE_EXERCISE
+  FAVOURITE_EXERCISE,
+  PARTIES
 }
