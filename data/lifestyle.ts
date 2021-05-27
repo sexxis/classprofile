@@ -90,9 +90,60 @@ let RESTAURANTS = {
   "Waterloo Star": 1,
 }
 
+let SLEEP_TIME = [{
+  "name": "10 PM",
+  "value": 2,
+  }, {
+  "name": "11 PM",
+  "value": 6,
+  }, {
+  "name": "12 AM",
+  "value": 11,
+  }, {
+  "name": "1 AM",
+  "value": 13,
+  }, {
+  "name": "2 AM",
+  "value": 14,
+  }, {
+  "name": "3 AM",
+  "value": 3,
+  }, {
+  "name": "4 AM",
+  "value": 0,
+  }, {
+  "name": "5 AM",
+  "value": 2,
+  }, {
+  "name": "6 AM",
+  "value": 1,
+  }, {
+  "name": "After 6 AM",
+  "value": 3,
+}];
+
+let SLEEP_DURATION = [{
+  "name": "5 hours",
+  "value": 1,
+  }, {
+  "name": "6 hours",
+  "value": 11,
+  }, {
+  "name": "7 hours",
+  "value": 18,
+  }, {
+  "name": "8 hours",
+  "value": 13,
+  }, {
+  "name": "> 8 hours",
+  "value": 10,
+}];
+
 export {
   EXERCISE,
   GROCERY_STORES,
   TRAVEL_LOCATIONS,
-  RESTAURANTS
+  RESTAURANTS,
+  SLEEP_TIME,
+  SLEEP_DURATION
 }
