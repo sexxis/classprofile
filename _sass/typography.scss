@@ -18,7 +18,7 @@
   font-size: 24px;
   letter-spacing: -1px;
   line-height: 1.4;
-  color: rgba(255,255,255,.7);
+  color: rgba(71, 71, 71, .85);
 }
 
 p {
@@ -26,7 +26,7 @@ p {
   line-height: 1.8;
   font-size: 18px;
   font-weight: 300;
-  color: rgba(255,255,255,.8);
+  color: rgba(71, 71, 71, .9);
 }
 
 .graph-title {
@@ -44,12 +44,12 @@ span.big {
   font-size: 22px;
   display: block;
   margin-bottom: 8px;
-  color: rgba(255,255,255,1);
+  color: rgba(71, 71, 71, 1);
   line-height: 1.8;
 }
 
 a {
-  color: rgba(255,255,255,.8);
+  color: rgba(71, 71, 71, .9);
   text-decoration: underline;
 }
 
@@ -110,7 +110,7 @@ h6 {
 
 b {
   font-weight: 400;
-  color: rgba(255,255,255,1);
+  color: rgba(71, 71, 71, 1);
 }
 
 .center {
@@ -163,13 +163,13 @@ b {
 }
 
 .cloud-enjoyed {
-  color: rgb(255, 255, 255);
+  color: rgba(71, 71, 71, 1); //TODO: update to differentiate
   font-size: 12px;
   mix-blend-mode: color-dodge;
 }
 
 .cloud-less {
-  color: rgb(200, 200, 200);
+  color:rgba(71, 71, 71, 1);
   font-size: 12px;
   line-height: 36px;
   mix-blend-mode: color-dodge;
@@ -183,7 +183,7 @@ b {
 }
 
 .cloud-more {
-  color: rgb(200, 200, 200);
+  color: rgba(71, 71, 71, 1);
   font-size: 24px;
   line-height: 36px;
   mix-blend-mode: color-dodge;
@@ -215,7 +215,7 @@ b {
 }
 
 .quote {
-  border-left: 1px solid rgba(255,255,255,0.5);
+  border-left: 1px solid rgba(71, 71, 71, .7);
   padding-left: 32px;
   margin-top: 48px;
   font-style: italic;
