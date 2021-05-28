@@ -300,7 +300,7 @@ function renderFuture(options) {
 }
 
 function renderTransfers(options) {
-  renderPieChart(d3.select('#students-transferred'), TRANSFERRED, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#students-transferred'), TRANSFERRED, options.width * 0.75, options.width * 0.75, false);
   renderHorizontalBarChat(d3.select('#term-transferred'), TERM_TRANSFERRED, options.width * 0.75, 250, false);
   renderPieChart(d3.select('#reasons-transferred'), REASONS_TRANSFERRED, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#disliked-courses-transferred'), DISLIKED_COURSES_TRANSFERRED, options.width * 0.75, 250);

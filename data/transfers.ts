@@ -6,11 +6,13 @@ let TRANSFERRED = [
 ]
 
 let TERM_TRANSFERRED = [
-    {"name": "3A",
-    "value": 1},
-    {"name": "3B",
-    "value": 3},
-    {"name": "4A",
+    {"name": "First Year",
+    "value": 8},
+    {"name": "Second Year",
+    "value": 13},
+    {"name": "Third Year",
+    "value": 17},
+    {"name": "Fourth Year",
     "value": 3}
 ]
 
