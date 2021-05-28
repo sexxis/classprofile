@@ -1,10 +1,10 @@
 rect.bar {
-  fill: #fff;
+  fill: rgb(71, 71, 71);;
   mix-blend-mode: difference;
 }
 
 text {
-  fill: #fff;
+  fill: rgb(71, 71, 71);;
   mix-blend-mode: luminosity;
   font-family: 'Source Code Pro', monospace;
 }
@@ -15,7 +15,7 @@ text.label {
 }
 
 path.domain {
-  stroke: #fff;
+  stroke: rgb(71, 71, 71);;
 }
 
 .horizontal-bar-chart {
@@ -27,7 +27,7 @@ path.domain {
 }
 
 g.tick line {
-  stroke: #fff;
+  stroke: rgb(71, 71, 71);;
 }
 
 .scale {

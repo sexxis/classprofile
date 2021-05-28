@@ -157,19 +157,19 @@ b {
 }
 
 .cloud-not-enjoyed {
-  color: rgb(153, 153, 153);
+  color: rgb(214, 214, 214);
   font-size: 12px;
   mix-blend-mode: color-dodge;
 }
 
 .cloud-enjoyed {
-  color: rgba(71, 71, 71, 1); //TODO: update to differentiate
+  color: rgb(31, 31, 31);
   font-size: 12px;
   mix-blend-mode: color-dodge;
 }
 
 .cloud-less {
-  color:rgba(71, 71, 71, 1);
+  color:rgb(148, 144, 144);
   font-size: 12px;
   line-height: 36px;
   mix-blend-mode: color-dodge;
@@ -183,7 +183,7 @@ b {
 }
 
 .cloud-more {
-  color: rgba(71, 71, 71, 1);
+  color: #949090;
   font-size: 24px;
   line-height: 36px;
   mix-blend-mode: color-dodge;
