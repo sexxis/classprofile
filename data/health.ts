@@ -5,7 +5,7 @@ let SICK = [{
     "name": "1 - 4 times",
     "value": 29
     },  {
-    "name": "2 - 8 times",
+    "name": "5 - 8 times",
     "value": 12
     }, {
     "name": ">8 times",
@@ -161,7 +161,7 @@ let INTRAMURALS = [{
 
 let RECREATIONAL_SUBSTANCES = {
     "Alcohol":37,
-    "Weed":27,
+    "Marijuana":27,
     "Hallucinogens":8,
     "Tobacco":6,
     "MDMA / Ecstasy / Molly":4,
