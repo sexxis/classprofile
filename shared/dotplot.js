@@ -7,7 +7,7 @@ function renderDotPlot(elem, data, width, height, options) {
   var MAX = {};
 
   // Setup a color scale for filling each box
-  var colorScale = d3.scaleOrdinal(d3.schemeAccent)
+  var colorScale = d3.scaleOrdinal(d3.schemeSet2)
     .domain([0, 6]);
 
   width = width - margin.left - margin.right;

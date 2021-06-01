@@ -22,7 +22,7 @@ function renderPieChart(elem, data, width, height, showValues = true) {
       g = svg.append("g").attr("transform", "translate(" + (width / 2 + 50) + "," + (height / 2 + 50) + ")");
 
   // Setup a color scale for filling each box
-  var color = d3.scaleOrdinal(d3.schemePastel1);
+  var color = d3.scaleOrdinal(d3.schemeSet2);
 
   var pie = d3.pie()
       .sort(null)

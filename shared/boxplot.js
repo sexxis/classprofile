@@ -9,7 +9,7 @@ function renderBoxPlot(elem, data, width, height, options) {
   var barWidth = 30;
 
   // Setup a color scale for filling each box
-  var colorScale = d3.scaleOrdinal(d3.schemePastel1)
+  var colorScale = d3.scaleOrdinal(d3.schemeSet2)
     .domain(Object.keys(data));
 
   var globalMax = 0
