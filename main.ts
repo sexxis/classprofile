@@ -21,6 +21,7 @@ import { POST_GRAD, POST_LOCATION, DEBT, MOTIVATIONS } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES} from './data/health';
+import { EXCHANGE } from './data/exchange';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -43,6 +44,7 @@ window.onload = () => {
   renderFuture(options);
   renderTransfers(options);
   renderRelationships(options);
+  renderExchange(options);
   setActive(0);
   setMultiBarActive("ethnicity-all", ethnicity);
   setMultiBarActive("loc-1a", campus_location_term_pre);
@@ -442,5 +444,15 @@ function renderRelationships(options) {
     options.width,
     250,
     false
+  );
+}
+
+function renderExchange(options) {
+  renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
+    EXCHANGE.NO_REASON,
+    options.fullWidth,
+    300,
+    true
   );
 }
