@@ -455,4 +455,23 @@ function renderExchange(options) {
     300,
     true
   );
+
+  function drawExchangeWordCloud() {
+    let max = 0;
+    for (let i in EXCHANGE.YES) {
+      if (EXCHANGE.YES[i].totalCount > max) {
+        max = EXCHANGE.YES[i].totalCount;
+      }
+    }
+
+    let wordcloudData: any[] = [];
+    for (let i in EXCHANGE.YES) {
+      wordcloudData.push({
+        text: i,
+        size: Math.pow(EXCHANGE.YES[i].totalCount * 1.0 / max, 0.25) * 36
+      });
+    }
+    renderWordCloud(d3.select('#exchange-countries-cloud'), wordcloudData, null, options.fullWidth, Math.min(window.innerHeight * 0.5, 200000 / options.fullWidth));
+  }
+  drawExchangeWordCloud();
 }
