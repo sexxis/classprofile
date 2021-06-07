@@ -85,7 +85,7 @@ function renderHistogram(elem, data, width, height, options) {
               .range([0, graphWidth]);
     svg.append("g")
         .attr("transform", "translate(0," + graphHeight + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x).ticks(bins.length));
 
     // Y axis: scale and draw:
     const y = d3.scaleLinear()
