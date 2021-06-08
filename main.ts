@@ -9,6 +9,7 @@ import { renderBoxPlot} from './shared/boxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot, renderBinnedDotLine } from './shared/dotplot.js';
 import { renderHistogram } from './shared/histogram.js';
+import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES } from './data/lifestyle';
@@ -21,7 +22,7 @@ import { POST_GRAD, POST_LOCATION, DEBT, MOTIVATIONS } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES} from './data/health';
-import { EXCHANGE } from './data/exchange';
+import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -456,22 +457,49 @@ function renderExchange(options) {
     true
   );
 
-  function drawExchangeWordCloud() {
-    let max = 0;
-    for (let i in EXCHANGE.YES) {
-      if (EXCHANGE.YES[i].totalCount > max) {
-        max = EXCHANGE.YES[i].totalCount;
-      }
+  // exchange map handlers
+  function onMouseOver(data) {
+    if (data.properties.schools) {
+      d3.select(this)
+        .attr('fill', () => '#ffe2b5');
     }
-
-    let wordcloudData: any[] = [];
-    for (let i in EXCHANGE.YES) {
-      wordcloudData.push({
-        text: i,
-        size: Math.pow(EXCHANGE.YES[i].totalCount * 1.0 / max, 0.25) * 36
-      });
-    }
-    renderWordCloud(d3.select('#exchange-countries-cloud'), wordcloudData, null, options.fullWidth, Math.min(window.innerHeight * 0.5, 200000 / options.fullWidth));
   }
-  drawExchangeWordCloud();
+  function onMouseOut(data) {
+    if (data.properties.schools) {
+      d3.select(this)
+        .attr('fill', '#ffb84d');
+    } else {
+      d3.select(this)
+      .attr('fill', '#c3d6d2');
+    }
+  }
+  function onClick(data) {
+    const props = data.properties;
+    let exchangeStr = `<h5>${props.name}</h5>`;
+    if (props.schools) {
+      props.schools.forEach((school) => {
+        exchangeStr += `<br/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
+      });
+    } else {
+      exchangeStr += `<br/> No respondents went on exchange in this country.`
+    }
+    d3.select("#exchange-map-text").html(exchangeStr);
+  }
+
+  renderGeographicMap(
+    d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
+    options.fullWidth, options.fullWidth * 0.75,
+    {
+      zoomThreshold: [0.5, 20],
+      scale: 250,
+      fillColourFunction: (data) => {
+        if (data.properties.schools) {
+          return '#ffb84d';
+        }
+        return '#c3d6d2';
+      },
+      onMouseOver,
+      onMouseOut,
+      onClick,
+    });
 }
