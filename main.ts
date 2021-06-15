@@ -339,7 +339,7 @@ function renderBackground(options) {
       xAxisTitle: 'High School Admission Average',
     }
   );
-  renderPieChart(d3.select('#num-languages'), NUM_LANGUAGE, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#num-languages'), NUM_LANGUAGE, options.width, 280, false);
   renderHorizontalBarChat(d3.select('#known-languages'), LANGUAGE_KNOWN, options.width, 280, true);
   renderHorizontalBarChat(d3.select('#emigrated'), EMIGRATED_COUNTRY, options.width, 280, true);
 }

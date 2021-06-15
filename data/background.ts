@@ -271,7 +271,7 @@ let LANGUAGE_KNOWN = [{
   "name": "CANTONESE",
   "value": 2
 }, {
-  "name": "CHINESE",
+  "name": "CHINESE (UNSPECIFIED)",
   "value": 2
 }];
 
