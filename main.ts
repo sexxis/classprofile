@@ -287,14 +287,14 @@ function renderCoop(options) {
   // });
   renderBoxPlot(d3.select('#hackathon-salary'), HACKATHON_SALARY, options.width, 400, {
     xAxisTitle: 'Number of hackathons attended',
-    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
+    yAxisTitle: 'Average co-op hourly salary in CAD',
   });
   renderBoxPlot(d3.select('#side-salary'), SIDE_SALARY, options.width, 350, {
     xAxisTitle: 'Commitment to side projects',
-    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
+    yAxisTitle: 'Average co-op hourly salary in CAD',
   });
   renderBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
-    yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
+    yAxisTitle: 'Average co-op hourly salary in CAD',
     xAxisTitle: 'Admission average',
   });
   renderDotPlot(d3.select('#grade-salary'), GRADE_SALARY, options.width, 400, {
