@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { color } from 'd3';
 
 var margin = {top: 20, right: 60, bottom: 50, left: 80};
 
@@ -97,8 +98,16 @@ function renderLineChart(elem, data, width, height, options) {
         })
         .attr("x", 40)
         .attr("dy", "0.35em")
+        .attr("fill", function (d) {
+          return colorScale(i);
+        })
         .style("font", "10px sans-serif")
+        .style("color", function (d) {
+          return colorScale(i);
+        })
         .text(function(d) { return d.location; });
+        console.log(i);
+        console.log(colorScale(i));
     }
   }
 
