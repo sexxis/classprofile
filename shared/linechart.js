@@ -106,8 +106,6 @@ function renderLineChart(elem, data, width, height, options) {
           return colorScale(i);
         })
         .text(function(d) { return d.location; });
-        console.log(i);
-        console.log(colorScale(i));
     }
   }
 
