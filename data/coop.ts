@@ -76,7 +76,6 @@ let GENDER_SALARY = [{
   'x': '6th',
   'value': [47.59, 63.1170625]
 }]
-// TODO
 
 let FAVOURITE_LOCATION = [{
   "name": "California",
@@ -262,7 +261,6 @@ let COMPANY_WORK_COUNT = {
 },
  "metadata": {}
 };
-// TODO
 
 let FAVOURITE_COMPANIES = {
  "data": [  
