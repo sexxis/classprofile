@@ -478,17 +478,17 @@ function renderExchange(options) {
     let exchangeStr = `<h5>${props.name}</h5>`;
     if (props.schools) {
       props.schools.forEach((school) => {
-        exchangeStr += `<br/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
+        exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
       });
     } else {
-      exchangeStr += `<br/> No respondents went on exchange in this country.`
+      exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
     }
     d3.select("#exchange-map-text").html(exchangeStr);
   }
 
   renderGeographicMap(
     d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
-    options.fullWidth, options.fullWidth * 0.75,
+    options.fullWidth, options.fullWidth * 0.45,
     {
       zoomThreshold: [0.5, 20],
       scale: 250,
