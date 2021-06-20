@@ -51,10 +51,23 @@ function renderPieChart(elem, data, width, height, showValues = true) {
       .attr("d", path)
       .attr("fill", function(d) { return color(d.data.name); });
 
+  let prev_y = null;
   arc.append("text")
       .attr("transform", function(d) {
         var temp = label.centroid(d);
-        temp[0] -= 50;
+        // changes the x location so the text is centered
+        temp[0] -= d.data.name.length / 2 * 9;
+        // check the previous label does not everlap with the next one
+        if (prev_y && (
+          prev_y < temp[1] & prev_y + 15 > temp[1] ||
+          temp[1] < prev_y & temp[1] + 15 > prev_y)) {
+          if (prev_y + 7 < temp[1]) {
+            temp[1] = prev_y;
+          } else {
+            temp[1] = prev_y - 15;
+          }
+        }
+        prev_y = temp[1];
         return "translate(" + temp  + ")";
       })
       .attr("dy", "0.35em")
@@ -63,7 +76,10 @@ function renderPieChart(elem, data, width, height, showValues = true) {
   if(showValues) {
     arc.append("text")
     .attr("transform", function(d) {
-      return "translate(" + innerLabel.centroid(d) + ")";
+      var temp = innerLabel.centroid(d);
+        // changes the x location so the text is centered
+        temp[0] -= d.data.value.toString().length / 2 * 9;
+      return "translate(" + temp + ")";
     })
     .attr("dy", "0.35em")
     .text(function(d) { return d.data.value; });
