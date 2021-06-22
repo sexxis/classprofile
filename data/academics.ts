@@ -212,15 +212,6 @@ let DISLIKED_MANDATORY = [{
 }, {
   "name": "SE 491",
   "value": 2
-}, {
-  "name": "SMF 101",
-  "value": 1
-}, {
-  "name": "SPCOMM 100",
-  "value": 1
-}, {
-  "name": "SPCOMM 223",
-  "value": 1
 }]
 
 let ATTENDANCE = [{
@@ -274,13 +265,26 @@ let ENRICHED_VS_GRADES = [
     "toggle": "enriched-first-year"
   }
 ];
-//   "None, Overall": [75,78,80,80,80,83,84,85,85,86,86,87,88,88,88,89,90,92,93,93,95,96,96],
-//   "EP, Overall": [74,76,76,77,79,80,80,81,82,85,85,86,86,86,87,89,90,90,91,93,96],
-//   // "CEGEP, Overall": [78,86,87,96],
-//   "None, FY": [74.5,82,82,83,84.5,85,85,85,87,87.5,87.5,87.5,89,89.5,90.5,92,94,96.5,96.5],
-//   "EP, FY": [62,66,67.5,70.5,75,77.5,78,78,78.5,81,81.5,82.5,83,85,88,88,91,95,96.5],
-//   // "CEGEP, FY": [77.5,85,96.5],
-// };
+
+let ENTRANCE_VS_GRADES = [
+  {
+    "name": "<=95",
+    "value": [74,75,76,78,79,80,80,80,80,81,82,83,84,85,85,88,90,91,93],
+    "toggle": "entrance-overall"
+  }, {
+    "name": ">95",
+    "value": [75,76,76,77,80,80,80,83,84,85,85,86,86,86,86,86,86,87,87,88,88,89,89,90,90,92,93,93,94,94,95,96,96,96],
+    "toggle": "entrance-overall"
+  }, {
+    "name": "<=95",
+    "value": [62,67.5,73.5,74,78,78.5,82,82.5,85,87.5,89,89.5,91,92],
+    "toggle": "entrance-first-year"
+  }, {
+    "name": ">95",
+    "value": [66,70,70.5,74.5,75,77.5,78,80,81,81.5,82,83,83,84.5,85,85,85,85,87,87.5,87.5,88,88,90.5,91,92,94,94,95,96.5,96.5,96.5,97],
+    "toggle": "entrance-first-year"
+  }
+];
 
 let SLEEP_VS_GRADES = {
   "Less than 7": [80,80,80,82,86,86,87,87,88,93,96],
@@ -342,7 +346,7 @@ let CAMPUS_LOCATION_PRE = [
   "value": 5,
   "toggle": "loc-1a"
 }, {
-  "name": "RESIDENCE",
+  "name": "RESIDENCE (UNSPECIFIED)",
   "value": 1,
   "toggle": "loc-1a"
 }, {
@@ -714,4 +718,5 @@ export {
   TRANSFER_FROM,
   ENRICHED_VS_GRADES,
   SLEEP_VS_GRADES,
+  ENTRANCE_VS_GRADES,
 }
