@@ -29,6 +29,7 @@ let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
 let campus_location_term_post = ["loc-4a", "loc-4b"];
 let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
+let admission_salary = ['admission-salary-overall','admission-salary-first-year'];
 const friends_groups = {
   'friends-gain-coop': 'Gained over coop term',
   'friends-loss-coop': 'Lost over coop term',
@@ -88,6 +89,7 @@ window.onload = () => {
   setMultiBarActive("loc-1a", campus_location_term_pre);
   setMultiBarActive("loc-4a", campus_location_term_post);
   setMultiBarActive("enriched-overall", enriched_vs_grades);
+  setMultiBarActive("admission-salary-overall", admission_salary);
   setupListeners();
 }
 
@@ -152,6 +154,15 @@ function setupListeners() {
     (enrichedGradesItems[i] as any).onclick = function() {
       togglePressedForButtonItems(this, enrichedGradesItems);
       setMultiBarActive(j, enriched_vs_grades);
+    }
+  }
+
+  let admissionSalary = document.getElementsByClassName('admission-salary-item');
+  for (let i = 0; i < admissionSalary.length; i++) {
+    let j = admission_salary[i];
+    (admissionSalary[i] as any).onclick = function() {
+      togglePressedForButtonItems(this, admissionSalary);
+      setMultiBarActive(j, admission_salary);
     }
   }
 
@@ -322,10 +333,10 @@ function renderCoop(options) {
     xAxisTitle: 'Commitment to side projects',
     yAxisTitle: 'Average co-op hourly salary in CAD',
   });
-  renderBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
+  renderMultiSeriesBoxPlot(d3.select('#admission-salary'), ADMISSION_SALARY, options.width, 350, {
     yAxisTitle: 'Average co-op hourly salary in CAD',
     xAxisTitle: 'Admission average',
-  });
+  }, {"admission-salary-overall": 0, "admission-salary-first-year": 1});
   renderDotPlot(d3.select('#grade-salary'), GRADE_SALARY, options.width, 400, {
     yAxisTitle: 'Hourly compensation in CAD',
     xAxisTitle: 'Cumulative average',
