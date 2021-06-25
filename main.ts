@@ -17,7 +17,7 @@ import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE, EMIGRATED_COUNTRY, NUM_LANGUAGE, LANGUAGE_KNOWN } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
-import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON } from './data/coop';
+import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREADOWN, COOP_JOBS } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
@@ -34,6 +34,35 @@ const friends_groups = {
   'friends-loss-coop': 'Lost over coop term',
   'friends-gain-study': 'Gained over study term',
   'friends-loss-study': 'Lost over study term'
+};
+
+const coop_ratings = {
+  'rating-outstanding': 'Outstanding',
+  'rating-excellent': 'Excellent',
+  'rating-very-good': 'Very Good',
+  'rating-satisfactory': 'Satisfactory'
+};
+
+const coop_types = {
+  'coop-swe': 'Software Engineering / Web Developer',
+  'coop-qa': 'QA / Testing',
+  'coop-devops': 'DevOps',
+  'coop-data-science': 'Data Science',
+  'coop-research': 'Research',
+  'coop-others': 'Others',
+};
+
+const coop_breakdown = {
+  'coop-app-num': 'Waterlooworks App.',
+  'coop-app-num-ext': 'External App.',
+  'coop-interviews': 'Interviews',
+  'coop-offers': 'Offers',
+};
+
+const coop_jobs = {
+  'coop-first-round': 'First Round',
+  'coop-continuous': 'Continuous',
+  'coop-external': 'External',
 };
 
 window.onload = () => {
@@ -186,7 +215,7 @@ function onScroll(e) {
 function drawCoopWordCloud(elem, options) {
   let data = COMPANY_WORK_COUNT['data'];
   let words: any[] = [];
-  let textSize = 10;
+  let textSize = 15;
   if (options.fullWidth < 1200) {
     textSize = Math.pow(options.fullWidth / 1200, 0.25) * textSize;
   }
@@ -233,47 +262,47 @@ function renderCoop(options) {
   renderLineChart(d3.select('#work-location'), WORK_LOCATION, options.width, 500, {
     lineLabels: [{
       'x': '6th',
-      'value': 20,
+      'value': 3,
       'location': 'California'
     }, {
       'x': '6th',
-      'value': 18,
-      'location': 'E Cst USA'
+      'value': 11,
+      'location': 'East Coast USA'
     }, {
       'x': '6th',
-      'value': 16,
+      'value': 12.25,
       'location': 'GTA / Toronto'
     }, {
       'x': '6th',
-      'value': 14,
+      'value': 5,
       'location': 'K / W'
     }, {
       'x': '6th',
-      'value': 12,
+      'value': 2.25,
       'location': 'MW USA'
     }, {
       'x': '6th',
-      'value': 10,
+      'value': 0.75,
       'location': 'Ott. / MTL'
     }, {
       'x': '6th',
-      'value': 8,
+      'value': 0.25,
       'location': 'Other Ontario'
     }, {
       'x': '6th',
-      'value': 6,
+      'value': 1.75,
       'location': 'PNW USA'
     }, {
       'x': '6th',
-      'value': 4,
+      'value': 11.75,
       'location': 'Remote'
     }, {
       'x': '6th',
-      'value': 2,
-      'location': 'W Cst Canada'
+      'value': 1.25,
+      'location': 'West Coast Canada'
     }, {
       'x': '6th',
-      'value': 0,
+      'value': -0.25,
       'location': 'Outside NA'
     }],
     xAxisTitle: 'Co-op term number',
@@ -322,6 +351,22 @@ function renderCoop(options) {
   
   drawWordCloud(d3.select("#favourite-coop"), FAVOURITE_COOP, options)
   renderHorizontalBarChat(d3.select("#favourite-coop-reasons"), FAVOURITE_COOP_REASON, options.width, 250, true)
+  renderGroupedBarChart(d3.select('#coop-ratings'), COOP_RATINGS, options.width, 250, coop_ratings,
+  {
+    yAxisTitle: 'Number of respondents',
+  });
+  renderGroupedBarChart(d3.select('#coop-types'), COOP_TYPES, options.width, 250, coop_types,
+  {
+    yAxisTitle: 'Number of respondents',
+  });
+  renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREADOWN, options.width, 250, coop_breakdown,
+  {
+    yAxisTitle: 'Number of respondents',
+  });
+  renderGroupedBarChart(d3.select('#coop-jobs'), COOP_JOBS, options.width, 250, coop_jobs,
+  {
+    yAxisTitle: 'Percent of respondents',
+  });
 }
 
 function renderLifestyle(options) {

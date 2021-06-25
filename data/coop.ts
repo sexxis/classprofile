@@ -1,12 +1,12 @@
 import { utcSaturdays } from "d3-time";
 
 let SALARY = {
-  "1st co-op": [5,14,15,17,17,17.31,17.5,17.5,18,18,18,18,18,18,18,18,18,18,18,18,18.5,18.75,19,19,20,20,20,20,20,20,20,20,20,20,20,20,21,21,21,21.5,22,22,22.08,23,24,24,24,25,25,25,25,25,32,40,42.9,43,45.5],
-  "2nd": [17,17,17.5,18,18,18,20,20,20,20,20,20,20,21,21,21,21,22,22,22,22,22,23,23,25,25,25.14,26,26,26,28,28,30,32,33,35,35,38,39,40,40,42,43.875,45.5,46.8,46.8,46.8,46.8,48.75,49,54.6,54.6,58.5,60,65],
-  "3rd": [20,21.33,22,22,22.5,23,23,23.75,24,24,24,24,24,24,24,24.68,25,25,25,28,30,30,30,30,30,32,33,35,35,36,38,40,43,45,45,45.5,46,47.3,48,52,52,54.6,55,55.9,55.9,57.2,58.5,58.5,60,65,65,68.9,78],
-  "4th": [21.5,22,23,25,25,26,26,30,30,31,32,32.5,33,35,39,40,45,46.15,48,48,48,49,52,52.494,52.494,54.6,55,55,55.9,56.251,58,58.5,58.5,58.5,58.5,58.5,61.1,62.4,62.4,62.4,65,65,65,65,65,70,71.5,71.5,71.5,78,78,84.006,89.375,115],
-  "5th": [0,24,26.05,28,29,29,30,31,32.5,35,35,36,36,37,38,39,48,48,50,52.494,53.3,53.3,54.795,55,55,55.9,57,58,58.5,58.5,58.5,59.8,59.8,61.1,61.1,65,65,65,65,65,65,65,65,65,65,67.47,83.2,84.5,100,105.13,110.5,130,67.5*1.3],
-  "6th co-op": [25,29,30,31,31.73,33,34,35,35,35.1,36,36,39,40,40,40,40,40,40,40,40,40.38,41,41,41,42,44,44,45,47,48,54,65,70,70.71,92.5,93.756,100,107.9,111.8,127,130,130,136.5,158]
+  "1st co-op": [5,14,15,15,17,17.31,17.5,17.5,18,18,18,18,18,18,18,18,18,18,18,18.5,18.75,19,19,20,20,20,20,20,20,20,20,20,20,21,21,21,21.5,22,22,22.08,23,24,24,24,25,25,25,25,25,32,42.9,45.5,55.9],
+  "2nd": [17,17,17.5,18,18,18,20,20,20,20,20,20,21,21,21,21,22,22,22,22,22,23,23,25,25,25.14,26,26,28,28,30,33,35,35,38,39,40,42,43.875,45.5,46.8,46.8,46.8,46.8,48.75,54.6,58.5,60,63.7,65,67.6],
+  "3rd": [20,21.33,22,22,22.5,23,23,23.75,24,24,24,24,24,24,24,24.68,25,25,25,28,30,30,30,32,33,35,35,36,38,40,43,45,45,45.5,46,47.3,52,54.6,55,55.9,55.9,57.2,58.5,58.5,62.4,65,65,68.9,78],
+  "4th": [21.5,22,23,25,25,26,26,30,30,31,32,33,35,39,52,52,52.494,54.6,55.9,56.251,58.5,58.5,58.5,58.5,58.5,58.5,59.995,61.1,62.4,62.4,62.4,62.4,62.4,62.4,63.7,65,65,65,65,70,71.5,71.5,71.5,71.5,75.4,78,78,84.006,89.375,115],
+  "5th": [0,24,26.05,28,29,29,30,31,32.5,35,35,36,37,38,39,53.3,53.3,54.795,55,55.9,58,58.5,58.5,59.8,59.8,61.1,61.1,62.4,62.4,65,65,65,65,65,65,65,65,65,65,65,67.47,71.5,81.9,83.2,87.75,100,105.13,110.5,130],
+  "6th co-op": [25,29,31,33,34,35,35,35.1,36,36,39,40,40,40,40,40,40,40,40.38,41,41,41,42,44,44,45,47,48,65,70,70.71,92.5,93.756,100,107.9,111.8,127,130,130,136.5,158]
 };
 
 let HACKATHON_SALARY = {
@@ -22,8 +22,11 @@ let SIDE_SALARY = {
 }
 
 let ADMISSION_SALARY = {
-  "<=95": [16,22,24.41,26.66666667,26.8,28.33333333,28.5,29.66666667,31.83333333,33.3,33.83333333,34.72,36.65,38.16666667,38.66666667,42.2,43.425,44.46,46.3,50.4,68.8],
-  ">95": [24.16666667,24.7,24.75,25,25,25,27.85,30,30.16666667,32.83333333,33.953,35.66666667,37.71666667,37.78333333,38,38.15,39.83333333,41.35,42.4248,43.88333333,44.06666667,44.36833333,47.7,47.85016667,48.41666667,49,49.13333333,51,52.11666667,52.35016667,54.275,56.65,60.226,61,65.65933333,66.6,78.67916667,80]
+  "<=95, Overall": [16,22,24.41,26.66666667,26.8,28.33333333,28.5,29.66666667,31.83333333,33.3,33.83333333,34.72,36.65,38.16666667,38.66666667,42.2,43.425,44.46,46.3,50.4,68.8],
+  ">95, Overall": [24.16666667,24.7,24.75,25,25,25,27.85,30,30.16666667,32.83333333,33.953,35.66666667,37.71666667,37.78333333,38,38.15,39.83333333,41.35,42.4248,43.88333333,44.06666667,44.36833333,47.7,47.85016667,48.41666667,49,49.13333333,51,52.11666667,52.35016667,54.275,56.65,60.226,61,65.65933333,66.6,78.67916667,80],
+  "<=95, Coop #1": [15,15,18,18,18,18,18.75,19,20,20,20,21,21,22,22,22.08,23,25,42.9],
+  ">95, Coop #1": [5,14,17,17.31,17.5,17.5,18,18,18,18,18,18,18,18.5,19,20,20,20,20,20,20,20,21,21.5,24,24,24,25,25,25,25,32,45.5,55.9]
+
 }
 // California
 // East Coast usa 
@@ -59,22 +62,22 @@ let WORK_LOCATION = [{
 
 let GENDER_SALARY = [{
   'x': '1st',
-  'value': [19.6667, 21.92304348]
+  'value': [19.25, 21.92304348]
 }, {
   'x': '2nd',
-  'value': [27.66, 32.62059524]
+  'value': [28.62222222, 33.394125]
 }, {
   'x': '3rd',
-  'value': [27.9, 40.29829268]
+  'value': [27.66666667, 41.49026316]
 }, {
   'x': '4th',
-  'value': [43.7, 55.37990244]
+  'value': [47.87777778, 58.38002564]
 }, {
   'x': '5th',
-  'value': [48.65, 58.603625]
+  'value': [47.55555556, 61.52223684]
 }, {
   'x': '6th',
-  'value': [47.59, 63.1170625]
+  'value': [49.54444444, 65.32486667]
 }]
 
 let FAVOURITE_LOCATION = [{
@@ -114,6 +117,7 @@ let COMPANY_WORK_COUNT = {
   "Addepar":	2,
   "ADP":	1,
   "Advanced Micro Devices (AMD)":	3,
+  "Alarm.com":	1,
   "Alation":	1,
   "Apple":	2,
   "ARUP":	1,
@@ -210,12 +214,14 @@ let COMPANY_WORK_COUNT = {
   "Qwantech":	1,
   "Rangle.io":	1,
   "Rave Inc":	2,
+  "rBux":	1,
   "Rediron Technologies":	1,
   "Reebee":	1,
   "Rewind.io":	1,
   "RocScience":	1,
   "Safe Software":	1,
   "SAP":	2,
+  "SchoolMessenger": 1,
   "Tutturu":	1,
   "Shape Security":	1,
   "Shopify":	9,
@@ -270,6 +276,7 @@ let FAVOURITE_COMPANIES = {
     ["Addepar", 5.0/5.0, 2],
     ["ADP", 0.0, 1],
     ["Advanced Micro Devices (AMD)", 4.333333333/5.0, 3],
+    ["Alarm.com", 3.0/5.0, 1],
     ["Alation",4.0 /5.0, 1],
     ["Apple", 4.5/5.0, 2],
     ["ARUP",3.0 /5.0, 1],
@@ -366,12 +373,14 @@ let FAVOURITE_COMPANIES = {
     ["Qwantech", 5.0/5.0, 1],
     ["Rangle.io", 5.0/5.0, 1],
     ["Rave Inc", 3.5/5.0, 2],
+    ["rBux", 3.0/5.0, 1],
     ["Rediron Technologies",2.0/5.0 , 1],
     ["Reebee",3.0/5.0 , 1],
     ["Rewind.io",4.0/5.0 , 1],
     ["RocScience", 4.0/5.0, 1],
     ["Safe Software", 5.0/5.0, 1],
     ["SAP", 3.0/5.0, 2],
+    ["SchoolMessenger", 3.0/5.0, 1],
     ["Tutturu", 5.0/5.0, 1],
     ["Shape Security", 5.0/5.0, 1],
     ["Shopify", 4.555555556/5.0, 9],
@@ -406,6 +415,7 @@ let FAVOURITE_COMPANIES = {
     ["White rabbit.ai", 5.0/5.0, 1],
     ["Wind River", 5.0/5.0, 1],
     ["Wish", 4.333333333/5.0, 6],
+    ["Wonolo", 3.0/5.0, 5.0],
     ["Woodbine Entertainment Group", 2.0/5.0, 2],
     ["Yahoo", 4.2/5.0, 5],
     ["YugaByte", 5.0/5.0, 2],
@@ -626,21 +636,31 @@ let FAVOURITE_COOP = {
   "Alarm.com":	1,
   "Apple":	1,
   "Bloomberg":	1,
-  "Facebook":	5,
+  "Cambridge Mobile Telematics": 1,
+  "Citadel Securities": 2,
+  "Cognite": 1,
+  "Databricks": 1,
+  "Facebook":	6,
   "Google":	2,
   "Grain Discovery":	1,
   "Humu":	1,
-  "Jane Street":	2,
+  "Jane Street":	4,
+  "Lifion by ADP":	1,
   "Manulife":	1,
   "MongoDB":	1,
   "Nvidia":	1,
+  "Oracle":	1,
+  "PlanGrid":	2,
   "QuEra Computing":	1,
-  "Shopify":	2,
-  "Splunk":	2,
-  "Stripe":	1,
+  "Shopify":	3,
+  "Splunk":	4,
+  "Stripe":	2,
   "The Trade Desk":	1,
+  "Tutturu":	1,
+  "Ubisoft Toronto":	1,
   "whiterabbit.ai":	1,
   "Wish":	3,
+  "Wonolo":	1,
   "Zazzle":	1,
   "Zynga":	1,
 }
@@ -664,6 +684,43 @@ let FAVOURITE_COOP_REASON = [{
     "value":	6
 }]
 
+const COOP_RATINGS = [
+  {'group': 'Coop 1', 'rating-outstanding': 23, 'rating-excellent': 29, 'rating-very-good': 2, 'rating-satisfactory': 1},
+  {'group': 'Coop 2', 'rating-outstanding': 35, 'rating-excellent': 13, 'rating-very-good': 3, 'rating-satisfactory': 1},
+  {'group': 'Coop 3', 'rating-outstanding': 28, 'rating-excellent': 21, 'rating-very-good': 2, 'rating-satisfactory': 0},
+  {'group': 'Coop 4', 'rating-outstanding': 31, 'rating-excellent': 17, 'rating-very-good': 2, 'rating-satisfactory': 1},
+  {'group': 'Coop 5', 'rating-outstanding': 19, 'rating-excellent': 29, 'rating-very-good': 0, 'rating-satisfactory': 0},
+  {'group': 'Coop 6', 'rating-outstanding': 20, 'rating-excellent': 21, 'rating-very-good': 0, 'rating-satisfactory': 0},
+]
+
+const COOP_TYPES = [
+  {'group': 'Coop 1', 'coop-swe': 48, 'coop-qa': 3, 'coop-devops': 4, 'coop-data-science': 0, 'coop-research': 0, 'coop-others': 2},
+  {'group': 'Coop 2', 'coop-swe': 47, 'coop-qa': 4, 'coop-devops': 1, 'coop-data-science': 0, 'coop-research': 0, 'coop-others': 1},
+  {'group': 'Coop 3', 'coop-swe': 49, 'coop-qa': 1, 'coop-devops': 0, 'coop-data-science': 1, 'coop-research': 0, 'coop-others': 0},
+  {'group': 'Coop 4', 'coop-swe': 49, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-science': 2, 'coop-research': 0, 'coop-others': 1},
+  {'group': 'Coop 5', 'coop-swe': 47, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-science': 1, 'coop-research': 2, 'coop-others': 1},
+  {'group': 'Coop 6', 'coop-swe': 39, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-sciencey': 0, 'coop-research': 1, 'coop-others': 3},
+]
+
+const COOP_BREADOWN = [
+  {'group': 'Coop 1', 'coop-app-num': 82.46, 'coop-app-num-ext': 93.6, 'coop-interviews': 6.53, 'coop-offers': 1.6},
+  {'group': 'Coop 2', 'coop-app-num': 62.7, 'coop-app-num-ext': 56.6, 'coop-interviews': 8.18, 'coop-offers': 2.15},
+  {'group': 'Coop 3', 'coop-app-num': 53.18, 'coop-app-num-ext': 49.82, 'coop-interviews': 6.56, 'coop-offers': 2.16},
+  {'group': 'Coop 4', 'coop-app-num': 41.51, 'coop-app-num-ext': 50.82, 'coop-interviews': 8.20, 'coop-offers': 2.84},
+  {'group': 'Coop 5', 'coop-app-num': 36.11, 'coop-app-num-ext': 27.92, 'coop-interviews': 8.12, 'coop-offers': 2.76},
+  {'group': 'Coop 6', 'coop-app-num': 26.14, 'coop-app-num-ext': 30.50, 'coop-interviews': 3.62, 'coop-offers': 1.82},
+]
+
+const COOP_JOBS = [
+  {'group': 'Coop 1', 'coop-first-round': 47.17, 'coop-continuous': 32.08, 'coop-external': 20.75},
+  {'group': 'Coop 2', 'coop-first-round': 80, 'coop-continuous': 12, 'coop-external':8},
+  {'group': 'Coop 3', 'coop-first-round': 59.18, 'coop-continuous': 20.41, 'coop-external': 20.41},
+  {'group': 'Coop 4', 'coop-first-round': 60, 'coop-continuous': 4, 'coop-external': 36},
+  {'group': 'Coop 5', 'coop-first-round': 65.31, 'coop-continuous': 6.12, 'coop-external': 28.57},
+  {'group': 'Coop 6', 'coop-first-round': 36.59, 'coop-continuous': 2.44, 'coop-external': 60.98},
+]
+
+
 export {
   SALARY,
   WORK_LOCATION,
@@ -679,5 +736,9 @@ export {
   LATE_INTERVIEW,
   LATE_INTERVIEWER,
   FAVOURITE_COOP,
-  FAVOURITE_COOP_REASON
+  FAVOURITE_COOP_REASON,
+  COOP_RATINGS,
+  COOP_TYPES,
+  COOP_BREADOWN,
+  COOP_JOBS,
 }
