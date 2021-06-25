@@ -273,7 +273,6 @@ function renderGroupedBarChart(elem, data, width, height, keys, options) {
     .attr("fill", "#000")
     .attr("font-weight", "bold")
     .attr("text-anchor", "start")
-  //   .text(barOptions.yAxisTitle);
 
   const legend = g.append("g")
     .attr("font-family", "sans-serif")
