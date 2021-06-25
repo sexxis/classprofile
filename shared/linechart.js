@@ -98,7 +98,8 @@ function renderLineChart(elem, data, width, height, options) {
         })
         .attr("x", 40)
         .attr("dy", "0.35em")
-        .attr("fill", function (d) {
+        .attr("class", "line-chart-label")
+        .style("fill", function (d) {
           return colorScale(i);
         })
         .text(function(d) { return d.location; });
