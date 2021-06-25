@@ -101,10 +101,6 @@ function renderLineChart(elem, data, width, height, options) {
         .attr("fill", function (d) {
           return colorScale(i);
         })
-        .style("font", "10px sans-serif")
-        .style("color", function (d) {
-          return colorScale(i);
-        })
         .text(function(d) { return d.location; });
     }
   }
