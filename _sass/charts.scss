@@ -3,13 +3,17 @@ rect.bar {
   mix-blend-mode: difference;
 }
 
+#coop-cloud text {
+  mix-blend-mode: normal;
+}
+
 text {
   fill: rgb(71, 71, 71);
   mix-blend-mode: luminosity;
   font-family: 'Source Code Pro', monospace;
   &.line-chart-label {
     mix-blend-mode: normal;
-    font-size: 8px;
+    font-size: 10px;
   }
 }
 
