@@ -486,7 +486,6 @@ function renderBackground(options) {
   renderHorizontalBarChat(d3.select('#cegep-attended'), CEGEP_ATTENDED, 400, 300, true);
   renderHorizontalBarChat(d3.select('#mother-tongue'), MOTHER_TONGUE, 400, 300, true);
   renderPieChart(d3.select('#programming'), PROGRAMMING, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#cat-or-dog'), CAT_OR_DOG, options.width * 0.75, options.width * 0.75);
   renderHistogram(d3.select('#admission-average'),
     ADMISSION_AVERAGE,
     options.width,
@@ -538,6 +537,7 @@ function renderMisc(options) {
   renderHorizontalBarChat(d3.select('#burnout'), BURNOUT, options.width, 250, false);
   renderPieChart(d3.select('#fights'), FIGHTS, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#reddit'), REDDIT_USAGE, options.width, 150, false);
+  renderPieChart(d3.select('#cat-or-dog'), CAT_OR_DOG, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#crying'), CRYING, options.width, 250, false);
   renderPieChart(d3.select('#transfer-thoughts'), TRANSFER_THOUGHTS, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#dropout-thoughts'), DROPOUT_THOUGHTS, options.width * 0.75, options.width * 0.75);
