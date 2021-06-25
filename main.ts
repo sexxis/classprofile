@@ -359,11 +359,11 @@ function renderCoop(options) {
     lineLabels: [{
       'x': '6th',
       'value': 10205,
-      'location': 'Male'
+      'location': 'Men'
     }, {
       'x': '6th',
       'value': 9793,
-      'location': 'Female'
+      'location': 'Women'
     }],
     yAxisTitle: 'Hourly salary in CAD',
     xAxisTitle: 'Co-op term number',
@@ -383,11 +383,11 @@ function renderCoop(options) {
   });
   renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREADOWN, options.width, 250, coop_breakdown,
   {
-    yAxisTitle: 'Number of respondents',
+    yAxisTitle: 'Average count',
   });
   renderGroupedBarChart(d3.select('#coop-jobs'), COOP_JOBS, options.width, 250, coop_jobs,
   {
-    yAxisTitle: 'Percent of respondents',
+    yAxisTitle: 'Percentage of respondents',
   });
 }
 
