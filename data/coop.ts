@@ -751,7 +751,7 @@ const COOP_TYPES = [
   {'group': 'Coop 3', 'coop-swe': 49, 'coop-qa': 1, 'coop-devops': 0, 'coop-data-science': 1, 'coop-research': 0, 'coop-others': 0},
   {'group': 'Coop 4', 'coop-swe': 49, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-science': 2, 'coop-research': 0, 'coop-others': 1},
   {'group': 'Coop 5', 'coop-swe': 47, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-science': 1, 'coop-research': 2, 'coop-others': 1},
-  {'group': 'Coop 6', 'coop-swe': 39, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-sciencey': 0, 'coop-research': 1, 'coop-others': 3},
+  {'group': 'Coop 6', 'coop-swe': 39, 'coop-qa': 0, 'coop-devops': 0, 'coop-data-science': 0, 'coop-research': 1, 'coop-others': 3},
 ]
 
 const COOP_BREAKDOWN = [
