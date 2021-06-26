@@ -17,7 +17,7 @@ import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES, ENTRANCE_VS_GRADES } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE, EMIGRATED_COUNTRY, NUM_LANGUAGE, LANGUAGE_KNOWN } from './data/background';
 import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
-import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREADOWN, COOP_JOBS } from './data/coop';
+import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
@@ -54,7 +54,7 @@ const coop_types = {
   'coop-others': 'Others',
 };
 
-const coop_breakdown = {
+const coop_breakdown_legend = {
   'coop-app-num': 'Waterlooworks App.',
   'coop-app-num-ext': 'External App.',
   'coop-interviews': 'Interviews',
@@ -358,12 +358,12 @@ function renderCoop(options) {
   renderLineChart(d3.select('#gender-salary'), GENDER_SALARY, options.width, 300, {
     lineLabels: [{
       'x': '6th',
-      'value': 10205,
-      'location': 'Men'
+      'value': 50,
+      'location': 'Women'
     }, {
       'x': '6th',
-      'value': 9793,
-      'location': 'Women'
+      'value': 66,
+      'location': 'Men'
     }],
     yAxisTitle: 'Hourly salary in CAD',
     xAxisTitle: 'Co-op term number',
@@ -381,7 +381,7 @@ function renderCoop(options) {
   {
     yAxisTitle: 'Number of respondents',
   });
-  renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREADOWN, options.width, 250, coop_breakdown,
+  renderGroupedBarChart(d3.select('#coop-breakdown'), COOP_BREAKDOWN, options.width, 250, coop_breakdown_legend,
   {
     yAxisTitle: 'Average count',
   });
