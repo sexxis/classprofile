@@ -35,6 +35,7 @@ let work_location = ["work-location-0", "work-location-1", "work-location-2", "w
 "work-location-6", "work-location-7", "work-location-8", "work-location-9", "work-location-10"];
 
 
+let concise_version = false;
 const friends_groups = {
   'friends-gain-coop': 'Gained over coop term',
   'friends-loss-coop': 'Lost over coop term',
@@ -199,7 +200,31 @@ function setupListeners() {
     }
   }
 
+  let conciseToggle = document.getElementById('concise-toggle');
+  conciseToggle.onclick = function() {
+    if(concise_version){
+      show_all_content();
+      concise_version = false;
+    }else{
+      hide_content();
+      concise_version = true;
+    }
+  }
   window.addEventListener("scroll", onScroll);
+}
+
+function hide_content() {
+  let items = document.getElementsByClassName("long_version");
+  for(let i = 0; i < items.length; i++){
+    (items[i] as any).style.display = 'none';
+  }
+}
+
+function show_all_content() {
+  let items = document.getElementsByClassName("long_version");
+  for(let i = 0; i < items.length; i++){
+    (items[i] as any).style.display = 'block';
+  }
 }
 
 function setActive(term) {
