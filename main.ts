@@ -528,7 +528,6 @@ function renderAcademics(options) {
     }
   });
   renderLineChart(d3.select('#grades-official'), GRADES_OFFICIAL, options.width, 300, {
-    toggle: 'gender-salary',
     yAxisTitle: 'Grade (%)',
     xAxisTitle: 'Academic term',
     range: [50, 100]
