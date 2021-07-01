@@ -316,19 +316,13 @@ let ENRICHED_PROGRAM = [{
 }];
 
 let CEGEP = [{
-  "name": "Yes, but I only attended partially (did not graduate)",
+  "name": "I attended CEGEP, but only partially (did not graduate)",
   "value": 5
 }];
 
 let CEGEP_ATTENDED = [{
-  "name": "Applied Sciences",
-  "value": 1
-}, {
-  "name": "Science pure and applied",
-  "value": 2
-}, {
-  "name": "Pure science",
-  "value": 1
+  "name": "Pure and Applied Sciences",
+  "value": 4
 }, {
   "name": "Computer Science and Mathematics",
   "value": 1
