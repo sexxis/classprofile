@@ -116,7 +116,7 @@ let LARGEST_WORKLOAD = [{
   "name": "SE 491",
   "value": 2
   }, {
-  "name": "SPCOMM 100",
+  "name": "SPCOM 100",
   "value": 3
   }
 ];
