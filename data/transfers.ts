@@ -34,7 +34,7 @@ let DISLIKED_COURSES_TRANSFERRED = [
     "value": 2},
     {"name": "ECE 106",
     "value": 2},
-    {"name": "Math 213",
+    {"name": "MATH 213",
     "value": 1},
     {"name": "SE 380",
     "value": 1}
