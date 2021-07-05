@@ -72,7 +72,7 @@ const siblings_parents_legend = {
   'siblings-inc-three': '150k-200k / year',
   'siblings-inc-four': '200k-250k / year',
   'siblings-inc-five': '250k-300k / year',
-  'siblings-inc-size': '300k+ / year',
+  'siblings-inc-six': '300k+ / year',
 };
 
 const coop_jobs = {
