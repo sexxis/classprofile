@@ -433,7 +433,7 @@ let EXERCISE_WORDS = {
   MuayThai: 3,
   Pilates: 2,
   MMA: 1,
-  Karate: 1
+  Karate: 1,
   RecreationalSports: 2,
   PingPong: 1,
   Soccor: 2,
@@ -443,27 +443,27 @@ let EXERCISE_WORDS = {
   HITT: 2,
   AtHomeWorkouts: 1,
   Boxing: 1,
-  Skateboarding: 1
+  Skateboarding: 1,
 };
 
 let SPORT_LEVEL = [
   {
     name: "Yes, UW varsity team",
     value: 1,
-  }, 
+  },
   {
     name: "Yes, competitive team outside of UW",
     value: 2,
-  }, 
+  },
   {
     name: "No, only participated recreationally",
     value: 34,
-  }, 
+  },
   {
     name: "No, did not train in a sport",
     value: 16,
-  }, 
-]
+  },
+];
 
 let INTRAMURAL_FREQ = [
   {
@@ -485,47 +485,47 @@ let INTRAMURAL_FREQ = [
 ];
 
 let INTRAMURALS = [
-    {
-      name: "Volleyball",
-      value: 14,
-    },
-    {
-      name: "Basketball",
-      value: 8,
-    },
-    {
-      name: "Soccer",
-      value: 7,
-    },
-    {
-      name: 'Futsal',
-      value: 1,
-    },
-    {
-      name: "Ultimate Frisbee",
-      value: 11,
-    },
-    {
-      name: "Dodgeball",
-      value: 12,
-    },
-    {
-      name: "Floor Hockey",
-      value: 1,
-    },
-    {
-      name: "Squash",
-      value: 2,
-    },
-    {
-      name: "Tennis",
-      value: 1,
-    },
-    {
-      name: "Football",
-      value: 2,
-    },
-  ];
+  {
+    name: "Volleyball",
+    value: 14,
+  },
+  {
+    name: "Basketball",
+    value: 8,
+  },
+  {
+    name: "Soccer",
+    value: 7,
+  },
+  {
+    name: "Futsal",
+    value: 1,
+  },
+  {
+    name: "Ultimate Frisbee",
+    value: 11,
+  },
+  {
+    name: "Dodgeball",
+    value: 12,
+  },
+  {
+    name: "Floor Hockey",
+    value: 1,
+  },
+  {
+    name: "Squash",
+    value: 2,
+  },
+  {
+    name: "Tennis",
+    value: 1,
+  },
+  {
+    name: "Football",
+    value: 2,
+  },
+];
 
 export {
   HOSPITAL,
