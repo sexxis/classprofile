@@ -1,4 +1,3 @@
-// Updated for 2022
 let CONTRACTED_COVID = [
   {
     "name": "No",
@@ -81,11 +80,51 @@ let LARGEST_GATHERING = [
   }
 ];
 
+let FULL_TIME_AFFECTED_BY_COVID = [
+  {
+    "name": "Yes",
+    "value": 11
+  },
+  {
+    "name": "No",
+    "value": 47
+  }
+];
+
+let HOW_FULL_TIME_AFFECTED_BY_COVID = [
+  {
+    "name": "Less jobs than anticipated",
+    "value": 3
+  },
+  {
+    "name": "Target/Dream job wasn't hiring",
+    "value": 2
+  },
+  {
+    "name": "Original job was cancelled",
+    "value": 0
+  },
+  {
+    "name": "Job was moved to remote",
+    "value": 6
+  },
+  {
+    "name": "Job had lower pay",
+    "value": 1
+  },
+  {
+    "name": "Competition was higher",
+    "value": 2
+  }
+];
+
 export {
   CONTRACTED_COVID,
   KNOW_SOMEONE_CONTRACTED_COVID,
   COVID_DOSES,
   COVID_TESTS,
   FOLLOW_PUBLIC_GUIDANCE,
-  LARGEST_GATHERING
+  LARGEST_GATHERING,
+  FULL_TIME_AFFECTED_BY_COVID,
+  HOW_FULL_TIME_AFFECTED_BY_COVID
 }
