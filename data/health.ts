@@ -1,3 +1,4 @@
+// How many times did you go to the hospital or ER during your undergrad?
 let HOSPITAL = [
   {
     name: "Zero",
@@ -25,6 +26,7 @@ let HOSPITAL = [
   },
 ];
 
+// How many times did you ask for a deadline extension due to illness/injury during your undergrad?
 let EXTENSION_DUE_ILLNESS = [
   {
     name: "Zero",
@@ -44,6 +46,7 @@ let EXTENSION_DUE_ILLNESS = [
   },
 ];
 
+// How many times did you go to class sick during all in-person terms?
 let SICK_IN_CLASS = [
   {
     name: "Zero",
@@ -79,24 +82,28 @@ let SICK_IN_CLASS = [
   },
 ];
 
+// Have you ever struggled with imposter syndrome?
 let IMPOSTER_SYNDROME = [
   { name: "Yes", value: 44 },
   { name: "No", value: 10 },
   { name: "Unsure", value: 3 },
 ];
 
+// Do you currently struggle with imposter syndrome?
 let IMPOSTER_SYNDROME_NOW = [
   { name: "Yes", value: 14 },
   { name: "No", value: 33 },
   { name: "Unsure", value: 10 },
 ];
 
+// Have you struggled with mental health during your undergrad?
 let MENTAL_HEALTH = [
   { name: "Yes", value: 30 },
   { name: "No", value: 20 },
   { name: "Unsure", value: 6 },
 ];
 
+// How many school terms were affected (academically, socially, or otherwise) by struggling with mental health?
 let MH_AFFECTED_TERMS = [
   {
     name: "Zero",
@@ -136,6 +143,7 @@ let MH_AFFECTED_TERMS = [
   },
 ];
 
+// Have you used any of the following counselling resources during your undergrad?
 let COUNSELLING_SERVICES = [
   {
     name: "University of Waterloo Counselling Services",
@@ -155,6 +163,7 @@ let COUNSELLING_SERVICES = [
   },
 ];
 
+// Which of the following have you struggled with (with or without a diagnosis)?
 let MENTAL_HEALTH_ISSUES = [
   {
     name: "Depression",
@@ -202,6 +211,7 @@ let MENTAL_HEALTH_ISSUES = [
   },
 ];
 
+// Which mental illnesses have you been formally diagnosed with?
 let DIAGNOSED_MENTAL_HEALTH_ISSUES = [
   {
     name: "Depression",
@@ -217,21 +227,23 @@ let DIAGNOSED_MENTAL_HEALTH_ISSUES = [
   },
 ];
 
+// How is your self-esteem now compared to before starting university?
 let SELF_ESTEEM = [
   {
-    name: "Higher since before starting university",
+    name: "Higher",
     value: 39,
   },
   {
-    name: "Lower since before starting university",
+    name: "Lower",
     value: 8,
   },
   {
-    name: "Unchanged since before starting university",
+    name: "Unchanged",
     value: 8,
   },
 ];
 
+// On average, how often did you exercise during your undergrad?
 let EXERCISE_FREQ = [
   {
     name: ">7 times a week",
@@ -259,6 +271,7 @@ let EXERCISE_FREQ = [
   },
 ];
 
+// What types of exercises did you do?
 let EXERCISE_TYPE = [
   {
     name: "Gym",
@@ -407,6 +420,7 @@ let EXERCISE_TYPE = [
   },
 ];
 
+// word cloud of above
 let EXERCISE_WORDS = {
   Gym: 14,
   Volleyball: 7,
@@ -446,6 +460,7 @@ let EXERCISE_WORDS = {
   Skateboarding: 1,
 };
 
+// Did you train in sport competitively during your undergrad?
 let SPORT_LEVEL = [
   {
     name: "Yes, UW varsity team",
@@ -465,6 +480,7 @@ let SPORT_LEVEL = [
   },
 ];
 
+// Did you participate in intramurals during your undergrad?
 let INTRAMURAL_FREQ = [
   {
     name: "Every Term",
@@ -484,6 +500,7 @@ let INTRAMURAL_FREQ = [
   },
 ];
 
+// Which intramurals?
 let INTRAMURALS = [
   {
     name: "Volleyball",
