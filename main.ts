@@ -22,7 +22,25 @@ import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUG
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
-import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
+import {
+  HOSPITAL,
+  EXTENSION_DUE_ILLNESS,
+  SICK_IN_CLASS,
+  IMPOSTER_SYNDROME,
+  IMPOSTER_SYNDROME_NOW,
+  MENTAL_HEALTH,
+  MH_AFFECTED_TERMS,
+  COUNSELLING_SERVICES,
+  MENTAL_HEALTH_ISSUES,
+  DIAGNOSED_MENTAL_HEALTH_ISSUES,
+  SELF_ESTEEM,
+  EXERCISE_FREQ,
+  EXERCISE_TYPE,
+  EXERCISE_WORDS,
+  SPORT_LEVEL,
+  INTRAMURAL_FREQ,
+  INTRAMURALS
+} from './data/health';
 import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
@@ -589,15 +607,24 @@ function renderFinances(options) {
 }
 
 function renderHealth(options) {
-  renderHorizontalBarChat(d3.select('#sickness'), SICK, options.width, 250, false);
-  renderPieChart(d3.select('#health-insurance'), OHIP, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#hospital'), HOSPITAL, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#health-extension'), EXTENSION_DUE_ILLNESS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#sick-in-class'), SICK_IN_CLASS, options.width, 250, false);
+  // renderPieChart(d3.select('#health-extension'), EXTENSION_DUE_ILLNESS, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#mental-health-count'), MENTAL_HEALTH, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#mental-health-issues'), MENTAL_HEALTH_ISSUES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#mental-health-terms'), MH_AFFECTED_TERMS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#councelling'), COUNSELLING_SERVICES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#mental-health-diagnosed'), DIAGNOSED_MENTAL_HEALTH_ISSUES, options.width, 250, false);
+
+  
   renderHorizontalBarChat(d3.select('#exercise-frequency'), EXERCISE_FREQ, options.width, 250, false);
   drawWordCloud(d3.select('#exercise-type'), EXERCISE_WORDS, options);
-  renderHorizontalBarChat(d3.select('#intramurals'), INTRAMURALS, options.width, 250, false);
-  renderHorizontalBarChat(d3.select('#weight'), WEIGHT, options.width, 250, false);
-  drawWordCloud(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options);
+  renderPieChart(d3.select('#intramurals'), INTRAMURALS, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#sport-level'), SPORT_LEVEL, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#intramural-frequency'), INTRAMURAL_FREQ, options.width, 250, false);
+
+  renderPieChart(d3.select('#self-esteem'), SELF_ESTEEM, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
 }
