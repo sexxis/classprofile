@@ -777,12 +777,9 @@ function renderRelationships(options) {
 
 function renderExchange(options) {
   renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
-    EXCHANGE.NO_REASON,
-    options.fullWidth,
-    300,
-    true
-  );
+  renderHorizontalBarChat(d3.select('#exchange-schools'), EXCHANGE.SCHOOLS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-favourite'), EXCHANGE.FAVOURITE, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-challenges'), EXCHANGE.CHALLENGES, options.width, 250, false);
 
   // exchange map handlers
   function onMouseOver(data) {
