@@ -70,7 +70,7 @@ g.tick line {
 }
 
 
-.loc-pre-item, .loc-post-item, .ethnicity-item, .friends-gain-item, .enriched-grades-item, .admission-salary-item, .entrance-grades-item, .work-location-item {
+.loc-pre-item, .loc-post-item, .ethnicity-item, .favourite-course-per-term-item, .least-favourite-course-per-term-item, .residence-location-item, .housing-cost-per-term-item, .people-lived-with-per-term-item, .hackathons-per-term-item, .side-projects-per-term-item, .se-events-per-term-item, .technical-extracurriculars-item, .technical-extra-per-term-item, .non-technical-extra-per-term-item, .fydp-hours-per-term-item, .friends-gain-item, .enriched-grades-item, .admission-salary-item, .entrance-grades-item, .work-location-item {
   display: inline-block;
   font-family: 'Source Code Pro', monospace;
   line-height: 32px;
@@ -140,6 +140,19 @@ g.tick line {
   }
 }
 
+.c7 {
+  background-color: #d2ead1;
+  &.pressed {
+    background-color: #9ccc8d;
+  }
+}
+
+.c8 {
+  background-color: #ead1dd;
+  &.pressed {
+    background-color: #cc8daa;
+  }
+}
 
 .work-location-item {
   padding-top: 8px;

@@ -1,368 +1,594 @@
-<h1 id="academics"> Academics </h1>
-<h3> Grades </h3>
+<h1 id="academics">Academics</h1>
+<h3>Grades</h3>
 <p class="half">
   <span class="big">
-  Starting in 1B, class average gradually increased over time.
+    3A to 4A averages were higher than 1A to 2B averages.
   </span>
-  We can also notice that B terms tend to yield a slighly lower average; this is
-  likely the result of hard courses being scheduled on B terms, such as ECE 106, ECE 124,
-  SE 380, etc.
-  <br /><br />
-  4A and 4B term averages appear to be significantly higher among respondents. This can be
-  due to several reasons; starting in 4th year SE students are able to pick 3-4 electives per term.
-  It may as well be the result of the transition to an online delivery for courses or because only 19
-  respondents disclosed their 4B term average.
-  <br /><br />
-  Note that this data may not be necessarily representative of the class. The official median
-  for each term is as follows:
+  Classes moved online from 3A onwards, altering the format of assessments. This
+  along with more freedom of choice for courses seems to have led to higher
+  class averages.
 </p>
 <div class="half second">
-  <span class="graph-title">grade distributions from 1A to 4A</span>
+  <span class="graph-title">Grade distributions from 1A to 4A.</span>
   <div id="grades"></div>
   <div class="vbx2"></div>
-  <span class="graph-title">official grade median from 1A to 4A</span>
-  <div id="grades-official"></div>
+  <span class="graph-title">Grade median from 1A to 4A.</span>
+  <div id="grades-median"></div>
 </div>
 
 <div class="vbx2"></div>
-<h3> Attendance </h3>
+<h3>Attendance</h3>
 <p class="half">
-<span class="big">
-  Attendance consistently drops term by term, except after 3B.
-</span>
-  This could be because respondents enjoyed their 4A & 4B classes more as they get
-  to select almost all of their classes, or possibly because respondents
-  preferred attending courses asynchronously.
+  <span class="big">
+    Attendance consistently dropped term by term, with a huge drop between 2B
+    and 3A.
+  </span>
+  3B and 4A have the most divided attendence numbers. On one hand, some
+  respondents might have enjoyed their 4A & 4B classes more as they get to
+  select almost all of their classes. On the other hand, some respondents may
+  have preferred attending courses asynchronously.
 </p>
 <div class="half second">
-  <span class="graph-title">course attendance</span>
-  <div id="attendance"></div>
+  <span class="graph-title">Percentage course attendance from 1A to 4A.</span>
+  <div id="attendence-class"></div>
 </div>
 
 <div class="vbx2"></div>
 
 <h3>Failures</h3>
 <p class="half">
-  <span class="big">
-  34% of respondents failed at least one midterm and 14.5% of respondents failed at least one course.
-  </span>
-  Failing a midterm does not necessarily mean that the course will be failed as well.
+  <span class="big"> 56% of respondents failed at least one midterm. </span>
+  Failing a midterm does not necessarily mean that the course was also failed.
 </p>
 <div class="half second">
-  <span class="graph-title"> failures </span>
-  <div id="failing">
-  </div>
+  <span class="graph-title"> Total number of midterms failed. </span>
+  <div id="num-midterms-failed"></div>
 </div>
-
 <div class="vbx2"></div>
 
-<div class="long_version">
-<h3>Options</h3>
+<p class="half">
+  <span class="big"> 18% of respondents failed at least one class. </span>
+</p>
+<div class="half second">
+  <span class="graph-title"> Total number of classes failed. </span>
+  <div id="num-classes-failed"></div>
+</div>
+
 <p class="half">
   <span class="big">
-  2 respondents completed an option.
+    Respondents failed classes from a variety of departments.
   </span>
-  Graduating with an Option can be complicated to do in Engineering. With a restricted number of elective slots,
-  most students will need to either overload a term (or multiple terms), or complete courses over co-op, to meet
-  all the requirements for the Option and for graduating in SE.
-  <br></br>
-  You can find a list of all enrichment opportunities avaible to SE <a href="https://uwaterloo.ca/software-engineering/undergraduate-students/enrichment-opportunities">here</a>.
 </p>
 <div class="half second">
-  <span class="graph-title"> type of options </span>
-  <div id="options">
-  </div>
+  <span class="graph-title"> Which classes did respondents fail? </span>
+  <div id="classes-failed"></div>
 </div>
 
-<div class="vbx2"></div>
+<h3>Office Hours</h3>
+<p class="half">
+  <span class="big"> 72% of respondents went to at least 1 office hour. </span>
+</p>
+<div class="half second">
+  <span class="graph-title">
+    Have you ever attended prof or TA office hours?
+  </span>
+  <div id="office-hours"></div>
 </div>
 
-<div class="long_version">
-<h3>Transferred From</h3>
+<h3>Favourite Courses</h3>
 <p class="half">
   <span class="big">
-  Some students joined the class later into their degree. All respondents who transferred into the
-  class came from within Engineering.
+    Respondents enjoyed CS 343, CS 449 and CS 241 along with other courses from
+    variety of departments.
   </span>
-  Computer Science students do not appear to be interested in transferring into the class. Some possible explanations is
-  the freedom provided by the CS program and the possibility of taking a Digital Hardware or a Software Engineering specialization.
 </p>
 <div class="half second">
-  <span class="graph-title"> transferred to SE from... </span>
-  <div id="transfer-from">
+  <span class="graph-title"> What was your favourite course? </span>
+  <div id="favourite-course"></div>
+</div>
+<div class="half">
+  <span class="big">
+    Per term, respondents liked: MATH 135, CS 138, SE 212, CS 247, CS 349, CS
+    343 and ECE 454.
+  </span>
+</div>
+<div class="half second">
+  <span class="graph-title">What was your favourite class per term?</span>
+  <div class="overlay">
+    <div id="favourite-course-1a" class="abs"></div>
+    <div id="favourite-course-1b" class="abs"></div>
+    <div id="favourite-course-2a" class="abs"></div>
+    <div id="favourite-course-2b" class="abs"></div>
+    <div id="favourite-course-3a" class="abs"></div>
+    <div id="favourite-course-3b" class="abs"></div>
+    <div id="favourite-course-4a"></div>
   </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="favourite-course-per-term-item c1 pressed">1A</div>
+    <div class="favourite-course-per-term-item c2">1B</div>
+    <div class="favourite-course-per-term-item c3">2A</div>
+    <div class="favourite-course-per-term-item c4">2B</div>
+    <div class="favourite-course-per-term-item c5">3A</div>
+    <div class="favourite-course-per-term-item c6">3B</div>
+    <div class="favourite-course-per-term-item c7">4A</div>
+  </div>
+  <p class="full center">
+    <b> Interactive: </b> Click on a term to view the favourite classes for that
+    term.
+  </p>
 </div>
 
-<div class="vbx2"></div>
+<h3>Least Favourite Courses</h3>
+<p class="half">
+  <span class="big">
+    Least enjoyed courses are scattered across the board. 8 people agreed that
+    SE 463 was their least favourite course.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"> What was your least favourite course? </span>
+  <div id="least-favourite-course"></div>
+</div>
+<div class="half">
+  <span class="big">
+    Per term, respondents disliked ECE 105, ECE 106, ECE 222, MSCI 261, MATH
+    213, SE 380 and SE 454 the most.
+  </span>
+</div>
+<div class="half second">
+  <span class="graph-title">What was your least favourite class per term?</span>
+  <div class="overlay">
+    <div id="least-favourite-course-1a" class="abs"></div>
+    <div id="least-favourite-course-1b" class="abs"></div>
+    <div id="least-favourite-course-2a" class="abs"></div>
+    <div id="least-favourite-course-2b" class="abs"></div>
+    <div id="least-favourite-course-3a" class="abs"></div>
+    <div id="least-favourite-course-3b" class="abs"></div>
+    <div id="least-favourite-course-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="least-favourite-course-per-term-item c1 pressed">1A</div>
+    <div class="least-favourite-course-per-term-item c2">1B</div>
+    <div class="least-favourite-course-per-term-item c3">2A</div>
+    <div class="least-favourite-course-per-term-item c4">2B</div>
+    <div class="least-favourite-course-per-term-item c5">3A</div>
+    <div class="least-favourite-course-per-term-item c6">3B</div>
+    <div class="least-favourite-course-per-term-item c7">4A</div>
+  </div>
+  <p class="full center">
+    <b> Interactive: </b> Click on a term to view the least favourite classes
+    for that term.
+  </p>
 </div>
 
 <h3>Favourite Professors</h3>
 <p class="half">
   <span class="big">
-  The most favourited professor with 14% of the votes is Martin Pei.
+    Respondents had many incredible professors during their undergrad.
   </span>
-  For this section, respondents were only able to select one professor among all the
-  professors they had during their academic career.
-  <br /><br />
-  Some professors listed in this section did not teach a core course, which means
-  not every respondent had the opportunity to be taught by said professors.
 </p>
 <div class="half second">
-  <span class="graph-title"> favourite professors </span>
-  <div id="prof-cloud">
-  </div>
+  <span class="graph-title">Who was your favourite professor?</span>
+  <div id="favourite-prof"></div>
 </div>
 
+<h3>Minors and Options</h3>
+<p class="half">
+  <span class="big">
+    8 respondents responded to doing an a minor or option during their undergrad
+    degree.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"> What option/minor did you do? </span>
+  <div id="options-minors"></div>
+</div>
 <div class="vbx2"></div>
 
-
-<h2> Courses </h2>
-<h3> Favourite required courses </h3>
-<p class="half">
-<span class="big">
-  <a href="https://uwflow.com/course/se350" target="_blank">SE 350 (Operating Systems)</a>, 
-  <a href="https://uwflow.com/course/cs343" target="_blank">CS 343 (Concurrent and Parallel Programming)</a>, 
-  and <a href="https://uwflow.com/course/math239" target="_blank">MATH 239 (Introduction to Combinatorics)</a>
-  are the most popular core courses.
-  <!-- Although 3B was the most difficult term, it had Concurrency (CS343), the most popular course. -->
-</span>
-  The top favourited courses were all taken between 2B and 3B. This can either be because
-  respondents don't remember much of their first 3 terms' courses, or because respondents
-  enjoyed higher level courses.
-</p>
-<div class="half second">
-  <span class="graph-title">favourite mandatory courses</span>
-  <div id="favourite-mandatory"></div>
-</div>
-
-<h3> Least favourite required courses </h3>
+<h3>FYDP</h3>
 <p class="half">
   <span class="big">
-    <a href="https://uwflow.com/course/se463" target="_blank">SE 463 (Software Requirements Specification and Analysis)</a>, 
-    <a href="https://uwflow.com/course/ece106" target="_blank">ECE 106 (Electricity and Magnetism)</a>
-    and <a href="https://uwflow.com/course/se380" target="_blank">SE 380 (Introduction to Feedback Control)</a> were the most disliked core courses.
+    New Product and Advanced Technology were the two most popular categories for
+    FYDP projects.
   </span>
-  Some Linkage Electives were also not liked among the class such as SMF 101, SPCOM 100, and SPCOM 223.
-  <br></br>
-  It's important to note that courses that were disliked do not imply that
-  respondents find the content useless. Instead, a variety of factors, such as
-  personal interests, final grades, and workload, may have come into play.
-  For example, Operating Systems (SE 350) is considered useful by 96% of students
-  <a href="https://uwflow.com/course/se350" target="_blank">
-    according to UWFlow</a>, despite being nominated as a least favourite course.
-</p>
-<div class="half">
-  <span class="graph-title">least favourite mandatory courses</span>
-  <div id="disliked-mandatory"></div>
-</div>
-
-<h3> Favourite electives </h3>
-<p class="half">
-<span class="big">
-  <a href="https://uwflow.com/course/clas104" target="_blank">CLAS 104 (Classical Mythology)</a>,
-  <a href="https://uwflow.com/course/cs444" target="_blank">CS 444 (Compiler Construction)</a>,
-  <a href="https://uwflow.com/course/music140" target="_blank">MUSIC 140 (Popular Music and Culture)</a>, 
-  and <a href="https://uwflow.com/course/music140" target="_blank">MUSIC 246 (Soundtracks: Music in Film)</a>
-  were the most popular electives.
-</span>
-  None of the favourite electives were among the communication electives or science electives lists.
 </p>
 <div class="half second">
-  <span class="graph-title">favourite elective courses</span>
-  <div id="favourite-elective"></div>
+  <span class="graph-title">What category is your FYDP in?</span>
+  <div id="fydp-category"></div>
 </div>
 
-<h3> Largest Workload </h3>
 <p class="half">
-<span class="big">
-  Among core courses, <a href="https://uwflow.com/course/se350" target="_blank">SE 350 (Operating Systems)</a>
-  and <a href="https://uwflow.com/course/cs343" target="_blank">CS 343 (Concurrent and Parallel Programming)</a> were the courses with the largest workload. Among electives 
-  <a href="https://uwflow.com/course/cs444" target="_blank">CS 444 (Compiler Construction)</a>
-  was the course with the largest workload.
-</span>
-  Although these courses involved a high workload, most of them were also popular among respondents.
+  <span class="big"> 67% of respondents enjoyed their FYDP project. </span>
 </p>
 <div class="half second">
-  <span class="graph-title">courses with the largest workloads</span>
-  <div id="largest-workload"></div>
+  <span class="graph-title">Do you like your FYDP project?</span>
+  <div id="like-fydp"></div>
 </div>
 
-<div class="vbx2"></div>
-
-<div class="long_version">
-<h2> Overloading </h2>
-<h3>Overloading & Academic Terms</h3>
 <p class="half">
   <span class="big">
-  Overloading is popular among the class with 28 respondents (53%) overloading
-  at some point during their academic degree.
+    63% of respondents plan on continuing their FYDP project after they
+    graduate.
   </span>
-  The 3A and 4A terms are the most popular ones to overload. The SE curriculum encourages
-  students to overload in their 4A term to have a lighter term in 4B, which can be busy
-  with graduation traditions and FYDP work on top of courses.
-</p>
-<div class="half second">
-  <span class="graph-title">terms that were overloaded</span>
-  <div id="overloading">
-  </div>
-</div>
-
-<h3>Overloading Reasons</h3>
-<p class="half">
-  <span class="big">
-  The most popular reasons to overload were to have a lighter term and to
-  take more electives than prescribed.
-</p>
-<div class="half second">
-  <span class="graph-title">reasons for overloading</span>
-  <div id="overloading-reasons">
-  </div>
-</div>
-
-<div class="vbx2"></div>
-</div>
-<div class="long_version">
-<h2> Location </h2>
-<h3>Pre-Covid</h3>
-<p class="half">
-  <span class="big">
-  The preferred residences in first year was V1 and UWP. From first year on, Lester Street was the most popular
-  street to live on in Waterloo.
-  </span>
-  The likely popularity of Lester St. is probably due to how close it is to campus. 
-  Note that CMH opened to students in the class's 2A term.
-</p>
-<div class="half second">
-  <span class="graph-title">students' location pre COVID</span>
-  <div id="campus-location-pre"></div>
-
-  <div class="scale">
-    <span class="legend">Term number:</span>
-    <div class="loc-pre-item c1 pressed">1A</div>
-    <div class="loc-pre-item c2">1B</div>
-    <div class="loc-pre-item c3">2A</div>
-    <div class="loc-pre-item c4">2B</div>
-    <div class="loc-pre-item c5">3A</div>
-    <div class="loc-pre-item c6">3B</div>
-  </div>
-  <p class="full center">
-    <b> Interactive: </b> Click on a term number to view students' location for that term.
-  </p>
-</div>
-
-<h3>Post-Covid</h3>
-<p class="half">
-  <span class="big">
-  When COVID hit, most respondents still decided to move back to Waterloo in their 4A term.
-  </span>
-  Students likely were hoping that measures would loosen over the summer or to occupy
-  student housing already rented for the year.
-  However, in 4B, most respondents decided to move back home.
-</p>
-<div class="half second">
-  <span class="graph-title">students' location post COVID</span>
-  <div id="campus-location-post"></div>
-
-  <div class="scale">
-    <span class="legend">Term number:</span>
-    <div class="loc-post-item c1 pressed">4A</div>
-    <div class="loc-post-item c2">4B</div>
-  </div>
-  <p class="full center">
-  <b> Interactive: </b> Click on a term number to view students' location for that term.
-  </p>
-</div>
-</div>
-<h2> Does X affect grades?</h2>
-
-<h3> Attendance </h3>
-<p class="half">
-<span class="big">
-  There is no clear correlation between self-reported attendance and grades, although 
-  it appears that attending all classes benefited respondents academically.
-</span>
-
 </p>
 <div class="half second">
   <span class="graph-title">
-    grade relative to the average compared to attendance
+    Will you continue your FYDP once you graduate?
   </span>
-  <div id="distribution"></div>
+  <div id="continue-fydp"></div>
 </div>
-<div class="vbx2"></div>
 
-<h3> Parents' education </h3>
 <p class="half">
   <span class="big">
-  Parent's education did not appear to impact the median overall average among respondents.
+    Respondents spent more time working on FYDP during 3B than in 4A.
   </span>
 </p>
 <div class="half second">
-  <span class="graph-title">grade compared to parents' education level</span>
-  <div id="parent-grades"></div>
-</div>
-
-<div class="long_version">
-<h3> Enriched Programs </h3>
-<p class="half">
-  <span class="big">
-  Enriched Programs did not appear to benefit respondents academically, even in first year.
+  <span class="graph-title">
+    How many hours did you spend on FYDP each week?
   </span>
-  On average, respondents who took part in an Enriched Program performed worse in first year than respondents who
-  did not take part in an Enriched Program. To be clear, this does not suggest that doing an Enriched Program is not
-  beneficial to students, instead, it suggests that Enriched Program do not give an evident advantage in comparison
-  to students who did not take part in such programs in High School.
-</p>
-<div class="half second">
-  <span class="graph-title">grades compared to enriched programs</span>
-  <div id="enriched-grades"></div>
+  <div class="overlay">
+    <div id="fydp-hours-3b" class="abs"></div>
+    <div id="fydp-hours-4a"></div>
+  </div>
 
   <div class="scale">
-    <span class="legend">Cumulative Average:</span>
-    <div class="enriched-grades-item c1 pressed">Overall</div>
-    <div class="enriched-grades-item c2">First-Year</div>
+    <span class="legend">Term:</span>
+    <div class="fydp-hours-per-term-item c6 pressed">3B</div>
+    <div class="fydp-hours-per-term-item c7">4A</div>
   </div>
-  <p class="full center">
-    <b> Interactive: </b> Click on a provided filter to view the plot for that filter.
-  </p>
-</div>
 </div>
 
-<h3> Entrance Average </h3>
+<h3>Overloading</h3>
 <p class="half">
-  <span class="big">
-  Respondents who had an entrance average of 95%+ appear to perform better than respondents who had a
-  lower entrance average.
-  </span>
-  This could imply that students who have a 95%+ entrance average are slightly stronger students academically.
-  Regardless of grades, all respondents were in at least Good standing by the time they graduated.
+  Students have the opportunity to take extra courses during each term. This is
+  called overloading. In most terms, respondents didn't overload. However, in 2B
+  more respondents chose to overload than not to.
 </p>
 <div class="half second">
-  <span class="graph-title">High School grades compared to University grades</span>
-  <div id="entrance-grades"></div>
+  <span class="graph-title">Have you ever overloaded a term?</span>
+  <div id="overload"></div>
+</div>
+<p class="half">
+  Respondents overloaded for a variety of reasons including having a lighter
+  future term, taking more electives and taking classes offered only in specific
+  terms.
+</p>
+<div class="half second">
+  <span class="graph-title">Why did you choose to overload?</span>
+  <div id="overload-reason"></div>
+</div>
+<h3>CR/NR in 3A</h3>
+<p class="half">
+  <span class="big">Most students did not CR/NCR any courses.</span>
+  Due to a covid-impacted term, respondents were able to CR/NCR any courses
+  meaning that a mark would not show up on their transcript regardless of them
+  getting a credit or not.
+</p>
+<div class="half second">
+  <span class="graph-title">Did you CR/NCR any courses this term?</span>
+  <div id="cr-nr-3a"></div>
+</div>
+<p class="half">
+  <span class="big"
+    >Replacing low marks and going on exchange were the main reasons to
+    CR/NCR.</span
+  >
+  Most respondents chose to do this to replace low marks from showing up on
+  their transcript or impacting their average. It is also a side effect from
+  taking courses on exchange (which must be CR/NCR).
+</p>
+<div class="half second">
+  <span class="graph-title">Why did you CR/NCR courses?</span>
+  <div id="cr-nr-3a-reason"></div>
+</div>
+
+<h3>Residence</h3>
+<p class="half">
+  <span class="big"
+    >Respondents mostly lived on campus in their 1A and 1B terms and then
+    started to fan out around Waterloo in subsequent terms.
+  </span>
+  Online classes also allowed students to travel across the country and across
+  the world while studying.
+</p>
+<div class="half second">
+  <span class="graph-title">Where did you live?</span>
+  <div id="residence-location"></div>
+  <div class="scale">
+    <span class="legend">Filter:</span>
+    <div class="residence-location-item c1 pressed">1A</div>
+    <div class="residence-location-item c2">1B</div>
+    <div class="residence-location-item c3">2A</div>
+    <div class="residence-location-item c4">2B</div>
+    <div class="residence-location-item c5">3A</div>
+    <div class="residence-location-item c6">3B</div>
+    <div class="residence-location-item c7">4A</div>
+    <div class="residence-location-item c8">4B</div>
+  </div>
+</div>
+<p class="half">
+  <span class="big"> Rent costs followed a downward trend across terms </span>
+  Between 1A and 1B, cost of residence ranged between $2000 to $5000 for the
+  term. Presumably this is due to the cost of living on campus. From 2A to 4A,
+  housing costs stayed around $2000 to $4000. However, for the first fully
+  remote term after covid, there were many more respondents who lived rent free
+  most likely with their families.
+</p>
+<div class="half second">
+  <span class="graph-title">How much did you pay for housing each term?</span>
+  <div class="overlay">
+    <div id="housing-cost-1a" class="abs"></div>
+    <div id="housing-cost-1b" class="abs"></div>
+    <div id="housing-cost-2a" class="abs"></div>
+    <div id="housing-cost-2b" class="abs"></div>
+    <div id="housing-cost-3a" class="abs"></div>
+    <div id="housing-cost-3b" class="abs"></div>
+    <div id="housing-cost-4a"></div>
+  </div>
 
   <div class="scale">
-    <span class="legend">Cumulative Average:</span>
-    <div class="entrance-grades-item c1 pressed">Overall</div>
-    <div class="entrance-grades-item c2">First-Year</div>
+    <span class="legend">Term:</span>
+    <div class="housing-cost-per-term-item c1 pressed">1A</div>
+    <div class="housing-cost-per-term-item c2">1B</div>
+    <div class="housing-cost-per-term-item c3">2A</div>
+    <div class="housing-cost-per-term-item c4">2B</div>
+    <div class="housing-cost-per-term-item c5">3A</div>
+    <div class="housing-cost-per-term-item c6">3B</div>
+    <div class="housing-cost-per-term-item c7">4A</div>
   </div>
   <p class="full center">
-    <b> Interactive: </b> Click on a provided filter to view the plot for that filter.
+    <b> Interactive: </b> Click on a term to view how much it cost for housing
+    for that term.
   </p>
 </div>
-<div class="long_version">
-<h3> Sleep </h3>
+
 <p class="half">
   <span class="big">
-  On average, respondents performed slightly worse if they slept more than 8 hours.
-  </span>
-  Note that all respondents slept at least 5 hours. Although there seems to be some correlation between sleep
-  and grades, this does not necessarily mean that one causes the other. Also note that the recommended number of hours of
-  sleep for young adults is <a href="https://www.sleepfoundation.org/how-sleep-works/how-much-sleep-do-we-really-need#:~:text=National%20Sleep%20Foundation%20guidelines1,enable%20their%20growth%20and%20development.">7 to 9 hours</a>.
+    Respondents generally lived with up to 5 people total.</span
+  >
 </p>
 <div class="half second">
-  <span class="graph-title">grades compared to hours of sleep</span>
-  <div id="sleep-grades"></div>
+  <span class="graph-title">How many people did you live with each term?</span>
+  <div class="overlay">
+    <div id="people-lived-with-1a" class="abs"></div>
+    <div id="people-lived-with-1b" class="abs"></div>
+    <div id="people-lived-with-2a" class="abs"></div>
+    <div id="people-lived-with-2b" class="abs"></div>
+    <div id="people-lived-with-3a" class="abs"></div>
+    <div id="people-lived-with-3b" class="abs"></div>
+    <div id="people-lived-with-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="people-lived-with-per-term-item c1 pressed">1A</div>
+    <div class="people-lived-with-per-term-item c2">1B</div>
+    <div class="people-lived-with-per-term-item c3">2A</div>
+    <div class="people-lived-with-per-term-item c4">2B</div>
+    <div class="people-lived-with-per-term-item c5">3A</div>
+    <div class="people-lived-with-per-term-item c6">3B</div>
+    <div class="people-lived-with-per-term-item c7">4A</div>
+  </div>
+  <p class="full center">
+    <b> Interactive: </b> Click on a term to view how many people lived with
+    each term.
+  </p>
 </div>
+
+<h3>Hackathons</h3>
+<p class="half">
+  <span class="big">
+    Respondents typically did 1+ hackathons/term from their 1A to 2A terms,
+    afterwards most did not attend any more hackathons.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title">How many hackathons did you attend each term?</span>
+  <div class="overlay">
+    <div id="hackathons-1a" class="abs"></div>
+    <div id="hackathons-1b" class="abs"></div>
+    <div id="hackathons-2a" class="abs"></div>
+    <div id="hackathons-2b" class="abs"></div>
+    <div id="hackathons-3a" class="abs"></div>
+    <div id="hackathons-3b" class="abs"></div>
+    <div id="hackathons-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="hackathons-per-term-item c1 pressed">1A</div>
+    <div class="hackathons-per-term-item c2">1B</div>
+    <div class="hackathons-per-term-item c3">2A</div>
+    <div class="hackathons-per-term-item c4">2B</div>
+    <div class="hackathons-per-term-item c5">3A</div>
+    <div class="hackathons-per-term-item c6">3B</div>
+    <div class="hackathons-per-term-item c7">4A</div>
+  </div>
 </div>
-<div class="vbx4"></div>
+
+<h3>Side Projects</h3>
+<p class="half">
+  <span class="big">
+    Respondents spent more time working on side projects in their lower
+    years.</span
+  >
+</p>
+<div class="half second">
+  <span class="graph-title"
+    >How many hours did you spend on side projects each week?</span
+  >
+  <div class="overlay">
+    <div id="side-projects-1a" class="abs"></div>
+    <div id="side-projects-1b" class="abs"></div>
+    <div id="side-projects-2a" class="abs"></div>
+    <div id="side-projects-2b" class="abs"></div>
+    <div id="side-projects-3a" class="abs"></div>
+    <div id="side-projects-3b" class="abs"></div>
+    <div id="side-projects-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="side-projects-per-term-item c1 pressed">1A</div>
+    <div class="side-projects-per-term-item c2">1B</div>
+    <div class="side-projects-per-term-item c3">2A</div>
+    <div class="side-projects-per-term-item c4">2B</div>
+    <div class="side-projects-per-term-item c5">3A</div>
+    <div class="side-projects-per-term-item c6">3B</div>
+    <div class="side-projects-per-term-item c7">4A</div>
+  </div>
+</div>
+
+<h3>SE Event Participation</h3>
+<p class="half">
+  <span class="big">
+    Respondents participated in more SE events during their lower years.</span
+  >
+</p>
+<div class="half second">
+  <span class="graph-title"
+    >How many hours did you spend paticipating in SE events each week?</span
+  >
+  <div class="overlay">
+    <div id="se-events-1b" class="abs"></div>
+    <div id="se-events-1a" class="abs"></div>
+    <div id="se-events-2a" class="abs"></div>
+    <div id="se-events-2b" class="abs"></div>
+    <div id="se-events-3a" class="abs"></div>
+    <div id="se-events-3b" class="abs"></div>
+    <div id="se-events-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="se-events-per-term-item c1 pressed">1A</div>
+    <div class="se-events-per-term-item c2">1B</div>
+    <div class="se-events-per-term-item c3">2A</div>
+    <div class="se-events-per-term-item c4">2B</div>
+    <div class="se-events-per-term-item c5">3A</div>
+    <div class="se-events-per-term-item c6">3B</div>
+    <div class="se-events-per-term-item c7">4A</div>
+  </div>
+</div>
+
+<h3>Technical Extracurriculars</h3>
+
+<p class="half">
+  <span class="big">
+    Respondents participated in more technical extracurriculars earlier on in
+    their university career.</span
+  >
+</p>
+<div class="half second">
+  <span class="graph-title"
+    >What technical extracurriculars did you participate in?</span
+  >
+  <div id="technical-extracurriculars"></div>
+  <div class="scale">
+    <span class="legend">Filter:</span>
+    <div class="technical-extracurriculars-item c1 pressed">1A</div>
+    <div class="technical-extracurriculars-item c2">1B</div>
+    <div class="technical-extracurriculars-item c3">2A</div>
+    <div class="technical-extracurriculars-item c4">2B</div>
+    <div class="technical-extracurriculars-item c5">3A</div>
+    <div class="technical-extracurriculars-item c6">3B</div>
+    <div class="technical-extracurriculars-item c7">4A</div>
+    <div class="technical-extracurriculars-item c8">4B</div>
+  </div>
+</div>
+
+<p class="half">
+  <span class="big">
+    Respondents participated in more technical extracurriculars (e.g. design
+    teams) during their lower years.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"
+    >How many hours did you spend participating in technical extracurriculars
+    each week?</span
+  >
+  <div class="overlay">
+    <div id="technical-extra-1b" class="abs"></div>
+    <div id="technical-extra-1a" class="abs"></div>
+    <div id="technical-extra-2a" class="abs"></div>
+    <div id="technical-extra-2b" class="abs"></div>
+    <div id="technical-extra-3a" class="abs"></div>
+    <div id="technical-extra-3b" class="abs"></div>
+    <div id="technical-extra-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="technical-extra-per-term-item c1 pressed">1A</div>
+    <div class="technical-extra-per-term-item c2">1B</div>
+    <div class="technical-extra-per-term-item c3">2A</div>
+    <div class="technical-extra-per-term-item c4">2B</div>
+    <div class="technical-extra-per-term-item c5">3A</div>
+    <div class="technical-extra-per-term-item c6">3B</div>
+    <div class="technical-extra-per-term-item c7">4A</div>
+  </div>
+</div>
+
+<h3>Non-technical Extracurriculars</h3>
+<p class="half">
+  <span class="big">
+    Respondents also enjoyed participating in a variety of other clubs.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"> Popular non-technical extracurriculars. </span>
+  <div id="non-technical-extracurriculars-cloud"></div>
+</div>
+
+<p class="half">
+  <span class="big">
+    Respondents participated in more non-technical extracurriculars during their
+    upper years. However during 2B, participation in these extracurriculars was
+    fairly low.
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"
+    >How many hours did you spend participating in non-technical
+    extracurriculars each week?</span
+  >
+  <div class="overlay">
+    <div id="non-technical-extra-1b" class="abs"></div>
+    <div id="non-technical-extra-1a" class="abs"></div>
+    <div id="non-technical-extra-2a" class="abs"></div>
+    <div id="non-technical-extra-2b" class="abs"></div>
+    <div id="non-technical-extra-3a" class="abs"></div>
+    <div id="non-technical-extra-3b" class="abs"></div>
+    <div id="non-technical-extra-4a"></div>
+  </div>
+
+  <div class="scale">
+    <span class="legend">Term:</span>
+    <div class="non-technical-extra-per-term-item c1 pressed">1A</div>
+    <div class="non-technical-extra-per-term-item c2">1B</div>
+    <div class="non-technical-extra-per-term-item c3">2A</div>
+    <div class="non-technical-extra-per-term-item c4">2B</div>
+    <div class="non-technical-extra-per-term-item c5">3A</div>
+    <div class="non-technical-extra-per-term-item c6">3B</div>
+    <div class="non-technical-extra-per-term-item c7">4A</div>
+  </div>
+</div>
+
+<h3>Burnout</h3>
+<p class="half">
+  <span class="big">
+    Burnout seemed to be higher every other term (e.g. 1b, 2b, 3b).
+  </span>
+</p>
+<div class="half second">
+  <span class="graph-title"></span>
+  <div class="overlay">
+    <div id="burnout-per-term"></div>
+  </div>
+</div>

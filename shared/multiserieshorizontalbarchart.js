@@ -29,8 +29,6 @@ function renderMultiSeriesHorizontalBarChat(elem, unsortedData, width, height, s
   let data = unsortedData;
   if (sort) {
     data = sortData(data);
-  } else {
-    data = data.reverse();
   }
 
   var colorScale = termColors;

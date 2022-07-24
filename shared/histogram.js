@@ -90,8 +90,8 @@ function renderHistogram(elem, data, width, height, options) {
     // Y axis: scale and draw:
     const y = d3.scaleLinear()
               .range([graphHeight, 0]);
-    y.domain([0, d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
-
+    options.yDomain ? y.domain(options.yDomain) : y.domain([0, d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+    // y.domain([0, options.yDomain ? options.yDomain[1] : d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
     svg.append("g")
         .call(d3.axisLeft(y));
 
@@ -111,4 +111,11 @@ function renderHistogram(elem, data, width, height, options) {
   insertData(data);
 }
 
-export { renderHistogram };
+function renderMultipleHistograms(elem_names, data, width, height, options) {
+  const dataList = Object.keys(data).map(function(key){ return data[key] });
+  for (let idx = 0; idx < elem_names.length; idx++) {
+    renderHistogram(d3.select("#" + elem_names[idx]), dataList[idx], width, height, options);
+  }
+}
+
+export { renderHistogram, renderMultipleHistograms };
