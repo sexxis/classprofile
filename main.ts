@@ -24,6 +24,7 @@ import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
 import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
 import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
 import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
+import { CONTRACTED_COVID, COVID_DOSES, COVID_TESTS, FOLLOW_PUBLIC_GUIDANCE, FULL_TIME_AFFECTED_BY_COVID, HOW_FULL_TIME_AFFECTED_BY_COVID, KNOW_SOMEONE_CONTRACTED_COVID, LARGEST_GATHERING } from './data/covid';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -94,6 +95,7 @@ window.onload = () => {
   renderOutcome(options);
   renderFinances(options);
   renderHealth(options);
+  renderCovid(options);
   renderMisc(options);
   renderFuture(options);
   renderTransfers(options);
@@ -600,6 +602,17 @@ function renderHealth(options) {
   drawWordCloud(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options);
   renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
+}
+
+function renderCovid(options) {
+  renderPieChart(d3.select('#contracted-covid'), CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#know-someone-contracted-covid'), KNOW_SOMEONE_CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#covid-doses'), COVID_DOSES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, false);
+  renderPieChart(d3.select('#follow-public-guidance'), FOLLOW_PUBLIC_GUIDANCE, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 500, false); 
+  renderPieChart(d3.select('#covid-full-time-impact'), FULL_TIME_AFFECTED_BY_COVID,options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#how-covid-full-time-impact'), HOW_FULL_TIME_AFFECTED_BY_COVID, options.width, 250, false);
 }
 
 function renderMisc(options) {
