@@ -1,11 +1,11 @@
 let CONTRACTED_COVID = [
   {
-    name: "No",
-    value: 47,
+    name: "Yes, at least once",
+    value: 12,
   },
   {
-    name: "At least once",
-    value: 12,
+    name: "No",
+    value: 47,
   },
 ];
 
@@ -208,6 +208,10 @@ let FULL_TIME_AFFECTED_BY_COVID = [
 
 let HOW_FULL_TIME_AFFECTED_BY_COVID = [
   {
+    name: "Job was moved to remote",
+    value: 6,
+  },
+  {
     name: "Less jobs than anticipated",
     value: 3,
   },
@@ -216,20 +220,16 @@ let HOW_FULL_TIME_AFFECTED_BY_COVID = [
     value: 2,
   },
   {
-    name: "Original job was cancelled",
-    value: 0,
-  },
-  {
-    name: "Job was moved to remote",
-    value: 6,
+    name: "Competition was higher",
+    value: 2,
   },
   {
     name: "Job had lower pay",
     value: 1,
   },
   {
-    name: "Competition was higher",
-    value: 2,
+    name: "Original job was cancelled",
+    value: 0,
   },
 ];
 
