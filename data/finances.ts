@@ -113,7 +113,7 @@ let LIQUID_NET_WORTH = [
 
 let FINANCIALLY_SATISFIED = [
   {
-    name: "1",
+    name: "Unsatisfied - 1",
     value: 1,
   },
   {
@@ -129,7 +129,7 @@ let FINANCIALLY_SATISFIED = [
     value: 22,
   },
   {
-    name: "5",
+    name: "Satisfied - 5",
     value: 18,
   },
 ];
