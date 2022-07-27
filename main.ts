@@ -10,7 +10,6 @@ import { renderMultiSeriesBoxPlot } from './shared/multiseriesboxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot, renderBinnedDotLine } from './shared/dotplot.js';
 import { renderHistogram } from './shared/histogram.js';
-import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
@@ -41,7 +40,7 @@ import {
   INTRAMURAL_FREQ,
   INTRAMURALS
 } from './data/health';
-import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
+import { EXCHANGE } from './data/exchange';
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -777,56 +776,7 @@ function renderRelationships(options) {
 
 function renderExchange(options) {
   renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
-    EXCHANGE.NO_REASON,
-    options.fullWidth,
-    300,
-    true
-  );
-
-  // exchange map handlers
-  function onMouseOver(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', () => '#ffe2b5');
-    }
-  }
-  function onMouseOut(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', '#ffb84d');
-    } else {
-      d3.select(this)
-      .attr('fill', '#c3d6d2');
-    }
-  }
-  function onClick(data) {
-    const props = data.properties;
-    let exchangeStr = `<h5>${props.name}</h5>`;
-    if (props.schools) {
-      props.schools.forEach((school) => {
-        exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
-      });
-    } else {
-      exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
-    }
-    d3.select("#exchange-map-text").html(exchangeStr);
-  }
-
-  renderGeographicMap(
-    d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
-    options.fullWidth, options.fullWidth * 0.45,
-    {
-      zoomThreshold: [0.5, 20],
-      scale: 250,
-      fillColourFunction: (data) => {
-        if (data.properties.schools) {
-          return '#ffb84d';
-        }
-        return '#c3d6d2';
-      },
-      onMouseOver,
-      onMouseOut,
-      onClick,
-    });
+  renderHorizontalBarChat(d3.select('#exchange-schools'), EXCHANGE.SCHOOLS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-favourite'), EXCHANGE.FAVOURITE, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-challenges'), EXCHANGE.CHALLENGES, options.width, 250, false);
 }
