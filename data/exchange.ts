@@ -1,6 +1,3 @@
-// exchange.ts
-import * as EXCHANGE_GEO_DATA from "./exchange.geo.json";
-
 const EXCHANGE = {
   PARTICIPATION: [
     { name: "Yes", value: 6 },
@@ -28,4 +25,4 @@ const EXCHANGE = {
   ],
 };
 
-export { EXCHANGE, EXCHANGE_GEO_DATA };
+export { EXCHANGE };
