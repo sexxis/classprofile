@@ -635,9 +635,9 @@ function renderCovid(options) {
   renderPieChart(d3.select('#contracted-covid'), CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#know-someone-contracted-covid'), KNOW_SOMEONE_CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#covid-doses'), COVID_DOSES, options.width, 250, false);
-  renderHorizontalBarChat(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, false);
+  renderHistogram(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, {domain: [0, 20], binCount: 4});
   renderPieChart(d3.select('#follow-public-guidance'), FOLLOW_PUBLIC_GUIDANCE, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 500, false); 
+  renderHistogram(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 250, {domain: [1,120], binCount: 15}); 
   renderPieChart(d3.select('#covid-full-time-impact'), FULL_TIME_AFFECTED_BY_COVID,options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#how-covid-full-time-impact'), HOW_FULL_TIME_AFFECTED_BY_COVID, options.width, 250, false);
 }
