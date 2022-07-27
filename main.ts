@@ -10,7 +10,6 @@ import { renderMultiSeriesBoxPlot } from './shared/multiseriesboxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot, renderBinnedDotLine } from './shared/dotplot.js';
 import { renderHistogram } from './shared/histogram.js';
-import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
@@ -41,7 +40,9 @@ import {
   INTRAMURAL_FREQ,
   INTRAMURALS
 } from './data/health';
-import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
+import { CONTRACTED_COVID, COVID_DOSES, COVID_TESTS, FOLLOW_PUBLIC_GUIDANCE, FULL_TIME_AFFECTED_BY_COVID, HOW_FULL_TIME_AFFECTED_BY_COVID, KNOW_SOMEONE_CONTRACTED_COVID, LARGEST_GATHERING } from './data/covid';
+import { EXCHANGE } from './data/exchange';
+
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -112,6 +113,7 @@ window.onload = () => {
   renderOutcome(options);
   renderFinances(options);
   renderHealth(options);
+  renderCovid(options);
   renderMisc(options);
   renderFuture(options);
   renderTransfers(options);
@@ -639,6 +641,17 @@ function renderHealth(options) {
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
 }
 
+function renderCovid(options) {
+  renderPieChart(d3.select('#contracted-covid'), CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#know-someone-contracted-covid'), KNOW_SOMEONE_CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#covid-doses'), COVID_DOSES, options.width, 250, false);
+  renderHistogram(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, {domain: [0, 20], binCount: 4});
+  renderPieChart(d3.select('#follow-public-guidance'), FOLLOW_PUBLIC_GUIDANCE, options.width * 0.75, options.width * 0.75);
+  renderHistogram(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 250, {domain: [1,120], binCount: 15}); 
+  renderPieChart(d3.select('#covid-full-time-impact'), FULL_TIME_AFFECTED_BY_COVID,options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#how-covid-full-time-impact'), HOW_FULL_TIME_AFFECTED_BY_COVID, options.width, 250, false);
+}
+
 function renderMisc(options) {
   renderHorizontalBarChat(d3.select('#burnout'), BURNOUT, options.width, 250, false);
   renderPieChart(d3.select('#fights'), FIGHTS, options.width * 0.75, options.width * 0.75);
@@ -787,56 +800,7 @@ function renderRelationships(options) {
 
 function renderExchange(options) {
   renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
-    EXCHANGE.NO_REASON,
-    options.fullWidth,
-    300,
-    true
-  );
-
-  // exchange map handlers
-  function onMouseOver(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', () => '#ffe2b5');
-    }
-  }
-  function onMouseOut(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', '#ffb84d');
-    } else {
-      d3.select(this)
-      .attr('fill', '#c3d6d2');
-    }
-  }
-  function onClick(data) {
-    const props = data.properties;
-    let exchangeStr = `<h5>${props.name}</h5>`;
-    if (props.schools) {
-      props.schools.forEach((school) => {
-        exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
-      });
-    } else {
-      exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
-    }
-    d3.select("#exchange-map-text").html(exchangeStr);
-  }
-
-  renderGeographicMap(
-    d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
-    options.fullWidth, options.fullWidth * 0.45,
-    {
-      zoomThreshold: [0.5, 20],
-      scale: 250,
-      fillColourFunction: (data) => {
-        if (data.properties.schools) {
-          return '#ffb84d';
-        }
-        return '#c3d6d2';
-      },
-      onMouseOver,
-      onMouseOut,
-      onClick,
-    });
+  renderHorizontalBarChat(d3.select('#exchange-schools'), EXCHANGE.SCHOOLS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-favourite'), EXCHANGE.FAVOURITE, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-challenges'), EXCHANGE.CHALLENGES, options.width, 250, false);
 }

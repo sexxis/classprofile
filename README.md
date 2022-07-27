@@ -23,7 +23,7 @@ Run `yarn install`. You'll also need `jekyll` to run a local host. Run `gem inst
 
 ### for "reloadable" local testing
 
-1. change [`main.html:43`](./_layouts/main.html)'s script src to point to `./build/bundle.js`
+1. change [`main.html:51`](./_layouts/main.html)'s script src to point to `./build/bundle.js`
 2. run `npm run dev` in a console to watch for changes and build to `./build/bundle.js`
 3. in another console, run `bundle exec jekyll serve` to run the jekyll server (site usually defaults to some localhost)
 4. refresh the tab directed to the lcoalhost site to get the updated site
