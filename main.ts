@@ -21,7 +21,7 @@ import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALAR
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
-import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
+import { INVEST, FINANCIALLY_SATISFIED, PERCENTAGE_INVESTED, MONEY_FROM_DEGREE, SCHOOL_MATERIAL_EXPENSES, STUDENT_LOANS, LIQUID_NET_WORTH} from './data/finances';
 import {
   HOSPITAL,
   EXTENSION_DUE_ILLNESS,
@@ -598,12 +598,22 @@ function renderOutcome(options) {
 }
 
 function renderFinances(options) {
-  renderHorizontalBarChat(d3.select('#budgeting'), BUDGET, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#investing'), INVEST, options.width, 250, false);
-  renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#loans'), LOANS, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#expenses'), SCHOOL_EXPENSES, options.width, 250, false);
-  renderHorizontalBarChat(d3.select('#new-debt'), NEW_DEBT, options.width, 250, false);
+  renderHistogram(d3.select("#percentage-invested"), PERCENTAGE_INVESTED, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%"});
+  renderHistogram(d3.select("#degree-money-coop"), MONEY_FROM_DEGREE.coop, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Coop"});
+  renderHistogram(d3.select("#degree-money-family"), MONEY_FROM_DEGREE.family, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Family"});
+  renderHistogram(d3.select("#degree-money-scholarships"), MONEY_FROM_DEGREE.scholarships, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Scholarships"});
+  renderHistogram(d3.select("#degree-money-hs"), MONEY_FROM_DEGREE.high_school_jobs, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Highschool Jobs"});
+  renderHistogram(d3.select("#degree-money-side"), MONEY_FROM_DEGREE.side_job, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Side jobs"});
+  renderHistogram(d3.select("#degree-money-other"), MONEY_FROM_DEGREE.other, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Other"});
+  renderHistogram(d3.select('#material-expenses'), SCHOOL_MATERIAL_EXPENSES, options.width, 250, {domain: [0, 550]});
+  renderHistogram(d3.select('#student-loans'), STUDENT_LOANS, options.width * 1, 250, {domain: [0, 40000]});
+  renderHorizontalBarChat(d3.select("#net-worth"), LIQUID_NET_WORTH, options.width, 250, false);
+  renderHorizontalBarChat(d3.select("#financially-satisfied"), FINANCIALLY_SATISFIED, options.width, 250, false);
+  // renderHorizontalBarChat(d3.select('#budgeting'), BUDGET, options.width, 250, false);
+  // renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
+  // renderPieChart(d3.select('#loans'), LOANS, options.width * 0.75, options.width * 0.75);
+  // renderHorizontalBarChat(d3.select('#new-debt'), NEW_DEBT, options.width, 250, false);
 }
 
 function renderHealth(options) {
