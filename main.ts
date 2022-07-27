@@ -40,7 +40,9 @@ import {
   INTRAMURAL_FREQ,
   INTRAMURALS
 } from './data/health';
+import { CONTRACTED_COVID, COVID_DOSES, COVID_TESTS, FOLLOW_PUBLIC_GUIDANCE, FULL_TIME_AFFECTED_BY_COVID, HOW_FULL_TIME_AFFECTED_BY_COVID, KNOW_SOMEONE_CONTRACTED_COVID, LARGEST_GATHERING } from './data/covid';
 import { EXCHANGE } from './data/exchange';
+
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -111,6 +113,7 @@ window.onload = () => {
   renderOutcome(options);
   renderFinances(options);
   renderHealth(options);
+  renderCovid(options);
   renderMisc(options);
   renderFuture(options);
   renderTransfers(options);
@@ -626,6 +629,17 @@ function renderHealth(options) {
   renderPieChart(d3.select('#self-esteem'), SELF_ESTEEM, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
+}
+
+function renderCovid(options) {
+  renderPieChart(d3.select('#contracted-covid'), CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#know-someone-contracted-covid'), KNOW_SOMEONE_CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#covid-doses'), COVID_DOSES, options.width, 250, false);
+  renderHistogram(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, {domain: [0, 20], binCount: 4});
+  renderPieChart(d3.select('#follow-public-guidance'), FOLLOW_PUBLIC_GUIDANCE, options.width * 0.75, options.width * 0.75);
+  renderHistogram(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 250, {domain: [1,120], binCount: 15}); 
+  renderPieChart(d3.select('#covid-full-time-impact'), FULL_TIME_AFFECTED_BY_COVID,options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#how-covid-full-time-impact'), HOW_FULL_TIME_AFFECTED_BY_COVID, options.width, 250, false);
 }
 
 function renderMisc(options) {
