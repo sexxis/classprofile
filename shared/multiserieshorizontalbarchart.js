@@ -72,7 +72,6 @@ function renderMultiSeriesHorizontalBarChat(elem, unsortedData, width, height, s
         .call(function(t){                
         t.each(function(d){ // for each one
             var self = d3.select(this);
-            // let name = self.text();
             // Acquires the name of the current label being examined
             let name = self.text();
             // Check whether the label is too long and is composed of more than

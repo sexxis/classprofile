@@ -1,127 +1,145 @@
-let BUDGET = [{
-  "name": "Did not budget",
-  "value": 37,
-  }, {
-  "name": "Set aside estimated funds",
-  "value": 12,
-  }, {
-  "name": "Created budget workbook",
-  "value": 9,
-}];
+// updated for 2022
+let INVEST = [
+  {
+    name: "Index Funds",
+    value: 24,
+  },
+  {
+    name: "Equities",
+    value: 21,
+  },
+  {
+    name: "Crypto",
+    value: 16,
+  },
+  {
+    name: "Managed Service",
+    value: 15,
+  },
+  {
+    name: "Derivatives Trading",
+    value: 4,
+  },
+  {
+    name: "Fixed-Income",
+    value: 4,
+  },
+  {
+    name: "Don't Invest",
+    value: 9,
+  },
+];
 
-let INVEST = [{
-  "name": "Index Funds",
-  "value": 26,
-  }, {
-  "name": "Managed Services (WealthSimple)",
-  "value": 21,
-  }, {
-  "name": "Equities",
-  "value": 9,
-  }, {
-  "name": "Fixed-Income",
-  "value": 6,
-  }, {
-  "name": "Derivative Trading",
-  "value": 3,
-  }, {
-  "name": "Cryptocurrency",
-  "value": 2,
-  }, {
-  "name": "No Investments",
-  "value": 11,
-}];
+let PERCENTAGE_INVESTED = [
+  80, 30, 0, 20, 70, 80, 75, 20, 30, 40, 100, 5, 70, 33, 80, 50, 20, 20, 10, 80,
+  27, 25, 80, 90, 30, 75, 95, 0, 0, 25, 0, 10, 50, 80, 85, 80, 16, 0, 85, 0, 20,
+  20, 50, 0, 80, 70, 30, 50, 70, 75, 60, 50, 10, 0, 80, 10,
+];
 
-let RESP = [{
-  "name": "Yes",
-  "value": 44,
-  }, {
-  "name": "No",
-  "value": 8,
-  }, {
-  "name": "Prefer not to say",
-  "value": 2,
-}];
+let MONEY_FROM_DEGREE = {
+  coop: [
+    40, 75, 70, 45, 47, 75, 50, 80, 50, 25, 70, 38, 70, 66, 88, 95, 65.5, 100,
+    50, 46, 70, 90, 80, 75, 60, 80, 70, 50, 85, 60, 75, 98, 82, 85, 70, 40, 50,
+    70, 80, 70, 80, 75, 60, 60, 50, 75, 60, 80, 85, 90, 64, 94, 80, 90,
+  ],
+  family: [
+    50, 25, 19, 50, 48, 17, 40, 19, 40, 0, 30, 50, 25, 30, 10, 50, 5, 29.6, 40,
+    20, 30, 10, 15, 18, 35, 20, 0, 30, 45, 15, 38, 20, 0, 8, 10, 20, 60, 50, 20,
+    15, 0, 70, 10, 20, 25, 30, 30, 10, 20, 20, 10, 8, 17, 5, 20, 10,
+  ],
+  scholarships: [
+    10, 0, 1, 5, 2, 2, 10, 1, 5, 74, 2, 5, 2, 1, 5, 0, 4.9, 10, 5, 0, 0, 5, 2,
+    10, 0, 0, 5, 0, 2, 2, 2, 2, 5, 0, 10, 0, 10, 2, 0, 0, 10, 10, 0, 20, 5, 0,
+    4, 0, 0, 0,
+  ],
+  high_school_jobs: [
+    0, 5, 0, 3, 5, 0, 5, 0, 0, 0, 0, 1, 10, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 10, 0,
+    0, 3, 0, 8, 0, 10, 0, 5, 10, 8, 5, 0, 0, 0, 0, 5, 0, 1, 15, 1, 0, 0,
+  ],
+  side_job: [
+    0, 0, 5, 0, 1, 0, 0, 0, 1, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65, 10,
+    0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ],
+  other: [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 35, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 20, 0, 0, 0, 0, 0, 40, 20, 0, 0, 0, 0, 0, 0,
+  ],
+};
 
-let LOANS = [{
-  "name": "Yes",
-  "value": 24,
-  }, {
-  "name": "No",
-  "value": 28,
-  }, {
-  "name": "Prefer not to say",
-  "value": 2,
-}]
+let SCHOOL_MATERIAL_EXPENSES = [
+  500, 250, 500, 1000, 45, 200, 0, 500, 500, 150, 1000, 300, 100, 100, 200, 0,
+  200, 200, 100, 0, 300, 200, 2000, 0, 200, 300, 500, 800, 500, 300, 130, 150,
+  30, 200, 400, 300, 200, 130, 70, 2000, 100, 0, 300, 200, 1000, 100, 200, 2000,
+  300, 1000,
+];
 
-let SCHOOL_EXPENSES = [{
-  "name": "0",
-  "value": 0,
-  }, {
-  "name": "0 - 500",
-  "value": 27,
-  }, {
-  "name": "500 - 1,000",
-  "value": 15,
-  }, {
-  "name": "1,000 - 1,500",
-  "value": 6,
-  }, {
-  "name": "1,500 - 2,000",
-  "value": 0,
-  }, {
-  "name": ">2,000",
-  "value": 2,
-}]
+let STUDENT_LOANS = [
+  0, 9000, 21600, 0, 0, 30000, 28000, 0, 0, 0, 0, 3000, 17000, 20000, 29890, 0,
+  0, 30000, 0, 30000, 0, 30000, 20000, 30000, 0, 30000, 0, 0, 0, 0, 0, 30000,
+  31621, 24000, 0, 24000, 0, 13000, 19000, 25000, 23000, 0, 0, 17500, 30310,
+  11000, 21000, 0, 0, 39003, 40000, 0,
+];
 
-let NEW_DEBT = [{
-  "name": "0",
-  "value": 32,
-  }, {
-  "name": "< 10k",
-  "value": 1,
-  }, {
-  "name": "10k - 20k",
-  "value": 3,
-  }, {
-  "name": "20k - 30k",
-  "value": 7,
-  }, {
-  "name": "30k - 40k",
-  "value": 2,
-  }, {
-  "name": "40k - 50k",
-  "value": 2,
-  }, {
-  "name": "50k+",
-  "value": 2,
-}]
+let LIQUID_NET_WORTH = [
+  {
+    name: "< -50k",
+    value: 3,
+  },
+  {
+    name: "[-20k, 0)",
+    value: 3,
+  },
+  {
+    name: "[0, 20k)",
+    value: 7,
+  },
+  {
+    name: "[20k, 50k)",
+    value: 16,
+  },
+  {
+    name: "[50k, 100k)",
+    value: 19,
+  },
+  {
+    name: "[100k, 200k)",
+    value: 6,
+  },
+  {
+    name: "> 200k",
+    value: 2,
+  },
+];
 
-let PAYMENT = [{
-  "name": "Credit Card",
-  "value": 48,
-  }, {
-  "name": "Debit Card",
-  "value": 4,
-  }, {
-  "name": "Cash",
-  "value": 2,
-}]
-let SHOPPING = [{
-  "name": "Online",
-  "value": 33,
-  }, {
-  "name": "Offline (in person)",
-  "value": 21,
-}]
+let FINANCIALLY_SATISFIED = [
+  {
+    name: "Unsatisfied - 1",
+    value: 1,
+  },
+  {
+    name: "2",
+    value: 2,
+  },
+  {
+    name: "3",
+    value: 15,
+  },
+  {
+    name: "4",
+    value: 22,
+  },
+  {
+    name: "Satisfied - 5",
+    value: 18,
+  },
+];
 
 export {
-  BUDGET,
   INVEST,
-  RESP,
-  SCHOOL_EXPENSES,
-  NEW_DEBT,
-  LOANS,
-  PAYMENT,
-  SHOPPING
-}
+  PERCENTAGE_INVESTED,
+  MONEY_FROM_DEGREE,
+  SCHOOL_MATERIAL_EXPENSES,
+  STUDENT_LOANS,
+  LIQUID_NET_WORTH,
+  FINANCIALLY_SATISFIED,
+};
