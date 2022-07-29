@@ -1,52 +1,84 @@
 <h1 id="finances"> Finances </h1>
-<h3> Budgeting </h3>
+<h3> Cost of Tuition </h3>
 <p class="half">
   <span class="big">
-    63% of respondents did not budget their money.
-  </span>
-  Of those who did, the majority didn't use complex budgeting techniques or tools.
-  Interestingly, the majority of students also didn't have much debt and were able to pay off their school expenses.
-  <!-- <br /> <br />
-  Co-op may have been a strong factor to helping students acquire the financial support they needed throughout University. -->
-</p>
-<!-- Graph -->
-<div class="half second">
-  <span class="graph-title">how students budgetted their money</span>
-  <div id="budgeting"></div>
-</div>
-
-<div class="vbx2"></div>
-
-<h3> Investing </h3>
-<p class="half">
-  <span class="big">
-    85% of respondents invested their money.
-  </span>
-  Index Funds and Managed Services were the most popular methods of investments, used in 60% of responses. 
-  These methods provide an easy, diversified, and low-cost way to invest, making them a useful tool to get started with investing.
-  <br /> <br /> <!-- Newline --> 
-  "With great wealth comes great responsibility"
-</p>
-<div class="half second">
-  <span class="graph-title">How students invested their money</span>
-  <div id="investing"></div>
-</div>
-
-<div class="vbx2"></div>
-
-<h3> Family Funding </h3>
-<p class="half">
-  <span class="big">
-    80% of respondents received some funding from their family.
-  </span>
-  For Canadians, a popular source of funding is a Registered Education Savings Plan (RESP). 
-  Other methods of funding could include assisting in tuition payments, rent payments or contributions to other living expenses.
+    $69000
+  </span> 
+  $69000 is how much it cost a Canadian student attending Software Engineering at Waterloo for 8 terms from 2017-2022. This includes tuition, co-op fee and about $625/term of misc fees (insurance, LRT pass, club fees) - some which are optional. This does not include housing or school materials (e.g. supplies, textbooks). All numbers are in CAD.
   <br /> <br /> <!-- Newline -->
-  This may suggest that the families of the majority of SE students had already planned for their children to attend post-secondary education.
+  The average undergraduate tuition for Canadian citizens studying in Canada is around <a href="https://www150.statcan.gc.ca/n1/daily-quotidien/210908/dq210908a-eng.htm" target="_blank">$6,693/year</a> compared to $17,000/year for SE.
+</p>
+<p class="half second">
+  <span class="graph-title">Tuition breakdown</span>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Undergrad Domestic Tuition</th>
+        <th>Co-op Fee</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fall 2017</td>
+        <td>7329</td>
+        <td>709</td>
+      </tr>
+      <tr>
+        <td>Winter 2018</td>
+        <td>7392</td>
+        <td>709</td>
+      </tr>
+      <tr>
+        <td>Fall 2018</td>
+        <td>7761</td>
+        <td>729</td>
+      </tr>
+      <tr>
+        <td>Spring 2019</td>
+        <td>7761</td>
+        <td>729</td>
+      </tr>
+      <tr>
+        <td>Winter 2020</td>
+        <td>6985</td>
+        <td>729</td>
+      </tr>
+      <tr>
+        <td>Fall 2020</td>
+        <td>6985</td>
+        <td>734</td>
+      </tr>
+      <tr>
+        <td>Spring 2021</td>
+        <td>6985</td>
+        <td>739</td>
+      </tr>
+      <tr>
+        <td>Winter 2022</td>
+        <td>6985</td>
+        <td>739</td>
+      </tr>
+    </tbody>
+    </table>
+</p>
+<div class="vb"></div>
+<h3> Funding </h3>
+<p class="half">
+  <span class="big">
+    88% of respondents payed for at least half of their tutuion using money earned from co-op.
+  </span>
+  The next largest portion of income came from respondent's families. For Canadians, this is typically from a Registered Education Savings Plan (RESP).
 </p>
 <div class="half second">
-  <span class="graph-title">did you receive funding from family (e.g. RESP)?</span>
-  <div id="resp"></div>
+  <span class="graph-title">What percentage of each income category was used to pay for your tuition?</span>
+  <div id="degree-money-coop"></div>
+  <div id="degree-money-family"></div>
+  <div id="degree-money-scholarship"></div>
+  <div id="degree-money-hs"></div>
+  <div id="degree-money-side"></div>
+  <div id="degree-money-other"></div>
 </div>
 
 <div class="vbx2"></div>
@@ -55,16 +87,13 @@
 <h3> Expenses on School Material </h3>
 <p class="half">
   <span class="big">
-    All respondents spent some money on school materials at some point.
+    85% of respondents spent less than $550 on school materials. 
   </span>
-  54% of respondents spent less than $500 CAD on school materials. 
-  <br /> <br /> <!-- Newline -->
-  It's likely that courses over the first 2 years had greater amounts of required additional materials. 
-  The amount of required materials decreasing over the years may relate to why few respondents paid over $1,000 over 8 terms.
+  7 respondents spent more than $550 in school materials over their entire school career with the maximum being $2000.
 </p>
 <div class="half second">
-  <span class="graph-title">money spent on school materials (e.g. textbooks)</span>
-  <div id="expenses"></div>
+  <span class="graph-title">Money spent on school materials (e.g. textbooks)</span>
+  <div id="material-expenses"></div>
 </div>
 
 <div class="vbx2"></div>
@@ -73,75 +102,64 @@
 <h3> Loans </h3>
 <p class="half">
   <span class="big">
-    Over 50% of respondents did not take any student loans.
+    45% of respondents did not take any student loans.
   </span>
-  80% of those who took out student loans also received funds from their family. 
-  <br /> <br /> <!-- Newline -->
   Co-op provides the oppurtunity to have an income every 4 months. This may be a factor allowing students to avoid the need for loans.
 </p>
 <div class="half second">
-  <span class="graph-title">do you have loans?</span>
-  <div id="loans"></div>
+  <span class="graph-title">How much did you borrow as a loan?</span>
+  <div id="student-loans"></div>
 </div>
 <div class="vbx2"></div>
 
-<h3> Debt After Graduating </h3>
+<h3> Investing </h3>
 <p class="half">
   <span class="big">
-    65% of respondents graduated debt-free.
+    85% of respondents invested their money.
   </span>
-  The co-op program can help students earn money to pay off debts and expenses as they work towards their degree.
-  <br /> <br />
-  In 2019, the average student debt in Ontario was around $19,000 compared to $20k - $30k average debt among this survey respondents.
-  <br /> <br /> <!-- Newline -->
-  Engineering at Waterloo is also a more costly program. 
-  <br/>
-  The average undergraduate tuition for Canadian citizens studying in Canada is around $6,500/year compared to $17,100/year for SE.
-  The average undergraduate tuition for international students studying in Canada is around $29,700/year compared to $61,200/year for SE
+  Index Funds and Equities were the most popular methods of investments, used in 60% of responses. Additionally respondents also invested in crypto. Respondents were able to select multiple options.
 </p>
 <div class="half second">
-  <span class="graph-title">debt among students</span>
-  <div id="new-debt"></div>
+  <span class="graph-title">How students invested their money</span>
+  <div id="investing"></div>
+</div>
+<div class="half">
+  <p>
+    Of those who invested, most respondents either invested below 40% or above 70% of their wealth.
+  </p>
+</div>
+<div class="half second">
+  <span class="graph-title">What percentage of your wealth is invested?</span>
+  <div id="percentage-invested"></div>
+</div>
+<div class="vbx2"></div>
+
+<h3> Net Worth </h3>
+<p class="half">
+  <span class="big">
+    89% of respondents graduated debt-free.
+  </span>
+  The co-op program can help students earn money to pay off debts and expenses as they work towards their degree.
+</p>
+<div class="half second">
+  <span class="graph-title">Net worth @ 4B/final term</span>
+  <div id="net-worth"></div>
 </div>
 <!-- Resources: 
+  amount of debt: https://reviewlution.ca/resources/student-debt-in-canada-statistics/
+  cost of waterloo eng: https://uwaterloo.ca/future-students/financing/tuition
   https://www150.statcan.gc.ca/n1/pub/75-006-x/2020001/article/00005-eng.htm
   https://www.topuniversities.com/student-info/student-finance/how-much-does-it-cost-study-canada
   https://uwaterloo.ca/future-students/financing/tuition
 -->
 
 <div class="vbx2"></div>
-
-<!-- TODO: Consider removing these sections -->
-<!--
-<h3> Preferred Shopping Method </h3>
-<p class="half">
-  <span class="big">
-    Big Text
-  </span>
-  Small text.
-  <br /> <br />
-  More text.
+<div class="half">
+  <p>
+  69% of respondents were at least somewhat satisfied (4 or 5) with their current financial situation.
 </p>
-<div class="half second">
-  <span class="graph-title">preferred shopping method</span>
-  <div id="shopping"></div>
 </div>
-
-<div class="vbx2"></div>
-
-<h3> Preferred Payment Method </h3>
-<p class="half">
-  <span class="big">
-    Big Text
-  </span>
-  Small text.
-  <br /> <br />
-  More text.
-</p>
 <div class="half second">
-  <span class="graph-title">preferred payment method</span>
-  <div id="payment"></div>
+  <span class="graph-title">How satisfied are you about your current financial situation?</span>
+  <div id="financially-satisfied"></div>
 </div>
-
-<div class="vbx2"></div>
--->

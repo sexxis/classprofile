@@ -10,7 +10,6 @@ import { renderMultiSeriesBoxPlot } from './shared/multiseriesboxplot.js';
 import * as util from './shared/utils';
 import { renderDotPlot, renderBinnedDotLine } from './shared/dotplot.js';
 import { renderHistogram } from './shared/histogram.js';
-import { renderGeographicMap } from './shared/geographicmap.js';
 
 import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRANSFERRED,REGRET_TRANSFFERED } from './data/transfers'
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
@@ -21,9 +20,29 @@ import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALAR
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
 import { FAMILY, FRIENDSHIPS, ROMANCE } from './data/relationships';
-import { BUDGET, INVEST, RESP, SCHOOL_EXPENSES, NEW_DEBT, LOANS } from './data/finances';
-import {SICK, OHIP, MENTAL_HEALTH, MENTAL_HEALTH_ISSUES, EXERCISE_FREQ, INTRAMURALS, EXERCISE_TYPE, EXERCISE_WORDS, WEIGHT, RECREATIONAL_SUBSTANCES, IMPOSTER_SYNDROME, IMPOSTER_SYNDROME_NOW} from './data/health';
-import { EXCHANGE, EXCHANGE_GEO_DATA } from './data/exchange';
+import { INVEST, FINANCIALLY_SATISFIED, PERCENTAGE_INVESTED, MONEY_FROM_DEGREE, SCHOOL_MATERIAL_EXPENSES, STUDENT_LOANS, LIQUID_NET_WORTH} from './data/finances';
+import {
+  HOSPITAL,
+  EXTENSION_DUE_ILLNESS,
+  SICK_IN_CLASS,
+  IMPOSTER_SYNDROME,
+  IMPOSTER_SYNDROME_NOW,
+  MENTAL_HEALTH,
+  MH_AFFECTED_TERMS,
+  COUNSELLING_SERVICES,
+  MENTAL_HEALTH_ISSUES,
+  DIAGNOSED_MENTAL_HEALTH_ISSUES,
+  SELF_ESTEEM,
+  EXERCISE_FREQ,
+  EXERCISE_TYPE,
+  EXERCISE_WORDS,
+  SPORT_LEVEL,
+  INTRAMURAL_FREQ,
+  INTRAMURALS
+} from './data/health';
+import { CONTRACTED_COVID, COVID_DOSES, COVID_TESTS, FOLLOW_PUBLIC_GUIDANCE, FULL_TIME_AFFECTED_BY_COVID, HOW_FULL_TIME_AFFECTED_BY_COVID, KNOW_SOMEONE_CONTRACTED_COVID, LARGEST_GATHERING } from './data/covid';
+import { EXCHANGE } from './data/exchange';
+
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = ["loc-1a", "loc-1b", "loc-2a", "loc-2b","loc-3a", "loc-3b"];
@@ -94,6 +113,7 @@ window.onload = () => {
   renderOutcome(options);
   renderFinances(options);
   renderHealth(options);
+  renderCovid(options);
   renderMisc(options);
   renderFuture(options);
   renderTransfers(options);
@@ -580,26 +600,56 @@ function renderOutcome(options) {
 }
 
 function renderFinances(options) {
-  renderHorizontalBarChat(d3.select('#budgeting'), BUDGET, options.width, 250, false);
   renderHorizontalBarChat(d3.select('#investing'), INVEST, options.width, 250, false);
-  renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
-  renderPieChart(d3.select('#loans'), LOANS, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#expenses'), SCHOOL_EXPENSES, options.width, 250, false);
-  renderHorizontalBarChat(d3.select('#new-debt'), NEW_DEBT, options.width, 250, false);
+  renderHistogram(d3.select("#percentage-invested"), PERCENTAGE_INVESTED, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%"});
+  renderHistogram(d3.select("#degree-money-coop"), MONEY_FROM_DEGREE.coop, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Coop"});
+  renderHistogram(d3.select("#degree-money-family"), MONEY_FROM_DEGREE.family, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Family"});
+  renderHistogram(d3.select("#degree-money-scholarships"), MONEY_FROM_DEGREE.scholarships, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Scholarships"});
+  renderHistogram(d3.select("#degree-money-hs"), MONEY_FROM_DEGREE.high_school_jobs, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Highschool Jobs"});
+  renderHistogram(d3.select("#degree-money-side"), MONEY_FROM_DEGREE.side_job, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Side jobs"});
+  renderHistogram(d3.select("#degree-money-other"), MONEY_FROM_DEGREE.other, options.width, 250, {domain: [0,100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Other"});
+  renderHistogram(d3.select('#material-expenses'), SCHOOL_MATERIAL_EXPENSES, options.width, 250, {domain: [0, 550]});
+  renderHistogram(d3.select('#student-loans'), STUDENT_LOANS, options.width * 1, 250, {domain: [0, 40000]});
+  renderHorizontalBarChat(d3.select("#net-worth"), LIQUID_NET_WORTH, options.width, 250, false);
+  renderHorizontalBarChat(d3.select("#financially-satisfied"), FINANCIALLY_SATISFIED, options.width, 250, false);
+  // renderHorizontalBarChat(d3.select('#budgeting'), BUDGET, options.width, 250, false);
+  // renderPieChart(d3.select('#resp'), RESP, options.width * 0.75, options.width * 0.75);
+  // renderPieChart(d3.select('#loans'), LOANS, options.width * 0.75, options.width * 0.75);
+  // renderHorizontalBarChat(d3.select('#new-debt'), NEW_DEBT, options.width, 250, false);
 }
 
 function renderHealth(options) {
-  renderHorizontalBarChat(d3.select('#sickness'), SICK, options.width, 250, false);
-  renderPieChart(d3.select('#health-insurance'), OHIP, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#hospital'), HOSPITAL, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#health-extension'), EXTENSION_DUE_ILLNESS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#sick-in-class'), SICK_IN_CLASS, options.width, 250, false);
+  // renderPieChart(d3.select('#health-extension'), EXTENSION_DUE_ILLNESS, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#mental-health-count'), MENTAL_HEALTH, options.width * 0.75, options.width * 0.75);
   renderHorizontalBarChat(d3.select('#mental-health-issues'), MENTAL_HEALTH_ISSUES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#mental-health-terms'), MH_AFFECTED_TERMS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#councelling'), COUNSELLING_SERVICES, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#mental-health-diagnosed'), DIAGNOSED_MENTAL_HEALTH_ISSUES, options.width, 250, false);
+
+  
   renderHorizontalBarChat(d3.select('#exercise-frequency'), EXERCISE_FREQ, options.width, 250, false);
   drawWordCloud(d3.select('#exercise-type'), EXERCISE_WORDS, options);
-  renderHorizontalBarChat(d3.select('#intramurals'), INTRAMURALS, options.width, 250, false);
-  renderHorizontalBarChat(d3.select('#weight'), WEIGHT, options.width, 250, false);
-  drawWordCloud(d3.select('#controlled-substances'), RECREATIONAL_SUBSTANCES, options);
+  renderPieChart(d3.select('#intramurals'), INTRAMURALS, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#sport-level'), SPORT_LEVEL, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#intramural-frequency'), INTRAMURAL_FREQ, options.width, 250, false);
+
+  renderPieChart(d3.select('#self-esteem'), SELF_ESTEEM, options.width * 0.75, options.width * 0.75);
   renderPieChart(d3.select('#imposter-syndrome'), IMPOSTER_SYNDROME, options.width * 0.60, options.width * 0.60);
   renderPieChart(d3.select('#imposter-syndrome-now'), IMPOSTER_SYNDROME_NOW, options.width * 0.60, options.width * 0.60);
+}
+
+function renderCovid(options) {
+  renderPieChart(d3.select('#contracted-covid'), CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#know-someone-contracted-covid'), KNOW_SOMEONE_CONTRACTED_COVID, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#covid-doses'), COVID_DOSES, options.width, 250, false);
+  renderHistogram(d3.select('#covid-tests'), COVID_TESTS, options.width, 250, {domain: [0, 20], binCount: 4});
+  renderPieChart(d3.select('#follow-public-guidance'), FOLLOW_PUBLIC_GUIDANCE, options.width * 0.75, options.width * 0.75);
+  renderHistogram(d3.select('#largest-gathering'), LARGEST_GATHERING, options.width, 250, {domain: [1,120], binCount: 15}); 
+  renderPieChart(d3.select('#covid-full-time-impact'), FULL_TIME_AFFECTED_BY_COVID,options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#how-covid-full-time-impact'), HOW_FULL_TIME_AFFECTED_BY_COVID, options.width, 250, false);
 }
 
 function renderMisc(options) {
@@ -750,56 +800,7 @@ function renderRelationships(options) {
 
 function renderExchange(options) {
   renderPieChart(d3.select('#exchange-participation'), EXCHANGE.PARTICIPATION, options.width * 0.75, options.width * 0.75);
-  renderHorizontalBarChat(d3.select('#exchange-no-reasons'),
-    EXCHANGE.NO_REASON,
-    options.fullWidth,
-    300,
-    true
-  );
-
-  // exchange map handlers
-  function onMouseOver(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', () => '#ffe2b5');
-    }
-  }
-  function onMouseOut(data) {
-    if (data.properties.schools) {
-      d3.select(this)
-        .attr('fill', '#ffb84d');
-    } else {
-      d3.select(this)
-      .attr('fill', '#c3d6d2');
-    }
-  }
-  function onClick(data) {
-    const props = data.properties;
-    let exchangeStr = `<h5>${props.name}</h5>`;
-    if (props.schools) {
-      props.schools.forEach((school) => {
-        exchangeStr += `<div class="hvb"/> - ${school.uni_name} (${school.uni_abbrev}): ${school.count}`;
-      });
-    } else {
-      exchangeStr += `<div class="hvb"/> No respondents went on exchange in this country.`
-    }
-    d3.select("#exchange-map-text").html(exchangeStr);
-  }
-
-  renderGeographicMap(
-    d3.select('#exchange-countries-map'), EXCHANGE_GEO_DATA,
-    options.fullWidth, options.fullWidth * 0.45,
-    {
-      zoomThreshold: [0.5, 20],
-      scale: 250,
-      fillColourFunction: (data) => {
-        if (data.properties.schools) {
-          return '#ffb84d';
-        }
-        return '#c3d6d2';
-      },
-      onMouseOver,
-      onMouseOut,
-      onClick,
-    });
+  renderHorizontalBarChat(d3.select('#exchange-schools'), EXCHANGE.SCHOOLS, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-favourite'), EXCHANGE.FAVOURITE, options.width, 250, false);
+  renderHorizontalBarChat(d3.select('#exchange-challenges'), EXCHANGE.CHALLENGES, options.width, 250, false);
 }
