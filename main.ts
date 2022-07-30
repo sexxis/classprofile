@@ -15,7 +15,7 @@ import { TRANSFERRED,TERM_TRANSFERRED,REASONS_TRANSFERRED, DISLIKED_COURSES_TRAN
 import { EXTRACURRICULARS, GROCERY_STORES, TRAVEL_LOCATIONS, RESTAURANTS, SLEEP_TIME, SLEEP_DURATION, COOKING_FREQUENCY, EATING_OUT_FREQUENCY, FAVOURITE_EXERCISE, DESIGN_TEAM, PARTIES, HAPPY_THINGS, NEW_HOBBIES, PROGRAMMING_LANGUAGE, EDITOR, MOBILE_OS } from './data/lifestyle';
 import { FAVOURITE_MANDATORY, FAVOURITE_ELECTIVE, DISLIKED_MANDATORY, ATTENDANCE, GRADES, PARENT_GRADES, ATTENDANCE_GRADE, CAMPUS_LOCATION_PRE, CAMPUS_LOCATION_POST, FAVOURITE_PROF_COUNT, FAILING, OPTIONS, OVERLOADING, OVERLOADING_REASONS, LARGEST_WORKLOAD, TRANSFER_FROM, ENRICHED_VS_GRADES, SLEEP_VS_GRADES, ENTRANCE_VS_GRADES, GRADES_OFFICIAL } from './data/academics';
 import { INTERNATIONAL, PARENT_EDUCATION, ETHNICITY, GENDER, YEAR_OF_BIRTH, SEXUAL_ORIENTATION, HOME_LOCATION, FAMILY_INCOME, IMMIGRATED, SIBLINGS, ENRICHED_PROGRAM, CEGEP, CEGEP_ATTENDED, MOTHER_TONGUE, PROGRAMMING, CAT_OR_DOG, ADMISSION_AVERAGE, EMIGRATED_COUNTRY, NUM_LANGUAGE, LANGUAGE_KNOWN, SIBLINGS_PARENTS } from './data/background';
-import { ORIGINAL, CHOOSE_PROGRAM, GENDER_RATING } from './data/outcome';
+import { COURSE_WITH_LARGEST_WORKLOAD, BURNT_OUT, CONSIDERED_SWITCHING_OUT_OF_SE, PROGRAM_TO_SWITCH_TO, CONSIDERED_DROPPING_OUT_OF_UNI, HAPPY_WITH_CHOICE, P_ENG, SENIORITIS, START_AGAIN_PROGRAM } from './data/outcome';
 import { SALARY, WORK_LOCATION, FAVOURITE_LOCATION, HACKATHON_SALARY, SIDE_SALARY, ADMISSION_SALARY, COMPANY_WORK_COUNT, FAVOURITE_COMPANIES, GRADE_SALARY, GENDER_SALARY,LATE_INTERVIEWER, LATE_INTERVIEW, MISSED_INTERVIEW, FAVOURITE_COOP, FAVOURITE_COOP_REASON, COOP_RATINGS, COOP_TYPES, COOP_BREAKDOWN, COOP_JOBS } from './data/coop';
 import { BURNOUT, FIGHTS, REDDIT_USAGE, CRYING, TRANSFER_THOUGHTS, DROPOUT_THOUGHTS, SE21_GRAD } from './data/misc';
 import { POST_GRAD, POST_LOCATION, MOTIVATIONS, FULL_TIME_COMPENSATION, POST_RETURN_HOME, POST_CONTENTNESS, COOP_CONVERSION, FULL_TIME_COMPANY, CONT_FYDP, PENG } from './data/future';
@@ -110,7 +110,7 @@ window.onload = () => {
   renderLifestyle(options);
   renderAcademics(options);
   renderBackground(options);
-  renderOutcome(options);
+  renderExperience(options);
   renderFinances(options);
   renderHealth(options);
   renderCovid(options);
@@ -590,13 +590,16 @@ function renderBackground(options) {
   });
 }
 
-function renderOutcome(options) {
-  renderHorizontalBarChat(d3.select('#choose-program'), CHOOSE_PROGRAM, options.width, 280, true);
-  renderBoxPlot(d3.select('#gender-rating'), GENDER_RATING, options.width, 280, {
-    xAxisTitle: 'Gender',
-    yAxisTitle: 'Rating',
-    tickFormat: (d) => { return (d * 20) + '%'; }
-  });
+function renderExperience(options) {
+  renderHorizontalBarChat(d3.select('#highest-workload'), COURSE_WITH_LARGEST_WORKLOAD, options.width, 280, true);
+  renderPieChart(d3.select('#p-eng'), P_ENG, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#switch-out-se'), CONSIDERED_SWITCHING_OUT_OF_SE, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#program-switch-to'), PROGRAM_TO_SWITCH_TO, options.width, 250);
+  renderPieChart(d3.select('#drop-out-waterloo'), CONSIDERED_DROPPING_OUT_OF_UNI, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#redo-uni'), START_AGAIN_PROGRAM, options.width, 280);
+  renderPieChart(d3.select('#burnt-out-4B'), BURNT_OUT, options.width * 0.75, options.width * 0.75);
+  renderPieChart(d3.select('#senioritis'), SENIORITIS, options.width * 0.75, options.width * 0.75);
+  renderHorizontalBarChat(d3.select('#happy-with-choice'), HAPPY_WITH_CHOICE, options.width, 280);
 }
 
 function renderFinances(options) {
