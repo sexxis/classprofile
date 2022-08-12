@@ -1,7 +1,10 @@
 import * as d3 from "d3";
 import * as $ from "jquery";
 import { renderWordCloud } from "./shared/wordcloud";
-import { renderHorizontalBarChat } from "./shared/horizontalbarchart.js";
+import {
+  renderHorizontalBarChat,
+  renderMultipleHorizontalBarCharts,
+} from "./shared/horizontalbarchart.js";
 import {
   renderMultiSeriesHorizontalBarChat,
   renderGroupedBarChart,
@@ -12,7 +15,10 @@ import { renderBoxPlot } from "./shared/boxplot.js";
 import { renderMultiSeriesBoxPlot } from "./shared/multiseriesboxplot.js";
 import * as util from "./shared/utils";
 import { renderDotPlot, renderBinnedDotLine } from "./shared/dotplot.js";
-import { renderHistogram } from "./shared/histogram.js";
+import {
+  renderHistogram,
+  renderMultipleHistograms,
+} from "./shared/histogram.js";
 
 import {
   TRANSFERRED,
@@ -30,26 +36,38 @@ import {
   PARTY_DURING_COVID,
 } from "./data/lifestyle";
 import {
-  FAVOURITE_MANDATORY,
-  FAVOURITE_ELECTIVE,
-  DISLIKED_MANDATORY,
   ATTENDANCE,
+  ATTEND_OFFICE_HOURS,
+  BURN_OUT_PER_TERM,
+  CLASSES_FAILED,
+  CONTINUE_FYDP,
+  CR_NCR_IN_3A,
+  DESIGN_TEAM_OR_TECHNICAL_EXTRACURRICULARS,
+  FAVOURITE_COURSE,
+  FAVOURITE_COURSE_PER_TERM,
+  FAVOURITE_PROF,
+  FYDP_CATEGORY,
   GRADES,
-  PARENT_GRADES,
-  ATTENDANCE_GRADE,
-  CAMPUS_LOCATION_PRE,
-  CAMPUS_LOCATION_POST,
-  FAVOURITE_PROF_COUNT,
-  FAILING,
-  OPTIONS,
-  OVERLOADING,
-  OVERLOADING_REASONS,
-  LARGEST_WORKLOAD,
-  TRANSFER_FROM,
-  ENRICHED_VS_GRADES,
-  SLEEP_VS_GRADES,
-  ENTRANCE_VS_GRADES,
-  GRADES_OFFICIAL,
+  GRADES_MEDIAN,
+  HACKATHONS_ATTENDED,
+  HOURS_AT_SE_EVENTS_PER_WEEK,
+  HOURS_ON_DESIGN_TEAM_OR_TECHNICAL_EXTRACURRICULARS_PER_WEEK,
+  HOURS_ON_FYDP_PER_WEEK,
+  HOURS_ON_NON_TECHNICAL_EXTRACURRICULARS_PER_WEEK,
+  HOURS_ON_SIDE_PROJECTS_PER_WEEK,
+  HOUSING_COSTS,
+  LEAST_FAVOURITE_COURSE,
+  LEAST_FAVOURITE_COURSE_PER_TERM,
+  LIKE_FYDP,
+  NON_TECHNICAL_EXTRACURRICULARS,
+  NUM_CLASSES_FAILED,
+  NUM_MIDTERMS_FAILED,
+  OPTIONS_OR_MINORS,
+  OVERLOAD,
+  OVERLOAD_REASON,
+  PEOPLE_LIVED_WITH,
+  REASON_FOR_CR_NCR_IN_3A,
+  RESIDENCE,
 } from "./data/academics";
 import {
   INTERNATIONAL,
@@ -179,6 +197,27 @@ let campus_location_term_pre = [
 ];
 let campus_location_term_post = ["loc-4a", "loc-4b"];
 let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
+
+let terms = ["1a", "1b", "2a", "2b", "3a", "3b", "4a"];
+let housing_terms = terms.concat(["4b"]);
+
+let favourite_course_per_term = terms.map((x) => "favourite-course-" + x);
+let least_favourite_course_per_term = favourite_course_per_term.map(
+  (x) => "least-" + x
+);
+
+let housing_cost_per_term = terms.map((x) => "housing-cost-" + x);
+let people_lived_with_per_term = terms.map((x) => "people-lived-with-" + x);
+
+let hackathons_per_term = terms.map((x) => "hackathons-" + x);
+let side_projects_per_term = terms.map((x) => "side-projects-" + x);
+let se_events_per_term = terms.map((x) => "se-events-" + x);
+let technical_extra_per_term = terms.map((x) => "technical-extra-" + x);
+let non_technical_extra_per_term = technical_extra_per_term.map(
+  (x) => "non-" + x
+);
+let fydp_hours_per_term = ["fydp-hours-3b", "fydp-hours-4a"];
+
 let admission_salary = [
   "admission-salary-overall",
   "admission-salary-first-year",
@@ -239,6 +278,18 @@ const siblings_parents_legend = {
   "siblings-inc-size": "300k+ / year",
 };
 
+const attendence_class_legend = {
+  "0-25%": "0-25%",
+  "26-50%": "26-50%",
+  "51-75%": "51-75%",
+  "76-100%": "76-100%",
+};
+
+const yes_no_legend = {
+  Yes: "Yes",
+  No: "No",
+};
+
 const coop_jobs = {
   "coop-first-round": "First Round",
   "coop-continuous": "Continuous",
@@ -272,6 +323,7 @@ window.onload = () => {
   setMultiBarActive("enriched-overall", enriched_vs_grades);
   setMultiBarActive("admission-salary-overall", admission_salary);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
+  setMultiBarActive("1a", housing_terms);
   // setMultiBarActive("work-location-0", work_location);
   setupListeners();
 };
@@ -341,6 +393,65 @@ function setupListeners() {
       setMultiBarActive(j, enriched_vs_grades);
     };
   }
+
+  let residenceLocationItems = document.getElementsByClassName(
+    "residence-location-item"
+  );
+  for (let i = 0; i < residenceLocationItems.length; i++) {
+    let j = housing_terms[i];
+    (residenceLocationItems[i] as any).onclick = function () {
+      togglePressedForButtonItems(this, residenceLocationItems);
+      setMultiBarActive(j, housing_terms);
+    };
+  }
+
+  let technicalExtracurricularsItems = document.getElementsByClassName(
+    "technical-extracurriculars-item"
+  );
+  for (let i = 0; i < technicalExtracurricularsItems.length; i++) {
+    let j = housing_terms[i];
+    (technicalExtracurricularsItems[i] as any).onclick = function () {
+      togglePressedForButtonItems(this, technicalExtracurricularsItems);
+      setMultiBarActive(j, housing_terms);
+    };
+  }
+
+  setupMultiGraphListeners(
+    "favourite-course-per-term-item",
+    favourite_course_per_term
+  );
+
+  setupMultiGraphListeners(
+    "least-favourite-course-per-term-item",
+    least_favourite_course_per_term
+  );
+
+  setupMultiGraphListeners("housing-cost-per-term-item", housing_cost_per_term);
+  setupMultiGraphListeners(
+    "people-lived-with-per-term-item",
+    people_lived_with_per_term
+  );
+
+  setupMultiGraphListeners("hackathons-per-term-item", hackathons_per_term);
+
+  setupMultiGraphListeners(
+    "side-projects-per-term-item",
+    side_projects_per_term
+  );
+
+  setupMultiGraphListeners("se-events-per-term-item", se_events_per_term);
+
+  setupMultiGraphListeners(
+    "technical-extra-per-term-item",
+    technical_extra_per_term
+  );
+
+  setupMultiGraphListeners(
+    "non-technical-extra-per-term-item",
+    non_technical_extra_per_term
+  );
+
+  setupMultiGraphListeners("fydp-hours-per-term-item", fydp_hours_per_term);
 
   let admissionSalary = document.getElementsByClassName(
     "admission-salary-item"
@@ -432,6 +543,29 @@ function setMultiBarActive(term, arr) {
       }
     }
   }
+}
+
+function setBarGraphActive(term, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let item = document.getElementById(arr[i]);
+    if (term === arr[i]) {
+      (item as any).style.visibility = "initial";
+    } else {
+      (item as any).style.visibility = "hidden";
+    }
+  }
+}
+
+function setupMultiGraphListeners(button_name: string, graph_names: string[]) {
+  let selectorButtons = document.getElementsByClassName(button_name);
+  for (let i = 0; i < selectorButtons.length; i++) {
+    let graphName = graph_names[i];
+    (selectorButtons[i] as any).onclick = function () {
+      togglePressedForButtonItems(this, selectorButtons);
+      setBarGraphActive(graphName, graph_names);
+    };
+  }
+  setBarGraphActive(graph_names[0], graph_names);
 }
 
 /**
@@ -778,179 +912,315 @@ function renderLifestyle(options) {
 }
 
 function renderAcademics(options) {
-  renderMultiSeriesHorizontalBarChat(
-    d3.select("#campus-location-pre"),
-    CAMPUS_LOCATION_PRE,
-    400,
-    500,
-    false,
-    {
-      "loc-1a": 0,
-      "loc-1b": 1,
-      "loc-2a": 2,
-      "loc-2b": 3,
-      "loc-3a": 4,
-      "loc-3b": 5,
-    }
-  );
-  renderMultiSeriesHorizontalBarChat(
-    d3.select("#campus-location-post"),
-    CAMPUS_LOCATION_POST,
-    400,
-    300,
-    false,
-    { "loc-4a": 0, "loc-4b": 1 }
-  );
-  drawWordCloud(d3.select("#prof-cloud"), FAVOURITE_PROF_COUNT, options);
-  renderHorizontalBarChat(
-    d3.select("#failing"),
-    FAILING,
-    options.width,
-    100,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#options"),
-    OPTIONS,
-    options.width,
-    100,
-    true
-  );
-  renderHorizontalBarChat(
-    d3.select("#overloading"),
-    OVERLOADING,
-    options.width,
-    200,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#overloading-reasons"),
-    OVERLOADING_REASONS,
-    options.width,
-    200,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#largest-workload"),
-    LARGEST_WORKLOAD,
-    options.width,
-    200,
-    false
-  );
-
   renderBoxPlot(d3.select("#grades"), GRADES, options.width, 300, {
     yAxisTitle: "Term average",
     xAxisTitle: "Study term number",
   });
-  renderHorizontalBarChat(
-    d3.select("#favourite-mandatory"),
-    FAVOURITE_MANDATORY,
-    options.width,
-    390,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#disliked-mandatory"),
-    DISLIKED_MANDATORY,
-    options.width,
-    420,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#favourite-elective"),
-    FAVOURITE_ELECTIVE,
-    options.width,
-    390,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#transfer-from"),
-    TRANSFER_FROM,
-    options.width,
-    100,
-    false
-  );
-  renderLineChart(d3.select("#attendance"), ATTENDANCE, options.width, 300, {
-    toggle: "attendance",
-    yAxisTitle: "Proportion of class attended",
-    xAxisTitle: "Study term number",
-    range: [50, 100],
-  });
-  renderBoxPlot(
-    d3.select("#parent-grades"),
-    PARENT_GRADES,
-    options.width,
-    280,
-    {
-      yAxisTitle: "Cumulative average",
-      xAxisTitle: "Parents' education",
-    }
-  );
-  renderMultiSeriesBoxPlot(
-    d3.select("#enriched-grades"),
-    ENRICHED_VS_GRADES,
-    options.width,
-    280,
-    {
-      yAxisTitle: "Cumulative average",
-      xAxisTitle: "Enriched Programs",
-    },
-    { "enriched-overall": 0, "enriched-first-year": 1 }
-  );
-  renderMultiSeriesBoxPlot(
-    d3.select("#entrance-grades"),
-    ENTRANCE_VS_GRADES,
-    options.width,
-    280,
-    {
-      yAxisTitle: "Cumulative average",
-      // xAxisTitle: 'Enriched Program (EP)',
-    },
-    { "entrance-overall": 0, "entrance-first-year": 1 }
-  );
-  renderBoxPlot(
-    d3.select("#sleep-grades"),
-    SLEEP_VS_GRADES,
-    options.width,
-    280,
-    {
-      yAxisTitle: "Cumulative average",
-      xAxisTitle: "Hours of Sleep",
-    }
-  );
-  renderDotPlot(
-    d3.select("#distribution"),
-    ATTENDANCE_GRADE,
-    options.width,
-    300,
-    {
-      yAxisTitle: "Grades relative to average",
-      xAxisTitle: "Proportion of class attended",
-      domainValues: [0, 100],
-      rangeValues: [0, 100],
-      domain: [0, 10],
-      range: [-4, 4],
-      tickFormat: (d) => {
-        let sign = "+";
-        if (d < 0) {
-          sign = "";
-        }
-        return sign + d * 5 + "%";
-      },
-      xTickFormat: (d) => {
-        return d * 10 + "%";
-      },
-    }
-  );
+
   renderLineChart(
-    d3.select("#grades-official"),
-    GRADES_OFFICIAL,
+    d3.select("#grades-median"),
+    GRADES_MEDIAN,
     options.width,
     300,
     {
       yAxisTitle: "Grade (%)",
       xAxisTitle: "Academic term",
-      range: [50, 100],
+      range: [60, 100],
+    }
+  );
+
+  renderGroupedBarChart(
+    d3.select("#attendence-class"),
+    ATTENDANCE,
+    options.width,
+    250,
+    attendence_class_legend,
+    {
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Term",
+    }
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#num-midterms-failed"),
+    NUM_MIDTERMS_FAILED,
+    options.width,
+    250,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#num-classes-failed"),
+    NUM_CLASSES_FAILED,
+    options.width,
+    100,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#classes-failed"),
+    CLASSES_FAILED,
+    options.width,
+    300,
+    true
+  );
+
+  renderPieChart(
+    d3.select("#office-hours"),
+    ATTEND_OFFICE_HOURS,
+    options.width * 0.75,
+    options.width * 0.75,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#favourite-course"),
+    FAVOURITE_COURSE,
+    options.width,
+    500,
+    true
+  );
+
+  renderMultipleHorizontalBarCharts(
+    favourite_course_per_term,
+    FAVOURITE_COURSE_PER_TERM,
+    options.width,
+    400,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#least-favourite-course"),
+    LEAST_FAVOURITE_COURSE,
+    options.width,
+    500,
+    true
+  );
+
+  renderMultipleHorizontalBarCharts(
+    least_favourite_course_per_term,
+    LEAST_FAVOURITE_COURSE_PER_TERM,
+    options.width,
+    400,
+    true
+  );
+
+  drawWordCloud(d3.select("#favourite-prof"), FAVOURITE_PROF, options);
+
+  renderHorizontalBarChat(
+    d3.select("#options-minors"),
+    OPTIONS_OR_MINORS,
+    options.width,
+    300,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#fydp-category"),
+    FYDP_CATEGORY,
+    options.width,
+    200,
+    true
+  );
+
+  renderPieChart(
+    d3.select("#like-fydp"),
+    LIKE_FYDP,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderPieChart(
+    d3.select("#continue-fydp"),
+    CONTINUE_FYDP,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderGroupedBarChart(
+    d3.select("#overload"),
+    OVERLOAD,
+    options.width,
+    250,
+    yes_no_legend,
+    {
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Term",
+    }
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#overload-reason"),
+    OVERLOAD_REASON,
+    options.width,
+    500,
+    true
+  );
+
+  renderPieChart(
+    d3.select("#cr-nr-3a"),
+    CR_NCR_IN_3A,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#cr-nr-3a-reason"),
+    REASON_FOR_CR_NCR_IN_3A,
+    options.width,
+    250,
+    false
+  );
+
+  renderMultiSeriesHorizontalBarChat(
+    d3.select("#residence-location"),
+    RESIDENCE,
+    400,
+    1000,
+    false,
+    housing_terms.reduce((acc, value) => {
+      return { ...acc, [value]: Object.keys(acc).length };
+    }, {})
+  );
+
+  renderMultipleHistograms(
+    housing_cost_per_term,
+    HOUSING_COSTS,
+    options.width,
+    250,
+    {
+      binCount: 7,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Cost of housing",
+      domain: [0, 6000],
+      yDomain: [0, 30],
+    }
+  );
+
+  renderMultipleHistograms(
+    people_lived_with_per_term,
+    PEOPLE_LIVED_WITH,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Number of people lived with",
+      domain: [0, 8],
+      yDomain: [0, 30],
+    }
+  );
+
+  renderMultipleHistograms(
+    hackathons_per_term,
+    HACKATHONS_ATTENDED,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Number of Hackathons",
+      domain: [0, 10],
+      yDomain: [0, 45],
+    }
+  );
+
+  renderMultipleHistograms(
+    side_projects_per_term,
+    HOURS_ON_SIDE_PROJECTS_PER_WEEK,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Hours per Week",
+      domain: [0, 10],
+      yDomain: [0, 35],
+    }
+  );
+
+  renderMultipleHistograms(
+    se_events_per_term,
+    HOURS_AT_SE_EVENTS_PER_WEEK,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Hours per week",
+      domain: [0, 10],
+      yDomain: [0, 35],
+    }
+  );
+
+  renderMultiSeriesHorizontalBarChat(
+    d3.select("#technical-extracurriculars"),
+    DESIGN_TEAM_OR_TECHNICAL_EXTRACURRICULARS,
+    400,
+    500,
+    true,
+    housing_terms.reduce((acc, value) => {
+      return { ...acc, [value]: Object.keys(acc).length };
+    }, {})
+  );
+
+  renderMultipleHistograms(
+    technical_extra_per_term,
+    HOURS_ON_DESIGN_TEAM_OR_TECHNICAL_EXTRACURRICULARS_PER_WEEK,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Hours per week",
+      domain: [0, 10],
+      yDomain: [0, 45],
+    }
+  );
+
+  drawWordCloud(
+    d3.select("#non-technical-extracurriculars-cloud"),
+    NON_TECHNICAL_EXTRACURRICULARS,
+    options
+  );
+
+  renderMultipleHistograms(
+    non_technical_extra_per_term,
+    HOURS_ON_NON_TECHNICAL_EXTRACURRICULARS_PER_WEEK,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Hours per week",
+      domain: [0, 10],
+      yDomain: [0, 40],
+    }
+  );
+
+  renderMultipleHistograms(
+    fydp_hours_per_term,
+    HOURS_ON_FYDP_PER_WEEK,
+    options.width,
+    250,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Hours per week",
+      domain: [0, 10],
+      yDomain: [0, 8],
+    }
+  );
+
+  renderGroupedBarChart(
+    d3.select("#burnout-per-term"),
+    BURN_OUT_PER_TERM,
+    options.width,
+    250,
+    { No: "No", Yes: "Yes" },
+    {
+      xAxisTitle: "Term",
+      yAxisTitle: "Number of Students",
     }
   );
 }
@@ -1696,6 +1966,7 @@ function renderRelationships(options) {
     options.width * 0.75,
     options.width * 0.75
   );
+
   renderHorizontalBarChat(
     d3.select("#romance-cheating-reasons"),
     ROMANCE.CHEATING_REASONS,

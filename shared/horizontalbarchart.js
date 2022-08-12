@@ -140,4 +140,29 @@ function renderHorizontalBarChat(elem, unsortedData, width, height, sort) {
       });
 }
 
-export { renderHorizontalBarChat };
+/*
+    Renders multiple bar graphs given a dictionary of data inputs.
+
+    elem_names: string list of class names
+    data: data should be passed in in the following format for clarity
+        let DATA = {
+            GRAPH_1_DATA: [
+                {name: A, value: B},
+                ...
+            ],
+            GRAPH_2_DATA: [
+                {name: X, value: Y},
+                ...
+            ],
+            ...
+        };
+    The rest of the params are the same as renderHorizontalBarChat
+*/
+function renderMultipleHorizontalBarCharts(elem_names, data, width, height, sort) {
+    const dataList = Object.keys(data).map(function(key){ return data[key] });
+    for (let idx = 0; idx < elem_names.length; idx++) {
+        renderHorizontalBarChat(d3.select("#" + elem_names[idx]), dataList[idx], width, height, sort);
+    }
+}
+
+export { renderHorizontalBarChat, renderMultipleHorizontalBarCharts };
