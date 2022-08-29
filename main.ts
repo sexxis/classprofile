@@ -239,10 +239,12 @@ let work_location = [
 let concise_version = false;
 
 const friends_groups = {
-  "friends-gain-coop": "Gained over coop term",
-  "friends-loss-coop": "Lost over coop term",
-  "friends-gain-study": "Gained over study term",
-  "friends-loss-study": "Lost over study term",
+  "high-school": "High school friends still considered close friends",
+  coop: "Co-op friends still considered close friends",
+  residence: "Residence friends still considered close friends",
+  orientation: "Orientation friends still considered close friends",
+  "se-before-uw": "People in SE known before UW",
+  "se-close-friends": "People in SE considered close friends",
 };
 
 const coop_ratings = {
@@ -1876,50 +1878,65 @@ function renderTransfers(options) {
 
 function renderRelationships(options) {
   // family section
-  renderHistogram(
-    d3.select("#fam-digital"),
-    FAMILY.DIGITAL,
-    options.width,
-    200,
-    {
-      binCount: 7,
-      yAxisTitle: "Count",
-      xAxisTitle: "Hours",
-    }
+  renderHorizontalBarChat(
+    d3.select("#speak-year-1"),
+    FAMILY.SPEAK_YEAR_1,
+    options.width * 0.75,
+    250,
+    false
   );
 
-  renderHistogram(
-    d3.select("#fam-physical"),
-    FAMILY.PHYSICAL_DAYS,
-    options.width,
-    200,
-    {
-      binCount: 10,
-      yAxisTitle: "Count",
-      xAxisTitle: "Days",
-    }
+  renderHorizontalBarChat(
+    d3.select("#speak-year-4"),
+    FAMILY.SPEAK_YEAR_4,
+    options.width * 0.75,
+    250,
+    false
   );
 
-  renderBinnedDotLine(
-    d3.select("#fam-distance"),
-    FAMILY.DISTANCE,
-    options.fullWidth,
-    400,
-    {
-      domain: [0, 13], // ignoring the last few values that skew the graph
-      binCount: 12,
-      fillColour: "#18bbc9",
-    }
+  renderHorizontalBarChat(
+    d3.select("#home-year-1"),
+    FAMILY.HOME_YEAR_1,
+    options.width * 0.75,
+    250,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#home-year-4"),
+    FAMILY.HOME_YEAR_4,
+    options.width * 0.75,
+    250,
+    false
   );
 
   // friends section
   renderGroupedBarChart(
-    d3.select("#friends-gain-term"),
+    d3.select("#friends-cumulative"),
     FRIENDSHIPS.CUMULATIVE,
     options.fullWidth,
     500,
     friends_groups,
-    {}
+    {
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Number of Friends",
+    }
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#close-friend-se"),
+    FRIENDSHIPS.CLOSE_FRIEND_SE,
+    options.width * 0.75,
+    250,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#se-people-met"),
+    FRIENDSHIPS.SE_PEOPLE_MET,
+    options.width * 0.75,
+    250,
+    false
   );
 
   // romance section
