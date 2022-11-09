@@ -1941,7 +1941,7 @@ function renderRelationships(options) {
 
   // romance section
   renderHistogram(
-    d3.select("#romance-degree"),
+    d3.select("#degree-non-single"),
     ROMANCE.DEGREE_NON_SINGLE,
     options.fullWidth,
     300,
@@ -1953,43 +1953,70 @@ function renderRelationships(options) {
   );
 
   renderHorizontalBarChat(
-    d3.select("#romance-relationship-count"),
+    d3.select("#relationship-count"),
     ROMANCE.RELATIONSHIP_COUNT,
     options.width,
     250,
     false
   );
   renderPieChart(
-    d3.select("#romance-secest"),
+    d3.select("#secest"),
     ROMANCE.SECEST,
     options.width * 0.75,
     options.width * 0.75
   );
 
-  renderBoxPlot(
-    d3.select("#romance-sex"),
+  renderHorizontalBarChat(
+    d3.select("#sexual-partners"),
     ROMANCE.SEXUAL_PARTNERS,
+    options.width,
+    250,
+    false
+  );
+
+  renderBoxPlot(
+    d3.select("#rice-purity"),
+    ROMANCE.RICE_PURITY,
     options.width,
     280,
     {
-      yAxisTitle: "Number of sexual partners",
-      xAxisTitle: "Sexual activity",
+      yAxisTitle: "Rice Purity Test Score",
+      xAxisTitle: "Time",
     }
   );
 
   renderPieChart(
-    d3.select("#romance-cheating"),
+    d3.select("#cheating"),
     ROMANCE.CHEATING,
     options.width * 0.75,
     options.width * 0.75
   );
 
-  renderHorizontalBarChat(
-    d3.select("#romance-cheating-reasons"),
-    ROMANCE.CHEATING_REASONS,
-    options.width,
-    250,
-    false
+  renderPieChart(
+    d3.select("#dating-apps"),
+    ROMANCE.DATING_APPS,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  drawWordCloud(
+    d3.select("#controlled-substances"),
+    ROMANCE.CONTROLLED_SUBSTANCES,
+    options
+  );
+
+  renderPieChart(
+    d3.select("#class-drunk"),
+    ROMANCE.CLASS_DRUNK,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderPieChart(
+    d3.select("#exam-drunk"),
+    ROMANCE.EXAM_DRUNK,
+    options.width * 0.75,
+    options.width * 0.75
   );
 }
 

@@ -263,56 +263,85 @@ const FRIENDSHIPS = {
 };
 
 const ROMANCE = {
-  MONTHS_NON_SINGLE: [
-    10, 9, 12, 20, 29, 6, 0, 20, 51, 0, 4, 18, 0, 0, 52, 48, 2, 24, 4, 40, 0, 0,
-    0, 12, 25, 0, 13, 36, 10, 21, 4, 28, 51, 24, 26, 20, 0, 11, 52, 28, 40, 52,
-    0, 0, 52, 0, 20, 28, 38, 0, 24, 53, 32, 56, 0, 47, 0,
+  DEGREE_NON_SINGLE: [
+    39, 0, 95, 0, 38, 71, 0, 14, 36, 43, 32, 0, 79, 9, 0, 86, 21, 50, 70, 61,
+    100, 43, 70, 5, 43, 0, 23, 45, 13, 84, 7, 100, 2, 4, 11, 71, 70, 0, 21, 9,
+    0, 29, 64, 0, 100, 0, 7, 0, 27, 95, 45, 0, 20, 25,
   ],
-  DEGREE_NON_SINGLE: [],
   RELATIONSHIP_COUNT: [
-    { name: "0", value: 15 },
-    { name: "1", value: 26 },
-    { name: "2", value: 12 },
-    { name: "3", value: 3 },
+    { name: "0", value: 12 },
+    { name: "1", value: 13 },
+    { name: "2", value: 17 },
+    { name: "3", value: 7 },
+    { name: "4", value: 1 },
+    { name: "5", value: 1 },
   ],
   SEXUAL_PARTNERS: [
+    { name: "0", value: 15 },
+    { name: "1", value: 12 },
+    { name: "2", value: 11 },
+    { name: "3", value: 4 },
+    { name: "4", value: 2 },
+    { name: "5", value: 0 },
+    { name: "6", value: 3 },
+    { name: "7", value: 1 },
+    { name: "8", value: 1 },
+    { name: "9", value: 1 },
+    { name: "10", value: 0 },
+    { name: "11", value: 0 },
+    { name: "12", value: 2 },
+  ],
+  CHEATING: [
+    { name: "No", value: 48 },
+    { name: "Yes, I cheated on someone else", value: 1 },
+    { name: "Yes, I was cheated on", value: 1 },
+    { name: "Yes, involved in some other way", value: 4 },
+  ],
+  SECEST: [
+    { name: "Currently", value: 11 },
+    { name: "Past", value: 6 },
+    { name: "Never", value: 38 },
+  ],
+  RICE_PURITY: [
     {
       name: "Before university",
       value: [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
-        2, 2, 2, 2, 3, 4,
+        72, 90, 75, 95, 88, 85, 67, 75, 95, 97, 89, 93, 56, 96, 90, 95, 89, 95,
+        94, 93, 80, 95, 79, 60, 96, 65, 82, 91, 79, 95, 77, 96, 94, 90, 70,
       ],
     },
     {
-      name: "During university",
+      name: "After university",
       value: [
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3,
-        3, 4, 4, 5, 7, 9,
+        71, 89, 53, 71, 44, 31, 62, 35, 32, 70, 45, 54, 19, 63, 44, 50, 40, 51,
+        40, 91, 64, 50, 59, 53, 61, 55, 53, 50, 37, 69, 48, 54, 77, 28, 86, 35,
+        96, 95, 38, 64, 39, 35, 44,
       ],
     },
   ],
-  SECEST: [
-    { name: "No", value: 50 },
-    { name: "Yes (SE 2021)", value: 3 },
-    { name: "Yes (not SE 2021)", value: 2 },
-    { name: "Yes (both)", value: 2 },
+  DATING_APPS: [
+    { name: "Yes", value: 26 },
+    { name: "No", value: 28 },
   ],
-  CHEATING: [
-    { name: "No", value: 47 },
-    { name: "Yes", value: 8 },
+  CONTROLLED_SUBSTANCES: {
+    Weed: 33,
+    Alcohol: 41,
+    LSD: 7,
+    Hallucinogens: 8,
+    Tobacco: 14,
+    "MDMA / Ecstasy / Molly": 5,
+    Adderall: 5,
+    Cocaine: 1,
+    PCP: 1,
+  },
+  CLASS_DRUNK: [
+    { name: "Yes", value: 14 },
+    { name: "No", value: 39 },
   ],
-  CHEATING_REASONS: [
-    { name: "Have been cheated on", value: 6 },
-    { name: "Helped someone cheat", value: 2 },
-    { name: "Cheated on someone", value: 2 },
+  EXAM_DRUNK: [
+    { name: "Yes", value: 5 },
+    { name: "No", value: 48 },
   ],
 };
-
-// degree = 56 months
-// ROMANCE.DEGREE_NON_SINGLE = ROMANCE.MONTHS_NON_SINGLE.map((months) => {
-//   return (months / 56) * 100;
-// });
 
 export { FAMILY, FRIENDSHIPS, ROMANCE };
