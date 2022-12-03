@@ -133,18 +133,7 @@ import {
   DROPOUT_THOUGHTS,
   SE21_GRAD,
 } from "./data/misc";
-import {
-  POST_GRAD,
-  POST_LOCATION,
-  MOTIVATIONS,
-  FULL_TIME_COMPENSATION,
-  POST_RETURN_HOME,
-  POST_CONTENTNESS,
-  COOP_CONVERSION,
-  FULL_TIME_COMPANY,
-  CONT_FYDP,
-  PENG,
-} from "./data/future";
+import { CONT_FYDP, COOP_CONVERSION, FULL_TIME_COMPANY, FULL_TIME_COMPANY_TYPE, FULL_TIME_COMPENSATION, LAST_COOP_TERM_RETURN, MOTIVATIONS_FIRST, MOTIVATIONS_SECOND, MOTIVATIONS_THIRD, PENG, PERCENT_REMOTE, PLANNED_TIME_AT_COMPANY, POST_CONTENTNESS, POST_GRAD, POST_LOCATION, RETURN_TO_HOME_COUNTRY } from "./data/future";
 import { FAMILY, FRIENDSHIPS, ROMANCE } from "./data/relationships";
 import {
   INVEST,
@@ -1739,13 +1728,168 @@ function renderMisc(options) {
 }
 
 function renderFuture(options) {
+  renderHorizontalBarChat(
+    d3.select("#post-grad"),
+    POST_GRAD,
+    options.width,
+    150,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#career-motivations-1"),
+    MOTIVATIONS_FIRST,
+    options.width,
+    180,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#career-motivations-2"),
+    MOTIVATIONS_SECOND,
+    options.width,
+    180,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#career-motivations-3"),
+    MOTIVATIONS_THIRD,
+    options.width,
+    180,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#post-location"),
+    POST_LOCATION,
+    options.width,
+    180,
+    true
+  );
+
   drawWordCloud(d3.select("#ft-company"), FULL_TIME_COMPANY, options);
+  
+  renderHorizontalBarChat(
+    d3.select("#ft-company-type"),
+    FULL_TIME_COMPANY_TYPE,
+    options.width,
+    180,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#post-contentness"),
+    POST_CONTENTNESS,
+    options.width,
+    180,
+    false
+  );
+
+  renderHistogram(
+    d3.select("#ft-base"),
+    FULL_TIME_COMPENSATION.base,
+    options.width,
+    200,
+    {
+      binCount: 8,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
+  renderHistogram(
+    d3.select("#ft-stock-first-year"),
+    FULL_TIME_COMPENSATION.stock_first_year,
+    options.width,
+    200,
+    {
+      binCount: 6,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
+  renderHistogram(
+    d3.select("#ft-one-time-bonus"),
+    FULL_TIME_COMPENSATION.one_time_bonus,
+    options.width,
+    200,
+    {
+      binCount: 6,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
+  renderHistogram(
+    d3.select("#ft-eoy-recurring-comp"),
+    FULL_TIME_COMPENSATION.eoy_recurring_comp,
+    options.width,
+    200,
+    {
+      binCount: 6,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
+  renderHistogram(
+    d3.select("#ft-year-1-total-comp"),
+    FULL_TIME_COMPENSATION.year1_total_comp,
+    options.width,
+    200,
+    {
+      binCount: 6,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
+  renderHistogram(
+    d3.select("#ft-total-stock-grant"),
+    FULL_TIME_COMPENSATION.total_stock_grant,
+    options.width,
+    200,
+    {
+      binCount: 6,
+      yAxisTitle: "Count",
+      xAxisTitle: "CAD (thousands)",
+    }
+  );
 
   renderPieChart(
     d3.select("#coop-conversion"),
     COOP_CONVERSION,
     options.width * 0.75,
     options.width * 0.75
+  );
+  renderHorizontalBarChat(
+    d3.select("#coop-return-which-term"),
+    LAST_COOP_TERM_RETURN,
+    options.width,
+    180,
+    false
+  );
+  renderHistogram(
+    d3.select("#percent-remote"),
+    PERCENT_REMOTE,
+    options.width,
+    200,
+    {
+      binCount: 10,
+      yAxisTitle: "Count",
+      xAxisTitle: "% of time remote",
+    }
+  );
+  renderHorizontalBarChat(
+    d3.select("#planned-time-at-company"),
+    PLANNED_TIME_AT_COMPANY,
+    options.width,
+    180,
+    false
+  );
+  renderHorizontalBarChat(
+    d3.select("#return-to-home-country"),
+    RETURN_TO_HOME_COUNTRY,
+    options.width,
+    180,
+    false
   );
   renderPieChart(
     d3.select("#cont-fydp"),
@@ -1758,86 +1902,6 @@ function renderFuture(options) {
     PENG,
     options.width * 0.75,
     options.width * 0.75
-  );
-  renderPieChart(
-    d3.select("#post-return-home"),
-    POST_RETURN_HOME,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-
-  renderHorizontalBarChat(
-    d3.select("#post-grad"),
-    POST_GRAD,
-    options.width,
-    150,
-    true
-  );
-  renderHorizontalBarChat(
-    d3.select("#post-location"),
-    POST_LOCATION,
-    options.width,
-    180,
-    true
-  );
-  renderHorizontalBarChat(
-    d3.select("#motivation"),
-    MOTIVATIONS,
-    options.width,
-    180,
-    true
-  );
-  renderHorizontalBarChat(
-    d3.select("#post-contentness"),
-    POST_CONTENTNESS,
-    options.width,
-    180,
-    false
-  );
-
-  renderHistogram(
-    d3.select("#ft-total"),
-    FULL_TIME_COMPENSATION.TOTAL,
-    options.width,
-    200,
-    {
-      binCount: 8,
-      yAxisTitle: "Count",
-      xAxisTitle: "CAD (thousands)",
-    }
-  );
-  renderHistogram(
-    d3.select("#ft-hourly"),
-    FULL_TIME_COMPENSATION.HOURLY,
-    options.width,
-    200,
-    {
-      binCount: 5,
-      yAxisTitle: "Count",
-      xAxisTitle: "CAD",
-    }
-  );
-  renderHistogram(
-    d3.select("#ft-stock"),
-    FULL_TIME_COMPENSATION.STOCK,
-    options.width,
-    200,
-    {
-      binCount: 6,
-      yAxisTitle: "Count",
-      xAxisTitle: "CAD (thousands)",
-    }
-  );
-  renderHistogram(
-    d3.select("#ft-signing"),
-    FULL_TIME_COMPENSATION.SIGNING,
-    options.width,
-    200,
-    {
-      binCount: 6,
-      yAxisTitle: "Count",
-      xAxisTitle: "CAD (thousands)",
-    }
   );
 }
 
