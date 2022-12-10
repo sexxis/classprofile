@@ -1767,7 +1767,7 @@ function renderFuture(options) {
   );
 
   drawWordCloud(d3.select("#ft-company"), FULL_TIME_COMPANY, options);
-  
+
   renderHorizontalBarChat(
     d3.select("#ft-company-type"),
     FULL_TIME_COMPANY_TYPE,
