@@ -21,11 +21,9 @@ import {
 } from "./shared/histogram.js";
 
 import {
-  TRANSFERRED,
-  TERM_TRANSFERRED,
+  LAST_SE_TERM,
   REASONS_TRANSFERRED,
-  DISLIKED_COURSES_TRANSFERRED,
-  REGRET_TRANSFFERED,
+  HAPPY_SWITCHING,
 } from "./data/transfers";
 import {
   SLEEP_TIME,
@@ -1906,16 +1904,9 @@ function renderFuture(options) {
 }
 
 function renderTransfers(options) {
-  renderPieChart(
-    d3.select("#students-transferred"),
-    TRANSFERRED,
-    options.width * 0.75,
-    options.width * 0.75,
-    false
-  );
   renderHorizontalBarChat(
-    d3.select("#term-transferred"),
-    TERM_TRANSFERRED,
+    d3.select("#last-se-term"),
+    LAST_SE_TERM,
     options.width * 0.75,
     250,
     false
@@ -1926,15 +1917,9 @@ function renderTransfers(options) {
     options.width * 0.75,
     options.width * 0.75
   );
-  renderHorizontalBarChat(
-    d3.select("#disliked-courses-transferred"),
-    DISLIKED_COURSES_TRANSFERRED,
-    options.width * 0.75,
-    250
-  );
   renderPieChart(
-    d3.select("#regret-transferred"),
-    REGRET_TRANSFFERED,
+    d3.select("#happy-switching"),
+    HAPPY_SWITCHING,
     options.width * 0.75,
     options.width * 0.75
   );
