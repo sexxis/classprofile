@@ -1,141 +1,37 @@
-let INTERNATIONAL = [{
-  'name': 'Canadian',
-  'value': 64,
-}, {
-  'name': 'International',
-  'value': 6,
-}, {
-  'name': 'Prefer not to disclose',
-  'value': 2,
-}]
-
-
-let PARENT_EDUCATION = [{
-  "name": "Masters",
-  "value": 31
-    }, {
-  "name": "Bachelors",
-  "value": 19
-  }, {
-  "name": "Prefer not to disclose",
-  "value": 1
-  }, {
-  "name": "Doctorates",
-  "value": 10
-  }, {
-  "name": "High school",
-  "value": 4
-  }, {
-  "name": "College Diploma",
-  "value": 6
-  }];
-
-
-let ETHNICITY = [{
-  "name": "Middle Eastern Caucasian",
-  "value": 1,
-  "toggle": "ethnicity-all"
-}, {
+// Which of the following ethnic group(s) best describes you?
+const ETHNICITY = [{
   "name": "East Asian Caucasian",
-  "value": 1,
-  "toggle": "ethnicity-all"
-}, {
-  "name": "Caucasian",
-  "value": 22,
-  "toggle": "ethnicity-all"
-}, {
-  "name": "South East Asian",
-  "value": 1,
-  "toggle": "ethnicity-all"
-},  {
-  "name": "South Asian",
-  "value": 8,
-  "toggle": "ethnicity-all"
-}, {
-  "name": "East Asian",
-  "value": 35,
-  "toggle": "ethnicity-all"
-}, {
-  "name": "Middle Eastern",
-  "value": 3,
-  "toggle": "ethnicity-all"
-}, {
-  "name": "Prefer not to disclose",
-  "value": 1,
-  "toggle": "ethnicity-all"
-},
-// Women
-{
-  "name": "Middle Eastern Caucasian",
-  "value": 0,
-  "toggle": "ethnicity-women"
-}, {
-  "name": "East Asian Caucasian",
-  "value": 0,
-  "toggle": "ethnicity-women"
-}, {
-  "name": "Caucasian",
   "value": 2,
-  "toggle": "ethnicity-women"
 }, {
-  "name": "South East Asian",
-  "value": 0,
-  "toggle": "ethnicity-women"
-},  {
-  "name": "South Asian",
+  "name": "Southeast Asian Caucasian",
   "value": 1,
-  "toggle": "ethnicity-women"
-}, {
-  "name": "East Asian",
-  "value": 12,
-  "toggle": "ethnicity-women"
-}, {
-  "name": "Middle Eastern",
-  "value": 0,
-  "toggle": "ethnicity-women"
-}, {
-  "name": "Prefer not to disclose",
-  "value": 0,
-  "toggle": "ethnicity-women"
-},
-// Men
-{
-  "name": "Middle Eastern Caucasian",
-  "value": 1,
-  "toggle": "ethnicity-men"
-}, {
-  "name": "East Asian Caucasian",
-  "value": 1,
-  "toggle": "ethnicity-men"
 }, {
   "name": "Caucasian",
-  "value": 20,
-  "toggle": "ethnicity-men"
+  "value": 14,
 }, {
   "name": "South East Asian",
-  "value": 1,
-  "toggle": "ethnicity-men"
-},  {
+  "value": 2,
+}, {
   "name": "South Asian",
-  "value": 7,
-  "toggle": "ethnicity-men"
+  "value": 6,
 }, {
   "name": "East Asian",
-  "value": 21,
-  "toggle": "ethnicity-men"
+  "value": 37,
 }, {
   "name": "Middle Eastern",
-  "value": 3,
-  "toggle": "ethnicity-men"
-}, {
-  "name": "Prefer not to disclose",
   "value": 1,
-  "toggle": "ethnicity-men"
+}, {
+  "name": "Black",
+  "value": 2,
+}, {
+  "name": "Latin American",
+  "value": 1,
 }]
 
-let GENDER = [{
+// What is your gender?
+const GENDER = [{
   "name": "Men",
-  "value": 55
+  "value": 39
 }, {
   "name": "Women",
   "value": 15
@@ -144,208 +40,142 @@ let GENDER = [{
   "value": 1
 }, {
   "name": "Prefer not to disclose",
-  "value": 1
+  "value": 9
 }];
 
-let YEAR_OF_BIRTH = [{
+// What year were you born?
+const YEAR_OF_BIRTH = [{
   "name": "1996",
-  "value": 2
+  "value": 1
 }, {
   "name": "1997",
-  "value": 9
+  "value": 2
 }, {
   "name": "1998",
-  "value": 55
+  "value": 4
 }, {
   "name": "1999",
-  "value": 6
+  "value": 42
 }];
 
-let SEXUAL_ORIENTATION = [{
+// What is your sexual orientation?
+const SEXUAL_ORIENTATION = [{
   "name": "Heterosexual",
-  "value": 63
-}, {
-  "name": "Homosexual",
-  "value": 2
+  "value": 51
 }, {
   "name": "Bisexual",
   "value": 3
 }, {
   "name": "Prefer not to disclose",
-  "value": 4
+  "value": 8
 }];
 
-let HOME_LOCATION = [{
+// Where do you consider your home (city, province, country)?
+const HOME_LOCATION = [{
   "name": "GTA / Toronto",
-  "value": 31
+  "value": 21
 }, {
-  "name": "Kitchener / Waterloo",
-  "value": 3
+  "name": "Ottawa",
+  "value": 8
 }, {
   "name": "Other Ontario",
-  "value": 13
+  "value": 6
 }, {
   "name": "Alberta",
-  "value": 5
+  "value": 1
+}, {
+  "name": "Manitoba",
+  "value": 2
 }, {
   "name": "British Columbia",
   "value": 4
 }, {
-  "name": "New Brunswick",
-  "value": 2
-}, {
   "name": "Quebec",
-  "value": 5
+  "value": 2
 }, {
   "name": "China",
-  "value": 5
+  "value": 1
 }, {
   "name": "India",
-  "value": 1
-}, {
-  "name": "Prefer not to disclose",
-  "value": 3
-}];
-
-let IMMIGRATED = [{
-  "name": "Yes",
-  "value": 25
-}, {
-  "name": "No",
-  "value": 39
-}, {
-  "name": "Not Applicable (International Student)",
-  "value": 6
-}];
-
-let EMIGRATED_COUNTRY = [{
-  "name": "BELGIUM",
-  "value": 1
-}, {
-  "name": "CHINA",
-  "value": 10
-}, {
-  "name": "ENGLAND",
-  "value": 1
-}, {
-  "name": "INDIA",
-  "value": 4
-}];
-
-let NUM_LANGUAGE = [{
-  "name": "1",
-  "value": 14
-}, {
-  "name": "2",
-  "value": 18
-}, {
-  "name": "3",
-  "value": 5
-}, {
-  "name": "4",
-  "value": 1
-}];
-
-let LANGUAGE_KNOWN = [{
-  "name": "FRENCH",
-  "value": 8
-}, {
-  "name": "FARSI",
-  "value": 1
-}, {
-  "name": "MANDARIN",
-  "value": 10
-}, {
-  "name": "HINDI",
-  "value": 3
-}, {
-  "name": "PUNJABI",
-  "value": 2
-}, {
-  "name": "TELUGU",
-  "value": 1
-}, {
-  "name": "TAMIL",
-  "value": 1
-}, {
-  "name": "CANTONESE",
-  "value": 2
-}, {
-  "name": "CHINESE (UNSPECIFIED)",
   "value": 2
 }];
 
-let SIBLINGS = [{
-  "name": "0",
-  "value": 22
-}, {
-  "name": "1",
-  "value": 33
-}, {
-  "name": "2",
-  "value": 12
-}, {
-  "name": "5",
+// Which languages do you speak now?
+const LANGUAGES_KNOWN = [{
+  "name": "Amharic",
   "value": 1
 }, {
-  "name": "Prefer not to disclose",
-  "value": 4
-}];
-
-let ENRICHED_PROGRAM = [{
-  "name": "None",
-  "value": 36
-}, {
-  "name": "AP",
-  "value": 16
-}, {
-  "name": "IB",
-  "value": 12
-}, {
-  "name": "TOPS",
-  "value": 1
-}, {
-  "name": "Sport Études",
-  "value": 1
-}, {
-  "name": "A Levels",
-  "value": 1
-}, {
-  "name": "Gifted",
-  "value": 2
-}];
-
-let CEGEP = [{
-  "name": "Yes, but I only attended partially (did not graduate)",
-  "value": 5
-}];
-
-let CEGEP_ATTENDED = [{
-  "name": "Applied Sciences",
-  "value": 1
-}, {
-  "name": "Science pure and applied",
-  "value": 2
-}, {
-  "name": "Pure science",
-  "value": 1
-}, {
-  "name": "Computer Science and Mathematics",
-  "value": 1
-}];
-
-let MOTHER_TONGUE = [{
   "name": "English",
-  "value": 38
-}, {
-  "name": "French",
-  "value": 2
+  "value": 47
 }, {
   "name": "Mandarin",
-  "value": 18
+  "value": 17
 }, {
-  "name": "Cantonese",
+  "name": "Hindi",
+  "value": 4
+}, {
+  "name": "Punjabi",
+  "value": 1
+}, {
+  "name": "Arabic",
+  "value": 1
+}, {
+  "name": "Sinhalese",
   "value": 2
+}, {
+  "name": "French",
+  "value": 17
+}, {
+  "name": "Spanish",
+  "value": 4
+}, {
+  "name": "Korean",
+  "value": 1
+}, {
+  "name": "Swahili",
+  "value": 1
+}, {
+  "name": "Ormo",
+  "value": 1
+}, {
+  "name": "Japanese",
+  "value": 1
+}, {
+  "name": "Yoruba",
+  "value": 1
+}, {
+  "name": "Russian",
+  "value": 1
+}, {
+  "name": "Tagalog",
+  "value": 2
+}];
+
+// Compiled from "Which languages do you speak now?"
+const NUM_LANGUAGE = [{
+  "name": "1",
+  "value": 11
+}, {
+  "name": "2",
+  "value": 25
+}, {
+  "name": "3",
+  "value": 11
+}, {
+  "name": "4",
+  "value": 3
+}];
+
+// What was your first language?
+const MOTHER_TONGUE = [{
+  "name": "Amharic",
+  "value": 1
+}, {
+  "name": "English",
+  "value": 25
+}, {
+  "name": "Mandarin",
+  "value": 17
 }, {
   "name": "Hindi",
   "value": 2
@@ -353,95 +183,287 @@ let MOTHER_TONGUE = [{
   "name": "Punjabi",
   "value": 1
 }, {
-  "name": "Tamil",
+  "name": "French",
+  "value": 1
+}, {
+  "name": "Hebrew",
+  "value": 1
+}, {
+  "name": "Spanish",
+  "value": 1
+}];
+
+// Are you an International Student?
+const INTERNATIONAL = [{
+  "name": "Canadian",
+  "value": 50,
+}, {
+  "name": "International",
+  "value": 5,
+}, {
+  "name": "Prefer not to disclose",
+  "value": 10,
+}]
+
+// What is the highest level of education your parents/guardians have completed?
+const PARENT_EDUCATION = [
+  {
+    "name": "College Diploma",
+    "value": 2
+  }, {
+    "name": "Bachelors",
+    "value": 13
+  }, {
+    "name": "Masters",
+    "value": 17
+  }, {
+    "name": "Doctorates",
+    "value": 7
+  }, {
+    "name": "Prefer not to disclose",
+    "value": 11
+  }];
+
+// How many siblings do you have?
+const SIBLINGS = [{
+  "name": "0",
+  "value": 14
+}, {
+  "name": "1",
+  "value": 31
+}, {
+  "name": "2",
+  "value": 8
+}, {
+  "name": "Prefer not to disclose",
+  "value": 12
+}];
+
+// What type of high school did you attend?
+const HS_TYPE = [{
+  "name": "Private",
+  "value": 6
+}, {
+  "name": "Public",
+  "value": 46
+}, {
+  "name": "Catholic",
   "value": 2
 }, {
-  "name": "Tagalog",
+  "name": "Independent",
+  "value": 1
+}]
+
+// Did you participate in any enriched programs in high school?
+const ENRICHED_PROGRAM = [{
+  "name": "None",
+  "value": 28
+}, {
+  "name": "AP",
+  "value": 11
+}, {
+  "name": "IB",
+  "value": 12
+}, {
+  "name": "TOPS",
   "value": 1
 }, {
-  "name": "Persian",
+  "name": "MACS",
   "value": 1
 }, {
-  "name": "Telugu",
+  "name": "French Immersion",
+  "value": 5
+}, {
+  "name": "Gifted",
+  "value": 11
+}, {
+  "name": "Arts",
+  "value": 2
+}];
+
+// Which APs did you take the course or exam for?
+const APS_TAKEN = [{
+  "name": "Computer Science A",
+  "value": 5
+}, {
+  "name": "Calculus AB",
+  "value": 9
+}, {
+  "name": "Calculus BC",
+  "value": 5
+}, {
+  "name": "Physics 1: Algebra-Based",
+  "value": 6
+}, {
+  "name": "Chemistry",
+  "value": 8
+}, {
+  "name": "English Language and Composition",
   "value": 1
 }, {
-  "name": "Teochew",
+  "name": "English Literature and Composition",
+  "value": 3
+}, {
+  "name": "Biology",
+  "value": 1
+}, {
+  "name": "Statistics",
+  "value": 3
+}, {
+  "name": "Microeconomics",
+  "value": 3
+}, {
+  "name": "Macroeconomics",
+  "value": 1
+}, {
+  "name": "Physics 2: Algebra-Based",
+  "value": 2
+}]
+
+// Which IB courses did you take higher level (HL)?
+const IBS_TAKEN_HL = [{
+  "name": "Language A: Language and Literature",
+  "value": 1
+}, {
+  "name": "Chemistry",
+  "value": 3
+}, {
+  "name": "Mathematics",
+  "value": 2
+}, {
+  "name": "Physics",
+  "value": 1
+}, {
+  "name": "Economics",
+  "value": 1
+}, {
+  "name": "Language A: Literature",
+  "value": 2
+}]
+
+// Which IB courses did you take standard level (SL)?
+const IBS_TAKEN_SL = [{
+  "name": "Chemistry",
+  "value": 1
+}, {
+  "name": "Mathematics",
+  "value": 2
+}, {
+  "name": "Physics",
+  "value": 2
+}, {
+  "name": "French",
+  "value": 1
+}, {
+  "name": "Information Technology in a Global Society",
+  "value": 2
+}, {
+  "name": "Language B",
+  "value": 2
+}, {
+  "name": "Theory of Knowledge",
+  "value": 2
+}, {
+  "name": "Computer Science",
+  "value": 2
+}, {
+  "name": "Geography",
+  "value": 1
+}, {
+  "name": "Language A: Literature",
+  "value": 1
+}]
+
+// Did you attend CEGEP?
+const CEGEP = [{
+  "name": "Yes, but I only attended partially (did not graduate)",
+  "value": 1
+}, {
+  "name": "Yes, and I completed CEGEP",
+  "value": 3
+}];
+
+// What CEGEP program were you in?
+const CEGEP_TAKEN = [{
+  "name": "Computer Science",
+  "value": 1
+}, {
+  "name": "Science Pure and Applied",
+  "value": 1
+}, {
+  "name": "Computer Science and Mathematics",
   "value": 1
 }];
 
-let PROGRAMMING = [{
-  "name": "Yes",
-  "value": 68
-}, {
-  "name": "No",
-  "value": 4
-}];
-
-let FAMILY_INCOME = [{
+// What was your family income before coming to UWaterloo?
+const FAMILY_INCOME = [{
   "name": "0-50k / year",
   "value": 2
 }, {
   "name": "50k-100k / year",
-  "value": 22
+  "value": 5
 }, {
   "name": "100-150k / year",
-  "value": 10
+  "value": 25
 }, {
   "name": "150k-200k / year",
-  "value": 16
+  "value": 10
 }, {
-  "name": "200k-250k / year",
-  "value": 3
-}, {
-  "name": "250k-300k / year",
-  "value": 2
+  "name": "200k-300k / year",
+  "value": 4
 }, {
   "name": "300k+ / year",
-  "value": 7
+  "value": 2
 }, {
   "name": "Prefer not to disclose",
-  "value": 10
+  "value": 14
 }];
 
-let CAT_OR_DOG = [{
-  "name": "Cat",
-  "value": 15
-}, {
-  "name": "Dog",
-  "value": 35
-}, {
-  "name": "Both",
-  "value": 18
-}];
-
-const SIBLINGS_PARENTS = [
-  {'group': '0', 'siblings-inc-zero': 1, 'siblings-inc-one': 8, 'siblings-inc-two': 4, 'siblings-inc-three': 4, 'siblings-inc-four': 1, 'siblings-inc-five': 0, 'siblings-inc-six': 2},
-  {'group': '1', 'siblings-inc-zero': 1, 'siblings-inc-one': 8, 'siblings-inc-two': 4, 'siblings-inc-three': 9, 'siblings-inc-four': 1, 'siblings-inc-five': 1, 'siblings-inc-six': 4},
-  {'group': '2+', 'siblings-inc-zero': 0, 'siblings-inc-one': 6, 'siblings-inc-two': 2, 'siblings-inc-three': 3, 'siblings-inc-four': 0, 'siblings-inc-five': 1, 'siblings-inc-six': 1},
+// Favourite animal(s) as a pet?
+const FAVOURITE_PET = [
+  { "name": "Bird", "value": 3 },
+  { "name": "Cat", "value": 17 },
+  { "name": "Dog", "value": 30 },
+  { "name": "Fish", "value": 4 },
+  { "name": "Rabbit", "value": 2 },
+  { "name": "Horse", "value": 1 },
+  { "name": "Lizard", "value": 1 },
+  { "name": "Leaping Blenny", "value": 1 },
+  { "name": "Turtle", "value": 1 },
 ]
 
-let ADMISSION_AVERAGE = [85,85,85,87,90,93,93,94,94,94,94.5,94.5,95,95,95,95,95,95,95,95,95.4,95.6,96,96,96,96,96,96,96,96,96,96,96,96.4,96.5,96.5,97,97,97,97,97,97,97.5,97.5,97.5,97.5,98,98,98,98,98,98,98,98,98,98,98,98,99,99,99.2,99.38]
+// Were you an eldest or youngest child?
+const SIBLING_TYPE = [
+  { "name": "Oldest", "value": 25 },
+  { "name": "Middle", "value": 4 },
+  { "name": "Youngest", "value": 12 },
+  { "name": "Only", "value": 15 },
+]
+
+// What was your high school admission average? Enter a number up to 100 (eg. 95)
+const ADMISSION_AVERAGE = [96, 94, 97, 95.5, 96, 96, 94, 99, 96, 93, 97, 89, 97, 96, 96, 98, 96, 96, 98, 98, 96, 97.6, 97, 95, 95, 97.5, 95, 96, 96, 96, 95, 96, 83, 96, 95.2, 98, 94, 93, 98, 93, 95, 99.2, 95, 97, 91, 99, 96, 94, 96, 97, 95.5]
 
 export {
-  INTERNATIONAL,
-  PARENT_EDUCATION,
   ETHNICITY,
   GENDER,
   YEAR_OF_BIRTH,
   SEXUAL_ORIENTATION,
   HOME_LOCATION,
+  INTERNATIONAL,
+  PARENT_EDUCATION,
   FAMILY_INCOME,
-  IMMIGRATED,
   SIBLINGS,
+  HS_TYPE,
   ENRICHED_PROGRAM,
+  APS_TAKEN,
+  IBS_TAKEN_HL,
+  IBS_TAKEN_SL,
   CEGEP,
-  CEGEP_ATTENDED,
+  CEGEP_TAKEN,
   MOTHER_TONGUE,
-  PROGRAMMING,
-  CAT_OR_DOG,
+  FAVOURITE_PET,
   ADMISSION_AVERAGE,
-  EMIGRATED_COUNTRY,
   NUM_LANGUAGE,
-  LANGUAGE_KNOWN,
-  SIBLINGS_PARENTS
+  LANGUAGES_KNOWN,
+  SIBLING_TYPE,
 }

@@ -68,27 +68,28 @@ import {
   RESIDENCE,
 } from "./data/academics";
 import {
-  INTERNATIONAL,
-  PARENT_EDUCATION,
   ETHNICITY,
-  GENDER,
   YEAR_OF_BIRTH,
+  GENDER,
   SEXUAL_ORIENTATION,
   HOME_LOCATION,
-  FAMILY_INCOME,
-  IMMIGRATED,
-  SIBLINGS,
-  ENRICHED_PROGRAM,
-  CEGEP,
-  CEGEP_ATTENDED,
+  LANGUAGES_KNOWN,
   MOTHER_TONGUE,
-  PROGRAMMING,
-  CAT_OR_DOG,
-  ADMISSION_AVERAGE,
-  EMIGRATED_COUNTRY,
   NUM_LANGUAGE,
-  LANGUAGE_KNOWN,
-  SIBLINGS_PARENTS,
+  INTERNATIONAL,
+  PARENT_EDUCATION,
+  FAMILY_INCOME,
+  SIBLINGS,
+  SIBLING_TYPE,
+  HS_TYPE,
+  ENRICHED_PROGRAM,
+  APS_TAKEN,
+  IBS_TAKEN_HL,
+  IBS_TAKEN_SL,
+  CEGEP,
+  CEGEP_TAKEN,
+  ADMISSION_AVERAGE,
+  FAVOURITE_PET,
 } from "./data/background";
 import {
   COURSE_WITH_LARGEST_WORKLOAD,
@@ -1215,99 +1216,168 @@ function renderAcademics(options) {
 }
 
 function renderBackground(options) {
-  renderMultiSeriesHorizontalBarChat(
+  renderHorizontalBarChat(
     d3.select("#ethnicity"),
     ETHNICITY,
-    400,
-    300,
-    true,
-    { "ethnicity-all": 0, "ethnicity-women": 1, "ethnicity-men": 2 }
-  );
-  renderPieChart(
-    d3.select("#international"),
-    INTERNATIONAL,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderHorizontalBarChat(
-    d3.select("#parent-education"),
-    PARENT_EDUCATION,
     options.width,
     280,
     true
   );
-  renderPieChart(
+
+  renderHorizontalBarChat(
+    d3.select("#birth-year"),
+    YEAR_OF_BIRTH,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
     d3.select("#gender"),
     GENDER,
-    options.width * 0.75,
-    options.width * 0.75
+    options.width,
+    280,
+    true
   );
+
   renderHorizontalBarChat(
-    d3.select("#family-income"),
-    FAMILY_INCOME,
-    400,
-    300,
-    false
-  );
-  renderPieChart(
-    d3.select("#year-of-birth"),
-    YEAR_OF_BIRTH,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderPieChart(
     d3.select("#sexual-orientation"),
     SEXUAL_ORIENTATION,
-    options.width * 0.75,
-    options.width * 0.75
+    options.width,
+    280,
+    true
   );
+
   renderHorizontalBarChat(
     d3.select("#home-location"),
     HOME_LOCATION,
-    400,
-    300,
-    false
+    options.width,
+    280,
+    true
   );
-  renderPieChart(
-    d3.select("#immigrated"),
-    IMMIGRATED,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderHorizontalBarChat(d3.select("#siblings"), SIBLINGS, 400, 300, false);
+
   renderHorizontalBarChat(
-    d3.select("#enriched-program"),
-    ENRICHED_PROGRAM,
-    400,
-    300,
+    d3.select("#known-languages"),
+    LANGUAGES_KNOWN,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#first-languages"),
+    MOTHER_TONGUE,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#num-languages"),
+    NUM_LANGUAGE,
+    options.width,
+    280,
     false
   );
-  renderPieChart(
+
+  renderHorizontalBarChat(
+    d3.select("#international"),
+    INTERNATIONAL,
+    options.width,
+    280,
+    false
+  );
+
+  // Family
+  renderHorizontalBarChat(
+    d3.select("#parent-edu"),
+    PARENT_EDUCATION,
+    options.width,
+    280,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#family-income"),
+    FAMILY_INCOME,
+    options.width,
+    280,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#siblings"),
+    SIBLINGS,
+    options.width,
+    280,
+    false
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#sibling-type"),
+    SIBLING_TYPE,
+    options.width,
+    280,
+    false
+  );
+
+  // Highschool
+  renderHorizontalBarChat(
+    d3.select("#hs-type"),
+    HS_TYPE,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#enriched"),
+    ENRICHED_PROGRAM,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#aps-taken"),
+    APS_TAKEN,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#ibs-taken-hl"),
+    IBS_TAKEN_HL,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#ibs-taken-sl"),
+    IBS_TAKEN_SL,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
     d3.select("#cegep"),
     CEGEP,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderHorizontalBarChat(
-    d3.select("#cegep-attended"),
-    CEGEP_ATTENDED,
-    400,
-    300,
+    options.width,
+    280,
     true
   );
+
   renderHorizontalBarChat(
-    d3.select("#mother-tongue"),
-    MOTHER_TONGUE,
-    400,
-    300,
+    d3.select("#cegep-taken"),
+    CEGEP_TAKEN,
+    options.width,
+    280,
     true
   );
-  renderPieChart(
-    d3.select("#programming"),
-    PROGRAMMING,
-    options.width * 0.75,
-    options.width * 0.75
-  );
+
   renderHistogram(
     d3.select("#admission-average"),
     ADMISSION_AVERAGE,
@@ -1319,38 +1389,7 @@ function renderBackground(options) {
       xAxisTitle: "High School Admission Average",
     }
   );
-  renderHorizontalBarChat(
-    d3.select("#num-languages"),
-    NUM_LANGUAGE,
-    options.width,
-    280,
-    false
-  );
-  renderHorizontalBarChat(
-    d3.select("#known-languages"),
-    LANGUAGE_KNOWN,
-    options.width,
-    280,
-    true
-  );
-  renderHorizontalBarChat(
-    d3.select("#emigrated"),
-    EMIGRATED_COUNTRY,
-    options.width,
-    280,
-    true
-  );
-  renderGroupedBarChart(
-    d3.select("#siblings-parents"),
-    SIBLINGS_PARENTS,
-    options.width,
-    250,
-    siblings_parents_legend,
-    {
-      yAxisTitle: "Number of Students",
-      xAxisTitle: "Number of Siblings",
-    }
-  );
+
 }
 
 function renderExperience(options) {
@@ -1672,6 +1711,15 @@ function renderCovid(options) {
 }
 
 function renderMisc(options) {
+  // Personal
+  renderHorizontalBarChat(
+    d3.select("#fav-pet"),
+    FAVOURITE_PET,
+    options.width,
+    280,
+    true
+  );
+
   renderHorizontalBarChat(
     d3.select("#burnout"),
     BURNOUT,
@@ -1691,12 +1739,6 @@ function renderMisc(options) {
     options.width,
     150,
     false
-  );
-  renderPieChart(
-    d3.select("#cat-or-dog"),
-    CAT_OR_DOG,
-    options.width * 0.75,
-    options.width * 0.75
   );
   renderHorizontalBarChat(
     d3.select("#crying"),
