@@ -131,7 +131,7 @@ import {
   DROPOUT_THOUGHTS,
   SE21_GRAD,
 } from "./data/misc";
-import { CONT_FYDP, COOP_CONVERSION, FULL_TIME_COMPANY, FULL_TIME_COMPANY_TYPE, FULL_TIME_COMPENSATION, LAST_COOP_TERM_RETURN, MOTIVATIONS_FIRST, MOTIVATIONS_SECOND, MOTIVATIONS_THIRD, PENG, PERCENT_REMOTE, PLANNED_TIME_AT_COMPANY, POST_CONTENTNESS, POST_GRAD, POST_LOCATION, RETURN_TO_HOME_COUNTRY } from "./data/future";
+import { CONT_FYDP, COOP_CONVERSION, FULL_TIME_COMPANY, FULL_TIME_COMPANY_TYPE, FULL_TIME_COMPENSATION, LAST_COOP_TERM_RETURN, MOTIVATIONS_FIRST, MOTIVATIONS_SECOND, MOTIVATIONS_THIRD, PERCENT_REMOTE, PLANNED_TIME_AT_COMPANY, POST_CONTENTNESS, POST_GRAD, POST_LOCATION, RETURN_TO_HOME_COUNTRY } from "./data/future";
 import { FAMILY, FRIENDSHIPS, ROMANCE } from "./data/relationships";
 import {
   INVEST,
@@ -1767,7 +1767,7 @@ function renderFuture(options) {
   );
 
   drawWordCloud(d3.select("#ft-company"), FULL_TIME_COMPANY, options);
-  
+
   renderHorizontalBarChat(
     d3.select("#ft-company-type"),
     FULL_TIME_COMPANY_TYPE,
@@ -1892,12 +1892,6 @@ function renderFuture(options) {
   renderPieChart(
     d3.select("#cont-fydp"),
     CONT_FYDP,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderPieChart(
-    d3.select("#peng"),
-    PENG,
     options.width * 0.75,
     options.width * 0.75
   );

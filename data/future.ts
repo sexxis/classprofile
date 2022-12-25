@@ -266,18 +266,6 @@ const CONT_FYDP = [{
   "value": 30
 }]
 
-// Do you plan on getting your P.Eng? 
-const PENG = [{
-  "name": "Yes",
-  "value": 5
-}, {
-  "name": "Unsure",
-  "value": 13
-}, {
-  "name": "No",
-  "value": 35
-}]
-
 export {
   POST_GRAD,
   POST_LOCATION,
@@ -289,7 +277,6 @@ export {
   POST_CONTENTNESS,
   FULL_TIME_COMPANY,
   CONT_FYDP,
-  PENG,
   LAST_COOP_TERM_RETURN,
   FULL_TIME_COMPANY_TYPE,
   PERCENT_REMOTE,
