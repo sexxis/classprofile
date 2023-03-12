@@ -173,6 +173,7 @@ import {
   LARGEST_GATHERING,
 } from "./data/covid";
 import { EXCHANGE } from "./data/exchange";
+import { CLOSE_FAMILY_TECH, CODE_BEFORE_UNI, COOP_MOST_USED_PROG_LANG, FAV_INT_PROG_LANG, FIRST_PROG_LANG, MOST_CONF_PROG_LANG, PROG_LANG_B4_UNI } from "./data/tech_interest";
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = [
@@ -296,6 +297,7 @@ window.onload = () => {
   renderCoop(options);
   renderLifestyle(options);
   renderAcademics(options);
+  renderTechInterest(options);
   renderBackground(options);
   renderExperience(options);
   renderFinances(options);
@@ -1212,6 +1214,62 @@ function renderAcademics(options) {
       xAxisTitle: "Term",
       yAxisTitle: "Number of Students",
     }
+  );
+}
+
+function renderTechInterest(options) {
+  renderPieChart(
+    d3.select("#code-before-uni"),
+    CODE_BEFORE_UNI,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderPieChart(
+    d3.select("#close-family-tech"),
+    CLOSE_FAMILY_TECH,
+    options.width * 0.75,
+    options.width * 0.75
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#first-prog-lang"),
+    FIRST_PROG_LANG,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#lang-before-uni"),
+    PROG_LANG_B4_UNI,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#best-lang"),
+    MOST_CONF_PROG_LANG,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#coop-lang"),
+    COOP_MOST_USED_PROG_LANG,
+    options.width,
+    280,
+    true
+  );
+
+  renderHorizontalBarChat(
+    d3.select("#int-lang"),
+    FAV_INT_PROG_LANG,
+    options.width,
+    280,
+    true
   );
 }
 
