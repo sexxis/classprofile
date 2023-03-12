@@ -1,6 +1,7 @@
 import * as d3 from "d3";
 import * as $ from "jquery";
 import { renderWordCloud } from "./shared/wordcloud";
+import { renderColorGrid } from "./shared/colourgrid.js";
 import {
   renderHorizontalBarChat,
   renderMultipleHorizontalBarCharts,
@@ -124,13 +125,26 @@ import {
   COOP_JOBS,
 } from "./data/coop";
 import {
-  BURNOUT,
+  SE_STORYTIME,
+  FAVOURITE_2021_2022_MOMENT,
+  FAVOURITE_FIRST_YEAR_MOMENT,
+  OTHER_FIRST_YEAR_STORIES,
+  INTERVIEW_COOP_STORY,
+  COOP_STORY,
+  PARTY_STORY,
+  COVID_RELATIONSHIPS,
+  FAV_RESTAURANT,
+  GROCERY,
+  LOCATION_ONLINE_TERM,
+  FAV_ANIMAL,
+  FAV_COLOUR,
   FIGHTS,
-  REDDIT_USAGE,
   CRYING,
-  TRANSFER_THOUGHTS,
-  DROPOUT_THOUGHTS,
-  SE21_GRAD,
+  REDDIT,
+  SOCIAL_MEDIA,
+  VIDEO_GAMES,
+  UNDERGARD_TRAVEL,
+  POST_COVID_TRAVEL,
 } from "./data/misc";
 import { CONT_FYDP, COOP_CONVERSION, FULL_TIME_COMPANY, FULL_TIME_COMPANY_TYPE, FULL_TIME_COMPENSATION, LAST_COOP_TERM_RETURN, MOTIVATIONS_FIRST, MOTIVATIONS_SECOND, MOTIVATIONS_THIRD, PERCENT_REMOTE, PLANNED_TIME_AT_COMPANY, POST_CONTENTNESS, POST_GRAD, POST_LOCATION, RETURN_TO_HOME_COUNTRY } from "./data/future";
 import { FAMILY, FRIENDSHIPS, ROMANCE } from "./data/relationships";
@@ -1769,60 +1783,96 @@ function renderCovid(options) {
 }
 
 function renderMisc(options) {
-  // Personal
+
+  drawWordCloud(d3.select("#fav-restaurant"), FAV_RESTAURANT, options);
+
   renderHorizontalBarChat(
-    d3.select("#fav-pet"),
-    FAVOURITE_PET,
+    d3.select("#grocery"),
+    GROCERY,
     options.width,
     280,
     true
   );
 
   renderHorizontalBarChat(
-    d3.select("#burnout"),
-    BURNOUT,
+    d3.select("#loc-online-term"),
+    LOCATION_ONLINE_TERM,
     options.width,
-    250,
+    280,
     false
   );
-  renderPieChart(
+
+
+  renderHorizontalBarChat(
+    d3.select("#fav-animal"),
+    FAV_ANIMAL,
+    options.width,
+    280,
+    true
+  );
+
+  renderColorGrid(d3.select("#fav-colour"), FAV_COLOUR, 5, 8, options);
+
+  renderHorizontalBarChat(
     d3.select("#fights"),
     FIGHTS,
-    options.width * 0.75,
-    options.width * 0.75
-  );
-  renderHorizontalBarChat(
-    d3.select("#reddit"),
-    REDDIT_USAGE,
     options.width,
-    150,
+    280,
     false
   );
-  renderHorizontalBarChat(
+
+
+  renderHistogram(
     d3.select("#crying"),
     CRYING,
     options.width,
-    250,
-    false
+    200,
+    {
+      binCount: 8,
+      yAxisTitle: "Count",
+      xAxisTitle: "Number of cries",
+    }
   );
-  renderPieChart(
-    d3.select("#transfer-thoughts"),
-    TRANSFER_THOUGHTS,
-    options.width * 0.75,
-    options.width * 0.75
+
+  renderHistogram(
+    d3.select("#reddit"),
+    REDDIT,
+    options.width,
+    200,
+    {
+      binCount: 8,
+      yAxisTitle: "Count",
+      xAxisTitle: "Hours per week",
+    }
   );
-  renderPieChart(
-    d3.select("#dropout-thoughts"),
-    DROPOUT_THOUGHTS,
-    options.width * 0.75,
-    options.width * 0.75
+
+  renderHistogram(
+    d3.select("#social-media"),
+    SOCIAL_MEDIA,
+    options.width,
+    200,
+    {
+      binCount: 8,
+      yAxisTitle: "Count",
+      xAxisTitle: "Hours per week",
+    }
   );
-  renderPieChart(
-    d3.select("#se21-grad"),
-    SE21_GRAD,
-    options.width * 0.75,
-    options.width * 0.75
+
+  renderHistogram(
+    d3.select("#video-games"),
+    VIDEO_GAMES,
+    options.width,
+    200,
+    {
+      binCount: 8,
+      yAxisTitle: "Count",
+      xAxisTitle: "Hours per week",
+    }
   );
+
+  drawWordCloud(d3.select("#undergrad-travel"), UNDERGARD_TRAVEL, options);
+
+  drawWordCloud(d3.select("#post-covid-travel"), POST_COVID_TRAVEL, options);
 }
 
 function renderFuture(options) {
