@@ -222,6 +222,15 @@ let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
 let terms = ["1a", "1b", "2a", "2b", "3a", "3b", "4a"];
 let housing_terms = terms.concat(["4b"]);
 
+let coop_terms = [
+  "1st coop",
+  "2nd coop",
+  "3rd coop",
+  "4th coop",
+  "5th coop",
+  "6th coop",
+];
+
 let favourite_course_per_term = terms.map((x) => "favourite-course-" + x);
 let least_favourite_course_per_term = favourite_course_per_term.map(
   (x) => "least-" + x
@@ -438,6 +447,15 @@ function setupListeners() {
     (technicalExtracurricularsItems[i] as any).onclick = function () {
       togglePressedForButtonItems(this, technicalExtracurricularsItems);
       setMultiBarActive(j, housing_terms);
+    };
+  }
+
+  let coopTypesItems = document.getElementsByClassName("coop-types-item");
+  for (let i = 0; i < coopTypesItems.length; i++) {
+    let coop_term = coop_terms[i];
+    (coopTypesItems[i] as any).onclick = function () {
+      togglePressedForButtonItems(this, coopTypesItems);
+      setMultiBarActive(coop_term, coop_terms);
     };
   }
 
@@ -779,15 +797,17 @@ function renderCoop(options) {
       yAxisTitle: "Number of respondents",
     }
   );
-  renderGroupedBarChart(
+
+  // todo (robbie): fix bug where every term is rendering together on initial load
+  renderMultiSeriesHorizontalBarChat(
     d3.select("#coop-types"),
     COOP_TYPES,
-    options.width,
-    250,
-    coop_types,
-    {
-      yAxisTitle: "Number of respondents",
-    }
+    400,
+    500,
+    true,
+    coop_terms.reduce((acc, value) => {
+      return { ...acc, [value]: Object.keys(acc).length };
+    }, {})
   );
   renderGroupedBarChart(
     d3.select("#coop-breakdown"),
