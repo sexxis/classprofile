@@ -256,6 +256,7 @@ let work_location = [
   "work-location-8",
   "work-location-9",
   "work-location-10",
+  "work-location-11",
 ];
 let concise_version = false;
 
@@ -689,72 +690,21 @@ function renderCoop(options) {
       return "$" + d;
     },
   });
+
   renderLineChart(
     d3.select("#work-location"),
-    WORK_LOCATION,
+    WORK_LOCATION["data"],
     options.fullWidth,
     500,
     {
       toggle: "work-location",
-      lineLabels: [
-        {
-          x: "6th",
-          value: 3,
-          location: "California",
-        },
-        {
-          x: "6th",
-          value: 11,
-          location: "East Coast US",
-        },
-        {
-          x: "6th",
-          value: 12.25,
-          location: "GTA / Toronto",
-        },
-        {
-          x: "6th",
-          value: 5,
-          location: "K / W",
-        },
-        {
-          x: "6th",
-          value: 2.25,
-          location: "MW US",
-        },
-        {
-          x: "6th",
-          value: 0.75,
-          location: "Ott. / MTL",
-        },
-        {
-          x: "6th",
-          value: 0.25,
-          location: "Other Ontario",
-        },
-        {
-          x: "6th",
-          value: 1.75,
-          location: "PNW US",
-        },
-        {
-          x: "6th",
-          value: 11.75,
-          location: "Remote",
-        },
-        {
-          x: "6th",
-          value: 1.25,
-          location: "West Coast Canada",
-        },
-        {
-          x: "6th",
-          value: -0.25,
-          location: "Outside NA",
-        },
-      ],
+      lineLabels: WORK_LOCATION.labelData.map((data) => ({
+        x: "6th",
+        value: data.yPos,
+        location: data.location,
+      })),
       xAxisTitle: "Co-op term number",
-      yAxisTitle: "Proportion of students in the area",
+      yAxisTitle: "Number of students",
       tickFormat: (d) => {
         return d + "%";
       },
