@@ -625,8 +625,7 @@ function onScroll(e) {
   }
 }
 
-function drawCoopWordCloud(elem, options) {
-  let data = COMPANY_WORK_COUNT["data"];
+function drawCoopWordCloud(elem, data, options) {
   let words: any[] = [];
   let textSize = 15;
   if (options.fullWidth < 1200) {
@@ -682,7 +681,7 @@ function drawWordCloud(
 }
 
 function renderCoop(options) {
-  drawCoopWordCloud(d3.select("#coop-cloud"), options);
+  drawCoopWordCloud(d3.select("#coop-cloud"), COMPANY_WORK_COUNT, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
     xAxisTitle: "Co-op term #",
     yAxisTitle: "Hourly compensation",
