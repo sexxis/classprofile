@@ -781,14 +781,6 @@ function renderCoop(options) {
     options.width * 0.75
   );
 
-  drawWordCloud(d3.select("#favourite-coop"), FAVOURITE_COOP, options);
-  renderHorizontalBarChat(
-    d3.select("#favourite-coop-reasons"),
-    FAVOURITE_COOP_REASON,
-    options.width,
-    250,
-    true
-  );
   renderGroupedBarChart(
     d3.select("#coop-ratings"),
     COOP_RATINGS,
