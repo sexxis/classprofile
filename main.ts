@@ -107,22 +107,16 @@ import {
   SALARY,
   WORK_LOCATION,
   FAVOURITE_LOCATION,
-  HACKATHON_SALARY,
-  SIDE_SALARY,
-  ADMISSION_SALARY,
   COMPANY_WORK_COUNT,
   FAVOURITE_COMPANIES,
   GRADE_SALARY,
   GENDER_SALARY,
-  LATE_INTERVIEWER,
   LATE_INTERVIEW,
   MISSED_INTERVIEW,
-  FAVOURITE_COOP,
-  FAVOURITE_COOP_REASON,
   COOP_RATINGS,
   COOP_TYPES,
   COOP_BREAKDOWN,
-  COOP_JOBS,
+  COOP_JOB_SOURCE,
 } from "./data/coop";
 import {
   SE_STORYTIME,
@@ -774,35 +768,7 @@ function renderCoop(options) {
     240,
     true
   );
-  // renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
-  //   yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
-  //   xAxisTitle: 'Age started coding'
-  // });
-  renderBoxPlot(
-    d3.select("#hackathon-salary"),
-    HACKATHON_SALARY,
-    options.width,
-    400,
-    {
-      xAxisTitle: "Number of hackathons attended",
-      yAxisTitle: "Average co-op hourly salary in CAD",
-    }
-  );
-  renderBoxPlot(d3.select("#side-salary"), SIDE_SALARY, options.width, 350, {
-    xAxisTitle: "Commitment to side projects",
-    yAxisTitle: "Average co-op hourly salary in CAD",
-  });
-  renderMultiSeriesBoxPlot(
-    d3.select("#admission-salary"),
-    ADMISSION_SALARY,
-    options.width,
-    350,
-    {
-      yAxisTitle: "Average co-op hourly salary in CAD",
-      xAxisTitle: "Admission average",
-    },
-    { "admission-salary-overall": 0, "admission-salary-first-year": 1 }
-  );
+
   renderDotPlot(d3.select("#grade-salary"), GRADE_SALARY, options.width, 400, {
     yAxisTitle: "Hourly compensation in CAD",
     xAxisTitle: "Cumulative average",
