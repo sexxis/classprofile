@@ -282,6 +282,7 @@ const coop_ratings = {
   "rating-outstanding": "Outstanding",
   "rating-excellent": "Excellent",
   "rating-very-good": "Very Good",
+  "rating-good": "Good",
   "rating-satisfactory": "Satisfactory",
 };
 
@@ -323,10 +324,11 @@ const yes_no_legend = {
   No: "No",
 };
 
-const coop_jobs = {
-  "coop-first-round": "First Round",
+const coop_job_sources = {
+  "coop-main-round": "Main Round",
   "coop-continuous": "Continuous",
   "coop-external": "External",
+  "coop-previous-employer": "Returned to previous employer",
 };
 
 window.onload = () => {
@@ -791,7 +793,7 @@ function renderCoop(options) {
     d3.select("#coop-ratings"),
     COOP_RATINGS,
     options.width,
-    250,
+    350,
     coop_ratings,
     {
       yAxisTitle: "Number of respondents",
@@ -813,7 +815,7 @@ function renderCoop(options) {
     d3.select("#coop-breakdown"),
     COOP_BREAKDOWN,
     options.width,
-    250,
+    350,
     coop_breakdown_legend,
     {
       yAxisTitle: "Average count",
@@ -821,10 +823,10 @@ function renderCoop(options) {
   );
   renderGroupedBarChart(
     d3.select("#coop-jobs"),
-    COOP_JOBS,
+    COOP_JOB_SOURCE,
     options.width,
-    250,
-    coop_jobs,
+    350,
+    coop_job_sources,
     {
       yAxisTitle: "Percentage of respondents",
     }
