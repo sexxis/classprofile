@@ -79,7 +79,6 @@ function renderColorGrid(elem, data, rows, columns, options) {
       return d.height;
     })
     .style("fill", function (d) {
-      console.log("#" + d.color);
       return "#" + d.color;
     })
     .on("mouseover", function (d) {
