@@ -107,7 +107,6 @@ import {
   SALARY,
   WORK_LOCATION,
   FAVOURITE_LOCATION,
-  COMPANY_WORK_COUNT,
   FAVOURITE_COMPANIES,
   GRADE_SALARY,
   GENDER_SALARY,
@@ -647,23 +646,23 @@ function onScroll(e) {
 }
 
 function drawCoopWordCloud(elem, data, options) {
-  let words: any[] = [];
   let textSize = 15;
   if (options.fullWidth < 1200) {
     textSize = Math.pow(options.fullWidth / 1200, 0.25) * textSize;
   }
-  for (let name in data) {
+
+  let words: any[] = [];
+  let scores = {};
+  for (const entry of data) {
     words.push({
-      text: name,
-      size: Math.sqrt(data[name]) * textSize,
+      text: entry.name,
+      size: Math.sqrt(entry.terms) * textSize,
     });
+    if (entry.rating) {
+      scores[entry.name] = entry.rating;
+    }
   }
 
-  let scores = {};
-  let data2 = FAVOURITE_COMPANIES["data"];
-  for (let i in data2) {
-    scores[data2[i][0]] = data2[i][1];
-  }
   renderWordCloud(
     elem,
     words,
@@ -702,7 +701,7 @@ function drawWordCloud(
 }
 
 function renderCoop(options) {
-  drawCoopWordCloud(d3.select("#coop-cloud"), COMPANY_WORK_COUNT, options);
+  drawCoopWordCloud(d3.select("#coop-cloud"), FAVOURITE_COMPANIES, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
     xAxisTitle: "Co-op term #",
     yAxisTitle: "Hourly compensation",

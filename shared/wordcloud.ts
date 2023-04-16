@@ -2,7 +2,7 @@
 import * as d3 from "d3";
 import * as WordCloud from "d3-cloud";
 
-let interpolater = d3.interpolateRgbBasis(["#ff460e", "#19d160"]);
+let interpolater = d3.interpolateRgbBasis(["#DC2901", "#0249BD"]);
 
 function maxWordSize(words) {
   let max = 0;
@@ -52,13 +52,15 @@ function renderWordCloud(elem, words, scores, width, height) {
         if (!scores) {
           return interpolater(d.size / max);
         }
+        if (!(d.text in scores)) {
+          return "rgb(128, 128, 128)";
+        }
 
         let opacity = 0;
         if (d.text in scores) {
           opacity = scores[d.text];
         }
         return interpolater(opacity);
-        // return 'rgba(0,0,0,' + (opacity * opacity) + ')';
       })
       .attr("text-anchor", "middle")
       .attr(
