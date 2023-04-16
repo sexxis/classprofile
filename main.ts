@@ -724,9 +724,6 @@ function renderCoop(options) {
       })),
       xAxisTitle: "Co-op term number",
       yAxisTitle: "Number of students",
-      tickFormat: (d) => {
-        return d + "%";
-      },
     }
   );
   renderHorizontalBarChat(
