@@ -146,7 +146,23 @@ import {
   UNDERGARD_TRAVEL,
   POST_COVID_TRAVEL,
 } from "./data/misc";
-import { CONT_FYDP, COOP_CONVERSION, FULL_TIME_COMPANY, FULL_TIME_COMPANY_TYPE, FULL_TIME_COMPENSATION, LAST_COOP_TERM_RETURN, MOTIVATIONS_FIRST, MOTIVATIONS_SECOND, MOTIVATIONS_THIRD, PERCENT_REMOTE, PLANNED_TIME_AT_COMPANY, POST_CONTENTNESS, POST_GRAD, POST_LOCATION, RETURN_TO_HOME_COUNTRY } from "./data/future";
+import {
+  CONT_FYDP,
+  COOP_CONVERSION,
+  FULL_TIME_COMPANY,
+  FULL_TIME_COMPANY_TYPE,
+  FULL_TIME_COMPENSATION,
+  LAST_COOP_TERM_RETURN,
+  MOTIVATIONS_FIRST,
+  MOTIVATIONS_SECOND,
+  MOTIVATIONS_THIRD,
+  PERCENT_REMOTE,
+  PLANNED_TIME_AT_COMPANY,
+  POST_CONTENTNESS,
+  POST_GRAD,
+  POST_LOCATION,
+  RETURN_TO_HOME_COUNTRY,
+} from "./data/future";
 import { FAMILY, FRIENDSHIPS, ROMANCE } from "./data/relationships";
 import {
   INVEST,
@@ -187,7 +203,15 @@ import {
   LARGEST_GATHERING,
 } from "./data/covid";
 import { EXCHANGE } from "./data/exchange";
-import { CLOSE_FAMILY_TECH, CODE_BEFORE_UNI, COOP_MOST_USED_PROG_LANG, FAV_INT_PROG_LANG, FIRST_PROG_LANG, MOST_CONF_PROG_LANG, PROG_LANG_B4_UNI } from "./data/tech_interest";
+import {
+  CLOSE_FAMILY_TECH,
+  CODE_BEFORE_UNI,
+  COOP_MOST_USED_PROG_LANG,
+  FAV_INT_PROG_LANG,
+  FIRST_PROG_LANG,
+  MOST_CONF_PROG_LANG,
+  PROG_LANG_B4_UNI,
+} from "./data/tech_interest";
 
 let ethnicity = ["ethnicity-all", "ethnicity-women", "ethnicity-men"];
 let campus_location_term_pre = [
@@ -1434,13 +1458,7 @@ function renderBackground(options) {
     true
   );
 
-  renderHorizontalBarChat(
-    d3.select("#cegep"),
-    CEGEP,
-    options.width,
-    280,
-    true
-  );
+  renderHorizontalBarChat(d3.select("#cegep"), CEGEP, options.width, 280, true);
 
   renderHorizontalBarChat(
     d3.select("#cegep-taken"),
@@ -1461,7 +1479,6 @@ function renderBackground(options) {
       xAxisTitle: "High School Admission Average",
     }
   );
-
 }
 
 function renderExperience(options) {
@@ -1535,21 +1552,35 @@ function renderFinances(options) {
     PERCENTAGE_INVESTED,
     options.width,
     250,
-    { domain: [0, 100], binCount: 10, xAxisTitle: "%" }
+    {
+      domain: [0, 100],
+      binCount: 10,
+      xAxisTitle: "%",
+    }
   );
   renderHistogram(
     d3.select("#degree-money-coop"),
     MONEY_FROM_DEGREE.coop,
     options.width,
     250,
-    { domain: [0, 100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Coop" }
+    {
+      domain: [0, 100],
+      binCount: 10,
+      xAxisTitle: "%",
+      yAxisTitle: "Coop",
+    }
   );
   renderHistogram(
     d3.select("#degree-money-family"),
     MONEY_FROM_DEGREE.family,
     options.width,
     250,
-    { domain: [0, 100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Family" }
+    {
+      domain: [0, 100],
+      binCount: 10,
+      xAxisTitle: "%",
+      yAxisTitle: "Family",
+    }
   );
   renderHistogram(
     d3.select("#degree-money-scholarships"),
@@ -1580,14 +1611,24 @@ function renderFinances(options) {
     MONEY_FROM_DEGREE.side_job,
     options.width,
     250,
-    { domain: [0, 100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Side jobs" }
+    {
+      domain: [0, 100],
+      binCount: 10,
+      xAxisTitle: "%",
+      yAxisTitle: "Side jobs",
+    }
   );
   renderHistogram(
     d3.select("#degree-money-other"),
     MONEY_FROM_DEGREE.other,
     options.width,
     250,
-    { domain: [0, 100], binCount: 10, xAxisTitle: "%", yAxisTitle: "Other" }
+    {
+      domain: [0, 100],
+      binCount: 10,
+      xAxisTitle: "%",
+      yAxisTitle: "Other",
+    }
   );
   renderHistogram(
     d3.select("#material-expenses"),
@@ -1765,7 +1806,10 @@ function renderCovid(options) {
     LARGEST_GATHERING,
     options.width,
     250,
-    { domain: [1, 120], binCount: 15 }
+    {
+      domain: [1, 120],
+      binCount: 15,
+    }
   );
   renderPieChart(
     d3.select("#covid-full-time-impact"),
@@ -1783,7 +1827,6 @@ function renderCovid(options) {
 }
 
 function renderMisc(options) {
-
   drawWordCloud(d3.select("#fav-restaurant"), FAV_RESTAURANT, options);
 
   renderHorizontalBarChat(
@@ -1801,7 +1844,6 @@ function renderMisc(options) {
     280,
     false
   );
-
 
   renderHorizontalBarChat(
     d3.select("#fav-animal"),
@@ -1821,30 +1863,17 @@ function renderMisc(options) {
     false
   );
 
+  renderHistogram(d3.select("#crying"), CRYING, options.width, 200, {
+    binCount: 8,
+    yAxisTitle: "Count",
+    xAxisTitle: "Number of cries",
+  });
 
-  renderHistogram(
-    d3.select("#crying"),
-    CRYING,
-    options.width,
-    200,
-    {
-      binCount: 8,
-      yAxisTitle: "Count",
-      xAxisTitle: "Number of cries",
-    }
-  );
-
-  renderHistogram(
-    d3.select("#reddit"),
-    REDDIT,
-    options.width,
-    200,
-    {
-      binCount: 8,
-      yAxisTitle: "Count",
-      xAxisTitle: "Hours per week",
-    }
-  );
+  renderHistogram(d3.select("#reddit"), REDDIT, options.width, 200, {
+    binCount: 8,
+    yAxisTitle: "Count",
+    xAxisTitle: "Hours per week",
+  });
 
   renderHistogram(
     d3.select("#social-media"),
@@ -1858,17 +1887,11 @@ function renderMisc(options) {
     }
   );
 
-  renderHistogram(
-    d3.select("#video-games"),
-    VIDEO_GAMES,
-    options.width,
-    200,
-    {
-      binCount: 8,
-      yAxisTitle: "Count",
-      xAxisTitle: "Hours per week",
-    }
-  );
+  renderHistogram(d3.select("#video-games"), VIDEO_GAMES, options.width, 200, {
+    binCount: 8,
+    yAxisTitle: "Count",
+    xAxisTitle: "Hours per week",
+  });
 
   drawWordCloud(d3.select("#undergrad-travel"), UNDERGARD_TRAVEL, options);
 

@@ -1,5 +1,5 @@
 rect.bar {
-  fill: rgb(71, 71, 71);;
+  fill: rgb(71, 71, 71);
   mix-blend-mode: difference;
 }
 
@@ -10,7 +10,7 @@ rect.bar {
 text {
   fill: rgb(71, 71, 71);
   mix-blend-mode: luminosity;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   &.line-chart-label {
     mix-blend-mode: normal;
     font-size: 10px;
@@ -23,7 +23,7 @@ text.label {
 }
 
 path.domain {
-  stroke: rgb(71, 71, 71);;
+  stroke: rgb(71, 71, 71);
 }
 
 .horizontal-bar-chart {
@@ -35,7 +35,7 @@ path.domain {
 }
 
 g.tick line {
-  stroke: rgb(71, 71, 71);;
+  stroke: rgb(71, 71, 71);
 }
 
 .scale {
@@ -46,53 +46,71 @@ g.tick line {
 }
 
 .legend {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   padding-right: 8px;
 }
 
 .scale-item {
   display: inline-block;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   height: 32px;
   line-height: 32px;
   text-align: center;
   width: 32px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   margin: 2px 2px;
   cursor: pointer;
-  box-shadow: 0px 3px 2px rgba(0,0,0,.4);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
 }
 
 .scale-item:hover {
-  box-shadow: 0px 5px 3px rgba(0,0,0,.4);
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.4);
 }
 
-
-.loc-pre-item, .loc-post-item, .ethnicity-item, .favourite-course-per-term-item, .least-favourite-course-per-term-item, .residence-location-item, .housing-cost-per-term-item, .people-lived-with-per-term-item, .hackathons-per-term-item, .side-projects-per-term-item, .se-events-per-term-item, .technical-extracurriculars-item, .technical-extra-per-term-item, .non-technical-extra-per-term-item, .fydp-hours-per-term-item, .friends-gain-item, .enriched-grades-item, .admission-salary-item, .entrance-grades-item, .work-location-item {
+.loc-pre-item,
+.loc-post-item,
+.ethnicity-item,
+.favourite-course-per-term-item,
+.least-favourite-course-per-term-item,
+.residence-location-item,
+.housing-cost-per-term-item,
+.people-lived-with-per-term-item,
+.hackathons-per-term-item,
+.side-projects-per-term-item,
+.se-events-per-term-item,
+.technical-extracurriculars-item,
+.technical-extra-per-term-item,
+.non-technical-extra-per-term-item,
+.fydp-hours-per-term-item,
+.friends-gain-item,
+.enriched-grades-item,
+.admission-salary-item,
+.entrance-grades-item,
+.work-location-item {
   display: inline-block;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   line-height: 32px;
   text-align: center;
   padding-left: 5px;
   padding-right: 5px;
-  color: rgba(0,0,0,0.5);
+  color: rgba(0, 0, 0, 0.5);
   border-radius: 20%;
   margin: 2px 2px;
   cursor: pointer;
-  box-shadow: 0px 3px 2px rgba(0,0,0,.4);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
 
   &.pressed {
-    box-shadow: inset 0px 5px 3px rgba(0,0,0,.2);
+    box-shadow: inset 0px 5px 3px rgba(0, 0, 0, 0.2);
     &:hover {
       box-shadow: none;
     }
   }
 
   &:hover {
-    box-shadow: 0px 5px 3px rgba(0,0,0,.4);
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -101,42 +119,42 @@ g.tick line {
 .c1 {
   background-color: #c1e6db;
   &.pressed {
-    background-color: #66C2A6;
+    background-color: #66c2a6;
   }
 }
 
 .c2 {
   background-color: #dbefba;
   &.pressed {
-    background-color: #A6D954;
+    background-color: #a6d954;
   }
 }
 
 .c3 {
   background-color: #ffefab;
   &.pressed {
-    background-color: #FFD92F;
+    background-color: #ffd92f;
   }
 }
 
 .c4 {
   background-color: #f4e7d4;
   &.pressed {
-    background-color: #E5C594;
+    background-color: #e5c594;
   }
 }
 
 .c5 {
   background-color: #f5d0e7;
   &.pressed {
-    background-color: #E88AC3;
+    background-color: #e88ac3;
   }
 }
 
 .c6 {
   background-color: #d1d9ea;
   &.pressed {
-    background-color: #8DA0CC;
+    background-color: #8da0cc;
   }
 }
 
@@ -157,10 +175,8 @@ g.tick line {
 .work-location-item {
   padding-top: 8px;
   line-height: 20px;
-  min-height:32px;
+  min-height: 32px;
   font-size: 15px;
-
-
 }
 
 // Work location uses different set of colors
@@ -186,7 +202,7 @@ g.tick line {
 }
 
 .wl4 {
-  background-color:  rgb(235, 146, 146);
+  background-color: rgb(235, 146, 146);
   &.pressed {
     background-color: rgb(214, 39, 40);
   }
@@ -247,6 +263,6 @@ table {
 }
 
 td {
-  padding-left:5px;
+  padding-left: 5px;
   padding-right: 5px;
 }
