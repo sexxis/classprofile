@@ -116,6 +116,7 @@ import {
   COOP_TYPES,
   COOP_BREAKDOWN,
   COOP_JOB_SOURCE,
+  INTERVIEWS_BOMBED,
 } from "./data/coop";
 import {
   SE_STORYTIME,
@@ -774,6 +775,17 @@ function renderCoop(options) {
     LATE_INTERVIEW,
     options.width * 0.75,
     options.width * 0.75
+  );
+  renderHistogram(
+    d3.select("#interviews-bombed"),
+    INTERVIEWS_BOMBED,
+    options.width,
+    200,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Interviews",
+    }
   );
 
   renderGroupedBarChart(
