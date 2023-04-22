@@ -722,7 +722,7 @@ function renderCoop(options) {
         value: data.yPos,
         location: data.location,
       })),
-      xAxisTitle: "Co-op term number",
+      xAxisTitle: "Co-op term",
       yAxisTitle: "Number of students",
     }
   );
