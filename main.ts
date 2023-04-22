@@ -222,12 +222,12 @@ let terms = ["1a", "1b", "2a", "2b", "3a", "3b", "4a"];
 let housing_terms = terms.concat(["4b"]);
 
 let coop_terms = [
-  "1st coop",
-  "2nd coop",
-  "3rd coop",
-  "4th coop",
-  "5th coop",
-  "6th coop",
+  "1st co-op",
+  "2nd co-op",
+  "3rd co-op",
+  "4th co-op",
+  "5th co-op",
+  "6th co-op",
 ];
 
 let favourite_course_per_term = terms.map((x) => "favourite-course-" + x);
