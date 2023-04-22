@@ -107,22 +107,16 @@ import {
   SALARY,
   WORK_LOCATION,
   FAVOURITE_LOCATION,
-  HACKATHON_SALARY,
-  SIDE_SALARY,
-  ADMISSION_SALARY,
   COMPANY_WORK_COUNT,
   FAVOURITE_COMPANIES,
   GRADE_SALARY,
   GENDER_SALARY,
-  LATE_INTERVIEWER,
   LATE_INTERVIEW,
   MISSED_INTERVIEW,
-  FAVOURITE_COOP,
-  FAVOURITE_COOP_REASON,
   COOP_RATINGS,
   COOP_TYPES,
   COOP_BREAKDOWN,
-  COOP_JOBS,
+  COOP_JOB_SOURCE,
 } from "./data/coop";
 import {
   SE_STORYTIME,
@@ -228,6 +222,15 @@ let enriched_vs_grades = ["enriched-overall", "enriched-first-year"];
 let terms = ["1a", "1b", "2a", "2b", "3a", "3b", "4a"];
 let housing_terms = terms.concat(["4b"]);
 
+let coop_terms = [
+  "1st coop",
+  "2nd coop",
+  "3rd coop",
+  "4th coop",
+  "5th coop",
+  "6th coop",
+];
+
 let favourite_course_per_term = terms.map((x) => "favourite-course-" + x);
 let least_favourite_course_per_term = favourite_course_per_term.map(
   (x) => "least-" + x
@@ -262,6 +265,7 @@ let work_location = [
   "work-location-8",
   "work-location-9",
   "work-location-10",
+  "work-location-11",
 ];
 let concise_version = false;
 
@@ -278,6 +282,7 @@ const coop_ratings = {
   "rating-outstanding": "Outstanding",
   "rating-excellent": "Excellent",
   "rating-very-good": "Very Good",
+  "rating-good": "Good",
   "rating-satisfactory": "Satisfactory",
 };
 
@@ -319,10 +324,11 @@ const yes_no_legend = {
   No: "No",
 };
 
-const coop_jobs = {
-  "coop-first-round": "First Round",
+const coop_job_sources = {
+  "coop-main-round": "Main Round",
   "coop-continuous": "Continuous",
   "coop-external": "External",
+  "coop-previous-employer": "Returned to previous employer",
 };
 
 window.onload = () => {
@@ -443,6 +449,15 @@ function setupListeners() {
     (technicalExtracurricularsItems[i] as any).onclick = function () {
       togglePressedForButtonItems(this, technicalExtracurricularsItems);
       setMultiBarActive(j, housing_terms);
+    };
+  }
+
+  let coopTypesItems = document.getElementsByClassName("coop-types-item");
+  for (let i = 0; i < coopTypesItems.length; i++) {
+    let coop_term = coop_terms[i];
+    (coopTypesItems[i] as any).onclick = function () {
+      togglePressedForButtonItems(this, coopTypesItems);
+      setMultiBarActive(coop_term, coop_terms);
     };
   }
 
@@ -631,8 +646,7 @@ function onScroll(e) {
   }
 }
 
-function drawCoopWordCloud(elem, options) {
-  let data = COMPANY_WORK_COUNT["data"];
+function drawCoopWordCloud(elem, data, options) {
   let words: any[] = [];
   let textSize = 15;
   if (options.fullWidth < 1200) {
@@ -688,7 +702,7 @@ function drawWordCloud(
 }
 
 function renderCoop(options) {
-  drawCoopWordCloud(d3.select("#coop-cloud"), options);
+  drawCoopWordCloud(d3.select("#coop-cloud"), COMPANY_WORK_COUNT, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
     xAxisTitle: "Co-op term #",
     yAxisTitle: "Hourly compensation",
@@ -696,72 +710,21 @@ function renderCoop(options) {
       return "$" + d;
     },
   });
+
   renderLineChart(
     d3.select("#work-location"),
-    WORK_LOCATION,
+    WORK_LOCATION["data"],
     options.fullWidth,
     500,
     {
       toggle: "work-location",
-      lineLabels: [
-        {
-          x: "6th",
-          value: 3,
-          location: "California",
-        },
-        {
-          x: "6th",
-          value: 11,
-          location: "East Coast US",
-        },
-        {
-          x: "6th",
-          value: 12.25,
-          location: "GTA / Toronto",
-        },
-        {
-          x: "6th",
-          value: 5,
-          location: "K / W",
-        },
-        {
-          x: "6th",
-          value: 2.25,
-          location: "MW US",
-        },
-        {
-          x: "6th",
-          value: 0.75,
-          location: "Ott. / MTL",
-        },
-        {
-          x: "6th",
-          value: 0.25,
-          location: "Other Ontario",
-        },
-        {
-          x: "6th",
-          value: 1.75,
-          location: "PNW US",
-        },
-        {
-          x: "6th",
-          value: 11.75,
-          location: "Remote",
-        },
-        {
-          x: "6th",
-          value: 1.25,
-          location: "West Coast Canada",
-        },
-        {
-          x: "6th",
-          value: -0.25,
-          location: "Outside NA",
-        },
-      ],
+      lineLabels: WORK_LOCATION.labelData.map((data) => ({
+        x: "6th",
+        value: data.yPos,
+        location: data.location,
+      })),
       xAxisTitle: "Co-op term number",
-      yAxisTitle: "Proportion of students in the area",
+      yAxisTitle: "Number of students",
       tickFormat: (d) => {
         return d + "%";
       },
@@ -774,35 +737,7 @@ function renderCoop(options) {
     240,
     true
   );
-  // renderBoxPlot(d3.select('#age-salary'), AGE_SALARY, options.width, 280, {
-  //   yAxisTitle: 'Average first 3 co-op hourly salary in CAD',
-  //   xAxisTitle: 'Age started coding'
-  // });
-  renderBoxPlot(
-    d3.select("#hackathon-salary"),
-    HACKATHON_SALARY,
-    options.width,
-    400,
-    {
-      xAxisTitle: "Number of hackathons attended",
-      yAxisTitle: "Average co-op hourly salary in CAD",
-    }
-  );
-  renderBoxPlot(d3.select("#side-salary"), SIDE_SALARY, options.width, 350, {
-    xAxisTitle: "Commitment to side projects",
-    yAxisTitle: "Average co-op hourly salary in CAD",
-  });
-  renderMultiSeriesBoxPlot(
-    d3.select("#admission-salary"),
-    ADMISSION_SALARY,
-    options.width,
-    350,
-    {
-      yAxisTitle: "Average co-op hourly salary in CAD",
-      xAxisTitle: "Admission average",
-    },
-    { "admission-salary-overall": 0, "admission-salary-first-year": 1 }
-  );
+
   renderDotPlot(d3.select("#grade-salary"), GRADE_SALARY, options.width, 400, {
     yAxisTitle: "Hourly compensation in CAD",
     xAxisTitle: "Cumulative average",
@@ -846,39 +781,33 @@ function renderCoop(options) {
     options.width * 0.75
   );
 
-  drawWordCloud(d3.select("#favourite-coop"), FAVOURITE_COOP, options);
-  renderHorizontalBarChat(
-    d3.select("#favourite-coop-reasons"),
-    FAVOURITE_COOP_REASON,
-    options.width,
-    250,
-    true
-  );
   renderGroupedBarChart(
     d3.select("#coop-ratings"),
     COOP_RATINGS,
     options.width,
-    250,
+    350,
     coop_ratings,
     {
       yAxisTitle: "Number of respondents",
     }
   );
-  renderGroupedBarChart(
+
+  // todo (robbie): fix bug where every term is rendering together on initial load
+  renderMultiSeriesHorizontalBarChat(
     d3.select("#coop-types"),
     COOP_TYPES,
-    options.width,
-    250,
-    coop_types,
-    {
-      yAxisTitle: "Number of respondents",
-    }
+    400,
+    500,
+    true,
+    coop_terms.reduce((acc, value) => {
+      return { ...acc, [value]: Object.keys(acc).length };
+    }, {})
   );
   renderGroupedBarChart(
     d3.select("#coop-breakdown"),
     COOP_BREAKDOWN,
     options.width,
-    250,
+    350,
     coop_breakdown_legend,
     {
       yAxisTitle: "Average count",
@@ -886,10 +815,10 @@ function renderCoop(options) {
   );
   renderGroupedBarChart(
     d3.select("#coop-jobs"),
-    COOP_JOBS,
+    COOP_JOB_SOURCE,
     options.width,
-    250,
-    coop_jobs,
+    350,
+    coop_job_sources,
     {
       yAxisTitle: "Percentage of respondents",
     }
