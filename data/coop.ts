@@ -671,7 +671,7 @@ let INTERVIEWS_BOMBED = [
 
 const COOP_RATINGS = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "rating-outstanding": 25,
     "rating-excellent": 26,
     "rating-very-good": 4,
@@ -679,7 +679,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "rating-outstanding": 27,
     "rating-excellent": 24,
     "rating-very-good": 3,
@@ -687,7 +687,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "rating-outstanding": 33,
     "rating-excellent": 19,
     "rating-very-good": 2,
@@ -695,7 +695,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 1,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "rating-outstanding": 28,
     "rating-excellent": 19,
     "rating-very-good": 3,
@@ -703,7 +703,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "rating-outstanding": 24,
     "rating-excellent": 27,
     "rating-very-good": 1,
@@ -711,7 +711,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "rating-outstanding": 26,
     "rating-excellent": 17,
     "rating-very-good": 0,
