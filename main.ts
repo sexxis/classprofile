@@ -703,7 +703,7 @@ function drawWordCloud(
 function renderCoop(options) {
   drawCoopWordCloud(d3.select("#coop-cloud"), FAVOURITE_COMPANIES, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
-    xAxisTitle: "Co-op term #",
+    xAxisTitle: "Co-op term",
     yAxisTitle: "Hourly compensation",
     tickFormat: (d) => {
       return "$" + d;
