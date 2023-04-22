@@ -295,8 +295,7 @@ const coop_types = {
 };
 
 const coop_breakdown_legend = {
-  "coop-app-num": "Waterlooworks App.",
-  "coop-app-num-ext": "External App.",
+  "coop-app-num": "Applications",
   "coop-interviews": "Interviews",
   "coop-offers": "Offers",
 };
@@ -327,7 +326,7 @@ const coop_job_sources = {
   "coop-main-round": "Main Round",
   "coop-continuous": "Continuous",
   "coop-external": "External",
-  "coop-previous-employer": "Returned to previous employer",
+  "coop-previous-employer": "Returned to Previous Employer",
 };
 
 window.onload = () => {

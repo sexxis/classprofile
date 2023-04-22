@@ -824,37 +824,37 @@ const COOP_TYPES = [
 
 const COOP_BREAKDOWN = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "coop-app-num": 97.5,
     "coop-interviews": 4.63,
     "coop-offers": 1,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "coop-app-num": 67.2,
     "coop-interviews": 7.56,
     "coop-offers": 1.82,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "coop-app-num": 67.7,
     "coop-interviews": 5.44,
     "coop-offers": 1.69,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "coop-app-num": 55,
     "coop-interviews": 6.1,
     "coop-offers": 2.05,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "coop-app-num": 39.1,
     "coop-interviews": 6.7,
     "coop-offers": 2.3,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "coop-app-num": 28.7,
     "coop-interviews": 4.83,
     "coop-offers": 1.78,
