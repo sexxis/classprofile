@@ -423,7 +423,7 @@ let FAVOURITE_COMPANIES = [
 ];
 
 let GRADE_SALARY = [
-  // 1st coop
+  // 1st co-op
   { x: 70, y: 16, size: 2, term: 0 },
   { x: 75, y: 20, size: 1, term: 0 },
   { x: 70, y: 22, size: 4, term: 0 },
@@ -453,7 +453,7 @@ let GRADE_SALARY = [
   { x: 85, y: 18, size: 1, term: 0 },
   { x: 60, y: 18, size: 1, term: 0 },
 
-  // 2nd coop
+  // 2nd co-op
   { x: 85, y: 22, size: 3, term: 1 },
   { x: 75, y: 18, size: 1, term: 1 },
   { x: 80, y: 40, size: 1, term: 1 },
@@ -488,7 +488,7 @@ let GRADE_SALARY = [
   { x: 90, y: 46, size: 1, term: 1 },
   { x: 70, y: 48, size: 1, term: 1 },
 
-  // 3rd coop
+  // 3rd co-op
   { x: 65, y: 24, size: 1, term: 2 },
   { x: 80, y: 26, size: 2, term: 2 },
   { x: 70, y: 18, size: 1, term: 2 },
@@ -531,7 +531,7 @@ let GRADE_SALARY = [
   { x: 65, y: 54, size: 1, term: 2 },
   { x: 75, y: 20, size: 1, term: 2 },
 
-  // 4th coop
+  // 4th co-op
   { x: 90, y: 30, size: 2, term: 3 },
   { x: 80, y: 24, size: 2, term: 3 },
   { x: 80, y: 32, size: 1, term: 3 },
@@ -565,7 +565,7 @@ let GRADE_SALARY = [
   { x: 90, y: 28, size: 1, term: 3 },
   { x: 75, y: 26, size: 1, term: 3 },
 
-  // 5th coop
+  // 5th co-op
   { x: 65, y: 42, size: 1, term: 4 },
   { x: 90, y: 70, size: 1, term: 4 },
   { x: 85, y: 30, size: 2, term: 4 },
@@ -603,7 +603,7 @@ let GRADE_SALARY = [
   { x: 85, y: 28, size: 1, term: 4 },
   { x: 65, y: 28, size: 1, term: 4 },
 
-  // 6th coop
+  // 6th co-op
   { x: 70, y: 56, size: 1, term: 5 },
   { x: 85, y: 46, size: 1, term: 5 },
   { x: 90, y: 44, size: 4, term: 5 },
@@ -862,42 +862,42 @@ const COOP_BREAKDOWN = [
 
 const COOP_JOB_SOURCE = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "coop-main-round": 54.55,
     "coop-continuous": 30.91,
     "coop-external": 14.55,
     "coop-previous-employer": 0,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "coop-main-round": 74.54,
     "coop-continuous": 10.91,
     "coop-external": 12.73,
     "coop-previous-employer": 1.82,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "coop-main-round": 54.55,
     "coop-continuous": 27.27,
     "coop-external": 10.91,
     "coop-previous-employer": 7.27,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "coop-main-round": 43.14,
     "coop-continuous": 19.61,
     "coop-external": 27.45,
     "coop-previous-employer": 9.8,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "coop-main-round": 58.18,
     "coop-continuous": 5.45,
     "coop-external": 18.18,
     "coop-previous-employer": 18.18,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "coop-main-round": 54.72,
     "coop-continuous": 0,
     "coop-external": 33.96,

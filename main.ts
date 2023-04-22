@@ -248,10 +248,6 @@ let non_technical_extra_per_term = technical_extra_per_term.map(
 );
 let fydp_hours_per_term = ["fydp-hours-3b", "fydp-hours-4a"];
 
-let admission_salary = [
-  "admission-salary-overall",
-  "admission-salary-first-year",
-];
 let entrance_vs_grades = ["entrance-overall", "entrance-first-year"];
 let work_location = [
   "work-location-0",
@@ -356,7 +352,6 @@ window.onload = () => {
   setMultiBarActive("loc-1a", campus_location_term_pre);
   setMultiBarActive("loc-4a", campus_location_term_post);
   setMultiBarActive("enriched-overall", enriched_vs_grades);
-  setMultiBarActive("admission-salary-overall", admission_salary);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
   setMultiBarActive("1a", housing_terms);
   // setMultiBarActive("work-location-0", work_location);
@@ -496,17 +491,6 @@ function setupListeners() {
   );
 
   setupMultiGraphListeners("fydp-hours-per-term-item", fydp_hours_per_term);
-
-  let admissionSalary = document.getElementsByClassName(
-    "admission-salary-item"
-  );
-  for (let i = 0; i < admissionSalary.length; i++) {
-    let j = admission_salary[i];
-    (admissionSalary[i] as any).onclick = function () {
-      togglePressedForButtonItems(this, admissionSalary);
-      setMultiBarActive(j, admission_salary);
-    };
-  }
 
   let entranceGradesItems = document.getElementsByClassName(
     "entrance-grades-item"
@@ -761,7 +745,7 @@ function renderCoop(options) {
         },
       ],
       yAxisTitle: "Hourly salary in CAD",
-      xAxisTitle: "Co-op term number",
+      xAxisTitle: "Co-op term",
     }
   );
   renderPieChart(
