@@ -183,11 +183,19 @@ b {
 .cloud-not-enjoyed {
   color: #dc2901;
   font-size: 12px;
+  font-weight: bold;
 }
 
 .cloud-enjoyed {
   color: #0249bd;
   font-size: 12px;
+  font-weight: bold;
+}
+
+.cloud-no-data {
+  color: #808080;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .cloud-less {
@@ -199,7 +207,7 @@ b {
 .cloud-1,
 .cloud-2 {
   display: inline-block;
-  .cloud-enjoyed {
+  .cloud-no-data {
     padding-right: 32px;
   }
 }

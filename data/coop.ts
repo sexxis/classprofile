@@ -423,7 +423,7 @@ let FAVOURITE_COMPANIES = [
 ];
 
 let GRADE_SALARY = [
-  // 1st coop
+  // 1st co-op
   { x: 70, y: 16, size: 2, term: 0 },
   { x: 75, y: 20, size: 1, term: 0 },
   { x: 70, y: 22, size: 4, term: 0 },
@@ -453,7 +453,7 @@ let GRADE_SALARY = [
   { x: 85, y: 18, size: 1, term: 0 },
   { x: 60, y: 18, size: 1, term: 0 },
 
-  // 2nd coop
+  // 2nd co-op
   { x: 85, y: 22, size: 3, term: 1 },
   { x: 75, y: 18, size: 1, term: 1 },
   { x: 80, y: 40, size: 1, term: 1 },
@@ -488,7 +488,7 @@ let GRADE_SALARY = [
   { x: 90, y: 46, size: 1, term: 1 },
   { x: 70, y: 48, size: 1, term: 1 },
 
-  // 3rd coop
+  // 3rd co-op
   { x: 65, y: 24, size: 1, term: 2 },
   { x: 80, y: 26, size: 2, term: 2 },
   { x: 70, y: 18, size: 1, term: 2 },
@@ -531,7 +531,7 @@ let GRADE_SALARY = [
   { x: 65, y: 54, size: 1, term: 2 },
   { x: 75, y: 20, size: 1, term: 2 },
 
-  // 4th coop
+  // 4th co-op
   { x: 90, y: 30, size: 2, term: 3 },
   { x: 80, y: 24, size: 2, term: 3 },
   { x: 80, y: 32, size: 1, term: 3 },
@@ -565,7 +565,7 @@ let GRADE_SALARY = [
   { x: 90, y: 28, size: 1, term: 3 },
   { x: 75, y: 26, size: 1, term: 3 },
 
-  // 5th coop
+  // 5th co-op
   { x: 65, y: 42, size: 1, term: 4 },
   { x: 90, y: 70, size: 1, term: 4 },
   { x: 85, y: 30, size: 2, term: 4 },
@@ -603,7 +603,7 @@ let GRADE_SALARY = [
   { x: 85, y: 28, size: 1, term: 4 },
   { x: 65, y: 28, size: 1, term: 4 },
 
-  // 6th coop
+  // 6th co-op
   { x: 70, y: 56, size: 1, term: 5 },
   { x: 85, y: 46, size: 1, term: 5 },
   { x: 90, y: 44, size: 4, term: 5 },
@@ -671,7 +671,7 @@ let INTERVIEWS_BOMBED = [
 
 const COOP_RATINGS = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "rating-outstanding": 25,
     "rating-excellent": 26,
     "rating-very-good": 4,
@@ -679,7 +679,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "rating-outstanding": 27,
     "rating-excellent": 24,
     "rating-very-good": 3,
@@ -687,7 +687,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "rating-outstanding": 33,
     "rating-excellent": 19,
     "rating-very-good": 2,
@@ -695,7 +695,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 1,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "rating-outstanding": 28,
     "rating-excellent": 19,
     "rating-very-good": 3,
@@ -703,7 +703,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "rating-outstanding": 24,
     "rating-excellent": 27,
     "rating-very-good": 1,
@@ -711,7 +711,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "rating-outstanding": 26,
     "rating-excellent": 17,
     "rating-very-good": 0,
@@ -721,140 +721,139 @@ const COOP_RATINGS = [
 ];
 
 const COOP_TYPES = [
-  // 1st coop
-  { name: "Fullstack", value: 19, toggle: "1st coop" },
-  { name: "Tools", value: 1, toggle: "1st coop" },
-  { name: "Frontend (not Fullstack)", value: 4, toggle: "1st coop" },
-  { name: "QA / Testing", value: 4, toggle: "1st coop" },
-  { name: "Mobile", value: 5, toggle: "1st coop" },
-  { name: "Devops", value: 5, toggle: "1st coop" },
-  { name: "Data Science / ML", value: 5, toggle: "1st coop" },
-  { name: "Embedded", value: 3, toggle: "1st coop" },
-  { name: "Backend (not Fullstack)", value: 6, toggle: "1st coop" },
-  { name: "Infra", value: 2, toggle: "1st coop" },
-  { name: "Sales & marketing", value: 1, toggle: "1st coop" },
-  { name: "Game dev", value: 1, toggle: "1st coop" },
-  { name: "Research", value: 2, toggle: "1st coop" },
-  { name: "Workflow Automation", value: 1, toggle: "1st coop" },
-  { name: "Data Visualization", value: 1, toggle: "1st coop" },
-  { name: "PM", value: 1, toggle: "1st coop" },
+  // 1st co-op
+  { name: "Fullstack", value: 19, toggle: "1st co-op" },
+  { name: "Tools", value: 1, toggle: "1st co-op" },
+  { name: "Frontend (not Fullstack)", value: 4, toggle: "1st co-op" },
+  { name: "Infra", value: 2, toggle: "1st co-op" },
+  { name: "QA / Testing", value: 4, toggle: "1st co-op" },
+  { name: "Mobile", value: 5, toggle: "1st co-op" },
+  { name: "Devops", value: 5, toggle: "1st co-op" },
+  { name: "Data Science / ML", value: 5, toggle: "1st co-op" },
+  { name: "Embedded", value: 3, toggle: "1st co-op" },
+  { name: "Backend (not Fullstack)", value: 6, toggle: "1st co-op" },
+  { name: "Sales & Marketing", value: 1, toggle: "1st co-op" },
+  { name: "Game Dev", value: 1, toggle: "1st co-op" },
+  { name: "Research", value: 2, toggle: "1st co-op" },
+  { name: "Workflow Automation", value: 1, toggle: "1st co-op" },
+  { name: "Data Visualization", value: 1, toggle: "1st co-op" },
+  { name: "PM", value: 1, toggle: "1st co-op" },
 
-  // 2nd coop
-  { name: "Infra, Security", value: 1, toggle: "2nd coop" },
-  { name: "Fullstack", value: 18, toggle: "2nd coop" },
-  { name: "Design", value: 1, toggle: "2nd coop" },
-  { name: "QA / Testing", value: 2, toggle: "2nd coop" },
-  { name: "Mobile", value: 6, toggle: "2nd coop" },
-  { name: "Data Science / ML", value: 6, toggle: "2nd coop" },
-  { name: "Embedded", value: 2, toggle: "2nd coop" },
-  { name: "Infra", value: 6, toggle: "2nd coop" },
-  { name: "Backend (not Fullstack)", value: 13, toggle: "2nd coop" },
-  { name: "Frontend (not Fullstack)", value: 3, toggle: "2nd coop" },
-  { name: "Research", value: 2, toggle: "2nd coop" },
-  { name: "Workflow Automation", value: 1, toggle: "2nd coop" },
-  { name: "PM", value: 1, toggle: "2nd coop" },
-  { name: "Robotics", value: 1, toggle: "2nd coop" },
+  // 2nd co-op
+  { name: "Security", value: 1, toggle: "2nd co-op" },
+  { name: "Fullstack", value: 18, toggle: "2nd co-op" },
+  { name: "Design", value: 1, toggle: "2nd co-op" },
+  { name: "QA / Testing", value: 2, toggle: "2nd co-op" },
+  { name: "Mobile", value: 6, toggle: "2nd co-op" },
+  { name: "Data Science / ML", value: 6, toggle: "2nd co-op" },
+  { name: "Embedded", value: 2, toggle: "2nd co-op" },
+  { name: "Infra", value: 7, toggle: "2nd co-op" },
+  { name: "Backend (not Fullstack)", value: 13, toggle: "2nd co-op" },
+  { name: "Frontend (not Fullstack)", value: 3, toggle: "2nd co-op" },
+  { name: "Research", value: 2, toggle: "2nd co-op" },
+  { name: "Workflow Automation", value: 1, toggle: "2nd co-op" },
+  { name: "PM", value: 1, toggle: "2nd co-op" },
+  { name: "Robotics", value: 1, toggle: "2nd co-op" },
 
-  // 3rd coop
-  { name: "QA / Testing", value: 2, toggle: "3rd coop" },
-  { name: "Backend (not Fullstack)", value: 16, toggle: "3rd coop" },
-  { name: "Design", value: 1, toggle: "3rd coop" },
-  { name: "Fullstack", value: 14, toggle: "3rd coop" },
-  { name: "Data Science / ML", value: 3, toggle: "3rd coop" },
-  { name: "Frontend (not Fullstack)", value: 3, toggle: "3rd coop" },
-  { name: "Infra", value: 8, toggle: "3rd coop" },
-  { name: "Embedded", value: 1, toggle: "3rd coop" },
-  { name: "Devops", value: 4, toggle: "3rd coop" },
-  { name: "OS", value: 1, toggle: "3rd coop" },
-  { name: "Mobile", value: 4, toggle: "3rd coop" },
+  // 3rd co-op
+  { name: "QA / Testing", value: 2, toggle: "3rd co-op" },
+  { name: "Backend (not Fullstack)", value: 16, toggle: "3rd co-op" },
+  { name: "Design", value: 1, toggle: "3rd co-op" },
+  { name: "Fullstack", value: 14, toggle: "3rd co-op" },
+  { name: "Data Science / ML", value: 4, toggle: "3rd co-op" },
+  { name: "Frontend (not Fullstack)", value: 3, toggle: "3rd co-op" },
+  { name: "Infra", value: 8, toggle: "3rd co-op" },
+  { name: "Embedded", value: 1, toggle: "3rd co-op" },
+  { name: "Devops", value: 4, toggle: "3rd co-op" },
+  { name: "OS", value: 1, toggle: "3rd co-op" },
+  { name: "Mobile", value: 4, toggle: "3rd co-op" },
   {
     name: "Developer Tools (Programming Language)",
     value: 1,
-    toggle: "3rd coop",
+    toggle: "3rd co-op",
   },
-  { name: "Application Dev (C#)", value: 1, toggle: "3rd coop" },
-  { name: "VC", value: 1, toggle: "3rd coop" },
-  { name: "data", value: 1, toggle: "3rd coop" },
-  { name: "Robotics", value: 1, toggle: "3rd coop" },
-  { name: "Game Dev", value: 1, toggle: "3rd coop" },
+  { name: "Application Dev (C#)", value: 1, toggle: "3rd co-op" },
+  { name: "VC", value: 1, toggle: "3rd co-op" },
+  { name: "Robotics", value: 1, toggle: "3rd co-op" },
+  { name: "Game Dev", value: 1, toggle: "3rd co-op" },
 
-  // 4th coop
-  { name: "Backend (not Fullstack)", value: 21, toggle: "4th coop" },
-  { name: "Frontend (not Fullstack)", value: 5, toggle: "4th coop" },
-  { name: "Infra", value: 6, toggle: "4th coop" },
-  { name: "Fullstack", value: 12, toggle: "4th coop" },
-  { name: "Data Science / ML", value: 6, toggle: "4th coop" },
-  { name: "Embedded", value: 1, toggle: "4th coop" },
-  { name: "VR", value: 1, toggle: "4th coop" },
-  { name: "Mobile", value: 5, toggle: "4th coop" },
-  { name: "OS", value: 1, toggle: "4th coop" },
-  { name: "Data Engineering", value: 1, toggle: "4th coop" },
-  { name: "Research", value: 2, toggle: "4th coop" },
-  { name: "Open Source", value: 1, toggle: "4th coop" },
-  { name: "Devops", value: 2, toggle: "4th coop" },
-  { name: "Game Dev", value: 1, toggle: "4th coop" },
-  { name: "QA / Testing", value: 1, toggle: "4th coop" },
+  // 4th co-op
+  { name: "Backend (not Fullstack)", value: 21, toggle: "4th co-op" },
+  { name: "Frontend (not Fullstack)", value: 5, toggle: "4th co-op" },
+  { name: "Infra", value: 6, toggle: "4th co-op" },
+  { name: "Fullstack", value: 12, toggle: "4th co-op" },
+  { name: "Data Science / ML", value: 6, toggle: "4th co-op" },
+  { name: "Embedded", value: 1, toggle: "4th co-op" },
+  { name: "VR", value: 1, toggle: "4th co-op" },
+  { name: "Mobile", value: 5, toggle: "4th co-op" },
+  { name: "OS", value: 1, toggle: "4th co-op" },
+  { name: "Data Engineering", value: 1, toggle: "4th co-op" },
+  { name: "Research", value: 2, toggle: "4th co-op" },
+  { name: "Open Source", value: 1, toggle: "4th co-op" },
+  { name: "Devops", value: 2, toggle: "4th co-op" },
+  { name: "Game Dev", value: 1, toggle: "4th co-op" },
+  { name: "QA / Testing", value: 1, toggle: "4th co-op" },
 
-  // 5th coop
-  { name: "Backend (not Fullstack)", value: 24, toggle: "5th coop" },
-  { name: "Fullstack", value: 13, toggle: "5th coop" },
-  { name: "Graphics", value: 1, toggle: "5th coop" },
-  { name: "Data Science / ML", value: 5, toggle: "5th coop" },
-  { name: "Research", value: 2, toggle: "5th coop" },
-  { name: "Frontend (not Fullstack)", value: 5, toggle: "5th coop" },
-  { name: "Infra", value: 9, toggle: "5th coop" },
-  { name: "Mobile", value: 3, toggle: "5th coop" },
+  // 5th co-op
+  { name: "Backend (not Fullstack)", value: 24, toggle: "5th co-op" },
+  { name: "Fullstack", value: 13, toggle: "5th co-op" },
+  { name: "Graphics", value: 1, toggle: "5th co-op" },
+  { name: "Data Science / ML", value: 5, toggle: "5th co-op" },
+  { name: "Research", value: 2, toggle: "5th co-op" },
+  { name: "Frontend (not Fullstack)", value: 5, toggle: "5th co-op" },
+  { name: "Infra", value: 9, toggle: "5th co-op" },
+  { name: "Mobile", value: 3, toggle: "5th co-op" },
 
-  // 6th coop
-  { name: "Cloud Computing", value: 1, toggle: "6th coop" },
-  { name: "Infra", value: 8, toggle: "6th coop" },
-  { name: "Frontend (not Fullstack)", value: 4, toggle: "6th coop" },
-  { name: "Backend (not Fullstack)", value: 21, toggle: "6th coop" },
-  { name: "Data Science / ML", value: 8, toggle: "6th coop" },
-  { name: "Fullstack", value: 10, toggle: "6th coop" },
-  { name: "Quant Trading", value: 1, toggle: "6th coop" },
-  { name: "PM", value: 2, toggle: "6th coop" },
-  { name: "Security", value: 1, toggle: "6th coop" },
-  { name: "Research", value: 3, toggle: "6th coop" },
-  { name: "Devops", value: 1, toggle: "6th coop" },
-  { name: "Quant Dev", value: 1, toggle: "6th coop" },
-  { name: "Mobile", value: 2, toggle: "6th coop" },
-  { name: "Graphics", value: 1, toggle: "5th coop" },
+  // 6th co-op
+  { name: "Cloud Computing", value: 1, toggle: "6th co-op" },
+  { name: "Infra", value: 8, toggle: "6th co-op" },
+  { name: "Frontend (not Fullstack)", value: 4, toggle: "6th co-op" },
+  { name: "Backend (not Fullstack)", value: 21, toggle: "6th co-op" },
+  { name: "Data Science / ML", value: 8, toggle: "6th co-op" },
+  { name: "Fullstack", value: 10, toggle: "6th co-op" },
+  { name: "Quant Trading", value: 1, toggle: "6th co-op" },
+  { name: "PM", value: 2, toggle: "6th co-op" },
+  { name: "Security", value: 1, toggle: "6th co-op" },
+  { name: "Research", value: 3, toggle: "6th co-op" },
+  { name: "Devops", value: 1, toggle: "6th co-op" },
+  { name: "Quant Dev", value: 1, toggle: "6th co-op" },
+  { name: "Mobile", value: 2, toggle: "6th co-op" },
+  { name: "Graphics", value: 1, toggle: "5th co-op" },
 ];
 
 const COOP_BREAKDOWN = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "coop-app-num": 97.5,
     "coop-interviews": 4.63,
     "coop-offers": 1,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "coop-app-num": 67.2,
     "coop-interviews": 7.56,
     "coop-offers": 1.82,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "coop-app-num": 67.7,
     "coop-interviews": 5.44,
     "coop-offers": 1.69,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "coop-app-num": 55,
     "coop-interviews": 6.1,
     "coop-offers": 2.05,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "coop-app-num": 39.1,
     "coop-interviews": 6.7,
     "coop-offers": 2.3,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "coop-app-num": 28.7,
     "coop-interviews": 4.83,
     "coop-offers": 1.78,
@@ -863,42 +862,42 @@ const COOP_BREAKDOWN = [
 
 const COOP_JOB_SOURCE = [
   {
-    group: "Co-op 1",
+    group: "1st Co-op",
     "coop-main-round": 54.55,
     "coop-continuous": 30.91,
     "coop-external": 14.55,
     "coop-previous-employer": 0,
   },
   {
-    group: "Co-op 2",
+    group: "2nd",
     "coop-main-round": 74.54,
     "coop-continuous": 10.91,
     "coop-external": 12.73,
     "coop-previous-employer": 1.82,
   },
   {
-    group: "Co-op 3",
+    group: "3rd",
     "coop-main-round": 54.55,
     "coop-continuous": 27.27,
     "coop-external": 10.91,
     "coop-previous-employer": 7.27,
   },
   {
-    group: "Co-op 4",
+    group: "4th",
     "coop-main-round": 43.14,
     "coop-continuous": 19.61,
     "coop-external": 27.45,
     "coop-previous-employer": 9.8,
   },
   {
-    group: "Co-op 5",
+    group: "5th",
     "coop-main-round": 58.18,
     "coop-continuous": 5.45,
     "coop-external": 18.18,
     "coop-previous-employer": 18.18,
   },
   {
-    group: "Co-op 6",
+    group: "6th Co-op",
     "coop-main-round": 54.72,
     "coop-continuous": 0,
     "coop-external": 33.96,

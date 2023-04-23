@@ -116,6 +116,7 @@ import {
   COOP_TYPES,
   COOP_BREAKDOWN,
   COOP_JOB_SOURCE,
+  INTERVIEWS_BOMBED,
 } from "./data/coop";
 import {
   SE_STORYTIME,
@@ -222,12 +223,12 @@ let terms = ["1a", "1b", "2a", "2b", "3a", "3b", "4a"];
 let housing_terms = terms.concat(["4b"]);
 
 let coop_terms = [
-  "1st coop",
-  "2nd coop",
-  "3rd coop",
-  "4th coop",
-  "5th coop",
-  "6th coop",
+  "1st co-op",
+  "2nd co-op",
+  "3rd co-op",
+  "4th co-op",
+  "5th co-op",
+  "6th co-op",
 ];
 
 let favourite_course_per_term = terms.map((x) => "favourite-course-" + x);
@@ -247,10 +248,6 @@ let non_technical_extra_per_term = technical_extra_per_term.map(
 );
 let fydp_hours_per_term = ["fydp-hours-3b", "fydp-hours-4a"];
 
-let admission_salary = [
-  "admission-salary-overall",
-  "admission-salary-first-year",
-];
 let entrance_vs_grades = ["entrance-overall", "entrance-first-year"];
 let work_location = [
   "work-location-0",
@@ -295,8 +292,7 @@ const coop_types = {
 };
 
 const coop_breakdown_legend = {
-  "coop-app-num": "Waterlooworks App.",
-  "coop-app-num-ext": "External App.",
+  "coop-app-num": "Applications",
   "coop-interviews": "Interviews",
   "coop-offers": "Offers",
 };
@@ -327,7 +323,7 @@ const coop_job_sources = {
   "coop-main-round": "Main Round",
   "coop-continuous": "Continuous",
   "coop-external": "External",
-  "coop-previous-employer": "Returned to previous employer",
+  "coop-previous-employer": "Returned to Previous Employer",
 };
 
 window.onload = () => {
@@ -356,7 +352,6 @@ window.onload = () => {
   setMultiBarActive("loc-1a", campus_location_term_pre);
   setMultiBarActive("loc-4a", campus_location_term_post);
   setMultiBarActive("enriched-overall", enriched_vs_grades);
-  setMultiBarActive("admission-salary-overall", admission_salary);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
   setMultiBarActive("1a", housing_terms);
   // setMultiBarActive("work-location-0", work_location);
@@ -496,17 +491,6 @@ function setupListeners() {
   );
 
   setupMultiGraphListeners("fydp-hours-per-term-item", fydp_hours_per_term);
-
-  let admissionSalary = document.getElementsByClassName(
-    "admission-salary-item"
-  );
-  for (let i = 0; i < admissionSalary.length; i++) {
-    let j = admission_salary[i];
-    (admissionSalary[i] as any).onclick = function () {
-      togglePressedForButtonItems(this, admissionSalary);
-      setMultiBarActive(j, admission_salary);
-    };
-  }
 
   let entranceGradesItems = document.getElementsByClassName(
     "entrance-grades-item"
@@ -703,7 +687,7 @@ function drawWordCloud(
 function renderCoop(options) {
   drawCoopWordCloud(d3.select("#coop-cloud"), FAVOURITE_COMPANIES, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
-    xAxisTitle: "Co-op term #",
+    xAxisTitle: "Co-op term",
     yAxisTitle: "Hourly compensation",
     tickFormat: (d) => {
       return "$" + d;
@@ -722,7 +706,7 @@ function renderCoop(options) {
         value: data.yPos,
         location: data.location,
       })),
-      xAxisTitle: "Co-op term number",
+      xAxisTitle: "Co-op term",
       yAxisTitle: "Number of students",
     }
   );
@@ -761,7 +745,7 @@ function renderCoop(options) {
         },
       ],
       yAxisTitle: "Hourly salary in CAD",
-      xAxisTitle: "Co-op term number",
+      xAxisTitle: "Co-op term",
     }
   );
   renderPieChart(
@@ -775,6 +759,17 @@ function renderCoop(options) {
     LATE_INTERVIEW,
     options.width * 0.75,
     options.width * 0.75
+  );
+  renderHistogram(
+    d3.select("#interviews-bombed"),
+    INTERVIEWS_BOMBED,
+    options.width,
+    200,
+    {
+      binCount: 10,
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Interviews",
+    }
   );
 
   renderGroupedBarChart(
