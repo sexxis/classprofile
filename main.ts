@@ -890,7 +890,7 @@ function renderAcademics(options) {
     attendence_class_legend,
     {
       yAxisTitle: "Number of Respondents",
-      xAxisTitle: "Term",
+      xAxisTitle: "School Term",
     }
   );
 
@@ -998,7 +998,7 @@ function renderAcademics(options) {
     yes_no_legend,
     {
       yAxisTitle: "Number of Respondents",
-      xAxisTitle: "Term",
+      xAxisTitle: "School Term",
     }
   );
 
@@ -1169,10 +1169,10 @@ function renderAcademics(options) {
     d3.select("#burnout-per-term"),
     BURN_OUT_PER_TERM,
     options.width,
-    250,
+    300,
     { No: "No", Yes: "Yes" },
     {
-      xAxisTitle: "Term",
+      xAxisTitle: "School Term",
       yAxisTitle: "Number of Students",
     }
   );
