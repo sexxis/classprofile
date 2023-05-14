@@ -687,8 +687,8 @@ function drawWordCloud(
 function renderCoop(options) {
   drawCoopWordCloud(d3.select("#coop-cloud"), FAVOURITE_COMPANIES, options);
   renderBoxPlot(d3.select("#salary"), SALARY, options.width, 350, {
-    xAxisTitle: "Co-op term",
-    yAxisTitle: "Hourly compensation",
+    xAxisTitle: "Co-op Term",
+    yAxisTitle: "Hourly Compensation",
     tickFormat: (d) => {
       return "$" + d;
     },
@@ -706,8 +706,8 @@ function renderCoop(options) {
         value: data.yPos,
         location: data.location,
       })),
-      xAxisTitle: "Co-op term",
-      yAxisTitle: "Number of students",
+      xAxisTitle: "Co-op Term",
+      yAxisTitle: "Number of Students",
     }
   );
   renderHorizontalBarChat(
@@ -735,17 +735,17 @@ function renderCoop(options) {
       lineLabels: [
         {
           x: "6th",
-          value: 50,
+          value: 48,
           location: "Women",
         },
         {
           x: "6th",
-          value: 66,
+          value: 53,
           location: "Men",
         },
       ],
-      yAxisTitle: "Hourly salary in CAD",
-      xAxisTitle: "Co-op term",
+      yAxisTitle: "Average Hourly Salary in CAD",
+      xAxisTitle: "Co-op Term",
     }
   );
   renderPieChart(
@@ -779,7 +779,8 @@ function renderCoop(options) {
     350,
     coop_ratings,
     {
-      yAxisTitle: "Number of respondents",
+      yAxisTitle: "Number of Respondents",
+      xAxisTitle: "Co-op Term",
     }
   );
 
@@ -798,20 +799,22 @@ function renderCoop(options) {
     d3.select("#coop-breakdown"),
     COOP_BREAKDOWN,
     options.width,
-    350,
+    300,
     coop_breakdown_legend,
     {
-      yAxisTitle: "Average count",
+      yAxisTitle: "Average Count",
+      xAxisTitle: "Co-op Term",
     }
   );
   renderGroupedBarChart(
     d3.select("#coop-jobs"),
     COOP_JOB_SOURCE,
     options.width,
-    350,
+    300,
     coop_job_sources,
     {
-      yAxisTitle: "Percentage of respondents",
+      yAxisTitle: "Percentage of Respondents",
+      xAxisTitle: "Co-op Term",
     }
   );
 }

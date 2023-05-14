@@ -2,7 +2,7 @@ import { utcSaturdays } from "d3-time";
 
 let SALARY = [
   {
-    name: "1st co-op",
+    name: "1st",
     value: [
       14.43, 15, 15.5, 15.63, 16, 16, 17, 17, 17.08, 17.14, 17.14, 17.14, 17.14,
       17.28, 17.4, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18.5, 18.66, 18.75,
@@ -47,7 +47,7 @@ let SALARY = [
     ],
   },
   {
-    name: "6th co-op",
+    name: "6th",
     value: [
       24.5, 28, 28.85, 30, 32, 32, 32, 35, 37, 38, 40, 40, 40, 40, 40.38, 42,
       43, 43, 43, 43, 43.75, 43.75, 44, 45, 45, 45, 45, 46, 46, 46.15, 47, 48,
@@ -59,7 +59,7 @@ let SALARY = [
 
 let BENEFITS = [
   {
-    name: "1st co-op",
+    name: "1st",
     value: [
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -100,7 +100,7 @@ let BENEFITS = [
     ],
   },
   {
-    name: "6th co-op",
+    name: "6th",
     value: [
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 200, 200, 240, 300, 375,
       400, 500, 500, 500, 700, 950, 1000, 1000, 1000, 1200, 1200, 1200, 1250,
@@ -671,7 +671,7 @@ let INTERVIEWS_BOMBED = [
 
 const COOP_RATINGS = [
   {
-    group: "1st Co-op",
+    group: "1st",
     "rating-outstanding": 25,
     "rating-excellent": 26,
     "rating-very-good": 4,
@@ -711,7 +711,7 @@ const COOP_RATINGS = [
     "rating-satisfactory": 0,
   },
   {
-    group: "6th Co-op",
+    group: "6th",
     "rating-outstanding": 26,
     "rating-excellent": 17,
     "rating-very-good": 0,
@@ -823,7 +823,7 @@ const COOP_TYPES = [
 
 const COOP_BREAKDOWN = [
   {
-    group: "1st Co-op",
+    group: "1st",
     "coop-app-num": 97.5,
     "coop-interviews": 4.63,
     "coop-offers": 1,
@@ -853,7 +853,7 @@ const COOP_BREAKDOWN = [
     "coop-offers": 2.3,
   },
   {
-    group: "6th Co-op",
+    group: "6th",
     "coop-app-num": 28.7,
     "coop-interviews": 4.83,
     "coop-offers": 1.78,
@@ -862,7 +862,7 @@ const COOP_BREAKDOWN = [
 
 const COOP_JOB_SOURCE = [
   {
-    group: "1st Co-op",
+    group: "1st",
     "coop-main-round": 54.55,
     "coop-continuous": 30.91,
     "coop-external": 14.55,
@@ -897,7 +897,7 @@ const COOP_JOB_SOURCE = [
     "coop-previous-employer": 18.18,
   },
   {
-    group: "6th Co-op",
+    group: "6th",
     "coop-main-round": 54.72,
     "coop-continuous": 0,
     "coop-external": 33.96,

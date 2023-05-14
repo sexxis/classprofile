@@ -50,25 +50,6 @@ g.tick line {
   padding-right: 8px;
 }
 
-.scale-item {
-  display: inline-block;
-  font-family: "Source Code Pro", monospace;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  width: 32px;
-  color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  margin: 2px 2px;
-  cursor: pointer;
-  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.4);
-  transition: 0.2s ease;
-}
-
-.scale-item:hover {
-  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.4);
-}
-
 .loc-pre-item,
 .loc-post-item,
 .ethnicity-item,
@@ -86,10 +67,10 @@ g.tick line {
 .fydp-hours-per-term-item,
 .friends-gain-item,
 .enriched-grades-item,
-.admission-salary-item,
 .entrance-grades-item,
 .work-location-item,
-.coop-types-item {
+.coop-types-item,
+.scale-item {
   display: inline-block;
   font-family: "Source Code Pro", monospace;
   line-height: 32px;
