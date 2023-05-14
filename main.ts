@@ -90,7 +90,6 @@ import {
   CEGEP,
   CEGEP_TAKEN,
   ADMISSION_AVERAGE,
-  FAVOURITE_PET,
 } from "./data/background";
 import {
   COURSE_WITH_LARGEST_WORKLOAD,
@@ -180,6 +179,7 @@ import {
   DIAGNOSED_MENTAL_HEALTH_ISSUES,
   SELF_ESTEEM,
   EXERCISE_FREQ,
+  // todo: robbie make a graph for excercise type
   EXERCISE_TYPE,
   EXERCISE_WORDS,
   SPORT_LEVEL,
@@ -354,7 +354,7 @@ window.onload = () => {
   setMultiBarActive("enriched-overall", enriched_vs_grades);
   setMultiBarActive("entrance-overall", entrance_vs_grades);
   setMultiBarActive("1a", housing_terms);
-  // setMultiBarActive("work-location-0", work_location);
+  setMultiBarActive("1st co-op", coop_terms);
   setupListeners();
 };
 
@@ -784,7 +784,6 @@ function renderCoop(options) {
     }
   );
 
-  // todo (robbie): fix bug where every term is rendering together on initial load
   renderMultiSeriesHorizontalBarChat(
     d3.select("#coop-types"),
     COOP_TYPES,
@@ -795,6 +794,7 @@ function renderCoop(options) {
       return { ...acc, [value]: Object.keys(acc).length };
     }, {})
   );
+
   renderGroupedBarChart(
     d3.select("#coop-breakdown"),
     COOP_BREAKDOWN,
@@ -1490,7 +1490,7 @@ function renderFinances(options) {
       domain: [0, 100],
       binCount: 10,
       xAxisTitle: "%",
-      yAxisTitle: "Coop",
+      yAxisTitle: "Co-op",
     }
   );
   renderHistogram(

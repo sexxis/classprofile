@@ -17,7 +17,9 @@ const termColors = [
   "#FFD92F",
   "#E5C594",
   "#E88AC3",
-  " #8DA0CC",
+  "#8DA0CC",
+  "#9CCC8D",
+  "#CC8DAA",
 ];
 
 function sortData(data) {
@@ -159,7 +161,7 @@ function renderMultiSeriesHorizontalBarChat(
     // Fill the bar a specific color
     .style("fill", function (d) {
       if ("toggle" in d) {
-        return colorScale[numSeries[d["toggle"]] % 6];
+        return colorScale[numSeries[d["toggle"]] % colorScale.length];
       }
       return "#fff";
     })
