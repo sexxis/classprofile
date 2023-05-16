@@ -179,9 +179,7 @@ import {
   DIAGNOSED_MENTAL_HEALTH_ISSUES,
   SELF_ESTEEM,
   EXERCISE_FREQ,
-  // todo: robbie make a graph for excercise type
   EXERCISE_TYPE,
-  EXERCISE_WORDS,
   SPORT_LEVEL,
   INTRAMURAL_FREQ,
   INTRAMURALS,
@@ -1652,7 +1650,7 @@ function renderHealth(options) {
     250,
     false
   );
-  drawWordCloud(d3.select("#exercise-type"), EXERCISE_WORDS, options);
+  drawWordCloud(d3.select("#exercise-type"), EXERCISE_TYPE, options);
   renderPieChart(
     d3.select("#intramurals"),
     INTRAMURALS,
